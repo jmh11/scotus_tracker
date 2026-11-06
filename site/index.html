@@ -10,16 +10,16 @@
 /* Layout: a court-reporter masthead over one ledger table; each case row expands into its briefing; send/backup tools sit below. */
 :root{
   --bg:#F7F3EA; --surface:#FFFDF8; --tint:#F3ECDD; --ink:#1F1A14; --muted:#5A5045; --line:#CFC5B3;
-  --accent:#7A1F1F; --accent-strong:#561313; --on-accent:#FFFDF8; --shadow:rgba(31,26,20,.18); --alert:#D7261E; --on-alert:#FFFFFF;
+  --accent:#7A1F1F; --accent-strong:#561313; --on-accent:#FFFDF8; --shadow:rgba(31,26,20,.18); --alert:#D7261E; --on-alert:#FFFFFF; --right-bg:#DCEFE0; --right-line:#5E9C6E; --wrong-bg:#F7D9D6; --wrong-line:#C0574F; --na-bg:#FBE6C9; --na-line:#C98A2E;
   --display:'Libre Caslon Text', Georgia, 'Times New Roman', serif;
   --body:'Source Serif 4', Georgia, 'Times New Roman', serif;
 }
 @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
   --bg:#17130F; --surface:#211B16; --tint:#2A231C; --ink:#EDE6D8; --muted:#B8AC97; --line:#3D342B;
-  --accent:#E09A8A; --accent-strong:#F0B7AA; --on-accent:#1A0F0C; --shadow:rgba(0,0,0,.5); --alert:#FF4D42; --on-alert:#1A0503; color-scheme:dark } }
+  --accent:#E09A8A; --accent-strong:#F0B7AA; --on-accent:#1A0F0C; --shadow:rgba(0,0,0,.5); --alert:#FF4D42; --on-alert:#1A0503; --right-bg:#1E3826; --right-line:#5FA572; --wrong-bg:#45201D; --wrong-line:#D9675F; --na-bg:#45321A; --na-line:#D69A45; color-scheme:dark } }
 :root[data-theme="dark"]{
   --bg:#17130F; --surface:#211B16; --tint:#2A231C; --ink:#EDE6D8; --muted:#B8AC97; --line:#3D342B;
-  --accent:#E09A8A; --accent-strong:#F0B7AA; --on-accent:#1A0F0C; --shadow:rgba(0,0,0,.5); --alert:#FF4D42; --on-alert:#1A0503; color-scheme:dark }
+  --accent:#E09A8A; --accent-strong:#F0B7AA; --on-accent:#1A0F0C; --shadow:rgba(0,0,0,.5); --alert:#FF4D42; --on-alert:#1A0503; --right-bg:#1E3826; --right-line:#5FA572; --wrong-bg:#45201D; --wrong-line:#D9675F; --na-bg:#45321A; --na-line:#D69A45; color-scheme:dark }
 
 html{color-scheme:light}
 @media (prefers-color-scheme: dark){html{color-scheme:dark}}
@@ -75,11 +75,9 @@ tbody td:last-child{padding-right:16px}
 .tag.review{margin:0;text-decoration:none;text-transform:none;letter-spacing:0;font-size:12px}
 .tag.review:hover{opacity:.85;color:var(--on-alert)}
 .review-banner{border-color:var(--alert)}
-.mark{flex:none;font-weight:700;font-size:16px;width:18px;text-align:center}
-.mark.right{color:#2E7D4F}
-.mark.wrong{color:var(--alert)}
-.mark.void-mark{color:var(--muted)}
-select.pick.void{text-decoration:line-through;color:var(--muted)}
+select.pick.right{background:var(--right-bg);border-color:var(--right-line)}
+select.pick.wrong{background:var(--wrong-bg);border-color:var(--wrong-line)}
+select.pick.na{background:var(--na-bg);border-color:var(--na-line)}
 select.pick:disabled{opacity:.85;cursor:not-allowed}
 .answer{max-width:1100px;margin-bottom:18px;padding:10px 14px;background:var(--surface);border-left:3px solid var(--accent)}
 .answer p{margin:6px 0 0}
@@ -327,12 +325,13 @@ function pickCell(c,kind){
       onchange:e=>{setPick(c.docket,kind,e.target.value);e.target.classList.toggle('empty',!e.target.value);}},
     h('option',{value:''},'Choose…'), opts.map(o=>h('option',{value:o.id},o.label)));
   sel.value=p[kind]||'';
-  // Once Joshua records the answer: a check or an X next to the prediction, or a line through it
-  // when none of the options happened (for example, a dismissal).
-  let mark=null;
+  // Once Joshua verifies the answer, the Prediction box is shaded: green if right, red if wrong,
+  // orange if the case was resolved some other way (none of the options happened, e.g. a dismissal).
+  const mark=null;
   if(kind==='will'&&c.result&&p.will){
-    if(c.result==='none'){ sel.classList.add('void'); mark=h('span',{class:'mark void-mark',title:'None of the options happened'},'—'); }
-    else mark=p.will===c.result?h('span',{class:'mark right',title:'Correct'},'✓'):h('span',{class:'mark wrong',title:'Not correct'},'✗');
+    const cls=c.result==='none'?'na':(p.will===c.result?'right':'wrong');
+    sel.classList.add(cls);
+    sel.title=cls==='right'?'Your prediction was right':cls==='wrong'?'Your prediction was wrong':'The case was resolved another way';
   }
   if(kind==='should') return h('td',{class:'pickcell','data-label':colName},
     h('div',{class:'pickrow'},h('label',{class:'sr',for:id},colName+' for '+c.name),sel));
