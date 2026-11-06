@@ -43,7 +43,7 @@
   {
    "id": "az-neither",
    "label": "Arizona loses both",
-   "meaning": "The NVRA or the consent decree blocks both Arizona's proof-of-citizenship requirement and its removal program, as the Ninth Circuit held."
+   "meaning": "The NVRA or the consent decree blocks both Arizona's proof-of-citizenship requirement and its removal program."
   }
  ],
  "25-1103": [
@@ -79,13 +79,13 @@
   {
    "id": "no",
    "label": "No",
-   "meaning": "Noncitizens who win habeas challenges to their immigration detention can't recover attorney's fees under EAJA, as the Fourth Circuit held."
+   "meaning": "Noncitizens who win habeas challenges to their immigration detention can't recover attorney's fees under EAJA."
   }
  ],
  "25-1311": [
   {
    "id": "spirit",
-   "label": "The injunction's spirit is enough",
+   "label": "Spirit is enough",
    "meaning": "A court can hold a party in contempt for conduct that undermines an injunction's purpose, even if the injunction doesn't expressly forbid it."
   },
   {
@@ -103,7 +103,7 @@
   {
    "id": "no",
    "label": "No",
-   "meaning": "Any material support to a terrorist organization triggers the bar, even if it didn't advance a terrorist act."
+   "meaning": "Any material support to a terrorist organization—such as cooking meals for the organization's leaders—triggers the bar, even if it didn't advance a terrorist act."
   }
  ],
  "25-1349": [
@@ -127,19 +127,19 @@
   {
    "id": "court",
    "label": "Bankruptcy court may keep the claims",
-   "meaning": "The bankruptcy court can refuse to send the consumers' automatic-stay claims to arbitration, as the Fourth Circuit held."
+   "meaning": "The bankruptcy court can refuse to send the consumers' automatic-stay claims to arbitration."
   }
  ],
  "25-159": [
   {
    "id": "yes",
-   "label": "Yes, state law",
+   "label": "Yes",
    "meaning": "Landowners get compensation measured by state law, which is often more generous."
   },
   {
    "id": "no",
-   "label": "No, the federal minimum",
-   "meaning": "Landowners get only the minimum compensation the Fifth Amendment requires, as the Eighth Circuit held."
+   "label": "No",
+   "meaning": "Landowners get only the minimum compensation the Fifth Amendment requires."
   }
  ],
  "25-170": [
@@ -198,17 +198,17 @@
  "25-352": [
   {
    "id": "yes-always",
-   "label": "Yes, even after the deadline",
+   "label": "Yes, even after the amendment deadline",
    "meaning": "A defendant can raise an unpleaded defense at summary judgment without amending, even when the deadline to amend has passed."
   },
   {
    "id": "yes-if-timely",
-   "label": "Only if an amendment is still allowed",
-   "meaning": "A defendant can raise an unpleaded defense at summary judgment without amending only when the court would still allow an amendment."
+   "label": "Yes, but only before the amendment deadline",
+   "meaning": "A defendant can raise an unpleaded defense at summary judgment without amending, but only before the deadline to amend has passed."
   },
   {
    "id": "no",
-   "label": "No, it must amend first",
+   "label": "No",
    "meaning": "A defendant must amend its answer to include the defense before relying on it."
   }
  ],
@@ -216,7 +216,7 @@
   {
    "id": "yes",
    "label": "Yes",
-   "meaning": "The prisoner's damages suit can go forward under Bivens, as the Ninth Circuit held."
+   "meaning": "The prisoner's damages suit can go forward under Bivens."
   },
   {
    "id": "no",
@@ -232,8 +232,8 @@
   },
   {
    "id": "audiovisual",
-   "label": "Only audiovisual ones",
-   "meaning": "Only subscribers to video goods or services count, so the newsletter subscriber isn't protected."
+   "label": "Only audiovisual goods and services",
+   "meaning": "Only subscribers to video goods or services count, so a newsletter subscriber isn't protected under the VPPA."
   }
  ],
  "25-498": [
@@ -308,7 +308,7 @@
   {
    "id": "state-both",
    "label": "Colorado wins both",
-   "meaning": "Colorado can exclude the Catholic preschools, as the Tenth Circuit held."
+   "meaning": "Colorado can exclude the Catholic preschools."
   }
  ],
  "25-5930": [
@@ -320,7 +320,7 @@
   {
    "id": "no",
    "label": "No",
-   "meaning": "Prisoners must bring challenges to First Step Act time credits another way, such as a civil-rights suit, as the Fifth Circuit held."
+   "meaning": "Prisoners must bring challenges to First Step Act time credits another way, such as a civil-rights suit."
   }
  ],
  "25-6623": [
@@ -339,7 +339,7 @@
   {
    "id": "yes",
    "label": "Yes",
-   "meaning": "When circuits disagree, a prisoner gets permission to appeal even if his own circuit's precedent is against him."
+   "meaning": "When circuits disagree, a prisoner gets permission to appeal even if their own circuit's precedent is against them."
   },
   {
    "id": "no",
@@ -387,12 +387,12 @@
   {
    "id": "yes",
    "label": "Yes",
-   "meaning": "The plaintiff can sue over the chilling threats now, without waiting for a final land-use decision."
+   "meaning": "The plaintiff can sue over chilling threats from a city government even without waiting for a final land-use decision."
   },
   {
    "id": "no",
    "label": "No",
-   "meaning": "A plaintiff challenging the chilling threats has to wait until the city completes a final land-use decision."
+   "meaning": "The plaintiff cannot sue over chilling threats from a city government until the city completes a final land-use decision."
   }
  ],
  "25-966": [
@@ -445,7 +445,7 @@
   {
    "id": "no",
    "label": "No",
-   "meaning": "Congress lacks the power to ban home distilling this way, as the Fifth Circuit held."
+   "meaning": "Congress lacks the power to ban home distilling this way."
   }
  ],
  "26-426": [

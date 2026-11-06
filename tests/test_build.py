@@ -102,3 +102,24 @@ def test_court_classification_tags(sandbox):
     assert cases["25-1003"]["tags"]["court"] == ["Habeas", "Capital case"]
     assert cases["25-5343"]["tags"]["court"] == ["Criminal"]
     assert cases["25-238"]["tags"]["court"] == ["Civil"]
+
+
+def test_answer_options_are_checked(sandbox):
+    edit(sandbox / "data" / "content.json", lambda c: c["25-170"]["options"].append(dict(c["25-170"]["options"][0])))
+    problems = build.build("2026-11-06")[7]
+    assert any("25-170" in p and "unique id" in p for p in problems)
+
+
+def test_recorded_result_must_match_an_option(sandbox):
+    (sandbox / "data" / "results.json").write_text('{"25-735": "maybe"}')
+    problems = build.build("2026-11-06")[7]
+    assert any("25-735" in p for p in problems)   # not an option, and the case isn't decided yet
+
+
+def test_decided_case_without_result_is_flagged(sandbox):
+    edit(sandbox / "data" / "parsed_dockets.json",
+         lambda rs: next(r for r in rs if r["docket"] == "25-735").update(decided="2027-03-01", outcome="reverse"))
+    _, _, _, cases, _, _, _, problems, flags, _ = build.build("2026-11-06")
+    assert not problems
+    assert any("25-735" in f and "results.json" in f for f in flags)
+    assert next(c for c in cases if c["docket"] == "25-735")["result"] is None

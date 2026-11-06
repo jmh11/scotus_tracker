@@ -1,0 +1,3 @@
+{
+ "_about": "Which answer option happened in each decided case, recorded by Joshua after reading the decision. Key: docket number; value: an option id from data/content.json, or \"none\" if no option fits (for example, a dismissal). Used to score Predictions. A decided case missing from here is flagged and shows \"Result pending\" on the page."
+}

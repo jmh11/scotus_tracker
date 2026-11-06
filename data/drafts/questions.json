@@ -203,5 +203,11 @@
   "draft": "(1) Whether the district court had jurisdiction to hear the challenge.\n(2) Whether the Immigration and Nationality Act (INA) allowed the district court to enter classwide declaratory relief and set aside the government's guidance on removing noncitizens to countries not named in their removal orders.\n(3) Whether that guidance, including its procedures for notice and for raising a fear of persecution or torture, is lawful under the INA, the Due Process Clause, or the Convention Against Torture (CAT) as implemented by the Foreign Affairs Reform and Restructuring Act (FARRA) and its regulations.",
   "notes": "The Court set these questions itself. Its fourth item (\"such other questions that the Government determines are appropriate\") is left out because it isn't a question. Acronyms spelled out. \"APA vacatur under § 1252(f)(1)\" lightly reworded; worth a careful look. Rewritten in plain language with Joshua; FARRA paired with the Convention Against Torture as in the Court's order. Consistency pass (laws named, abbreviations added) approved by Joshua.",
   "status": "approved 2026-11-06"
+ },
+ "25-1408": {
+  "source": "Petition for certiorari (the Court's official Questions Presented sheet wasn't posted yet)",
+  "draft": "Whether, and under what circumstances, a bankruptcy court may refuse to enforce a valid arbitration agreement under the Federal Arbitration Act (FAA) for claims seeking damages for violations of the Bankruptcy Code's automatic stay.",
+  "notes": "Drafted from the petition's question; FAA spelled out.",
+  "status": "published 2026-11-06; check against the official sheet once posted"
  }
 }

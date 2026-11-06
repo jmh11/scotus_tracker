@@ -70,6 +70,7 @@ tbody td:last-child{padding-right:16px}
 .case-btn:focus-visible{outline:2px solid var(--accent)}
 .case-btn .tw{display:inline-block;width:1em;color:var(--muted)}
 .meta{font-size:13px;color:var(--muted);margin-top:4px}
+.tag.pending{display:inline-block;margin:4px 0 0}
 .tag{display:inline-block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;background:var(--alert);color:var(--on-alert);padding:1px 7px;margin-left:6px;vertical-align:2px;border-radius:2px}
 .sortbtn{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:4px;letter-spacing:inherit;text-transform:inherit;font:inherit;color:inherit}
 .sortbtn:hover{color:var(--accent)}
@@ -156,10 +157,10 @@ footer ul{margin:6px 0 0;padding-left:18px}
   <main>
     <section class="record" aria-label="Your record">
       <div><div class="eyebrow">Cases tracked</div><div class="big" id="s-cases">–</div></div>
-      <div><div class="eyebrow">"Should" predictions</div><div class="big" id="s-should">–</div></div>
-      <div><div class="eyebrow">"Will" predictions</div><div class="big" id="s-will">–</div></div>
+      <div><div class="eyebrow">Predictions</div><div class="big" id="s-will">–</div></div>
+      <div><div class="eyebrow">My Opinions</div><div class="big" id="s-should">–</div></div>
       <div><div class="eyebrow">Decided</div><div class="big" id="s-decided">–</div></div>
-      <div><div class="eyebrow">"Will" picks correct</div><div class="big" id="s-correct">–</div></div>
+      <div><div class="eyebrow">Predictions correct</div><div class="big" id="s-correct">–</div></div>
     </section>
 
     <div class="controls" role="group" aria-label="Filter cases">
@@ -185,7 +186,7 @@ footer ul{margin:6px 0 0;padding-left:18px}
           <th scope="col" data-sort="granted"><button type="button" class="sortbtn">Granted<span class="arrow" aria-hidden="true"></span></button></th>
           <th scope="col" data-sort="argued"><button type="button" class="sortbtn">Argued<span class="arrow" aria-hidden="true"></span></button></th>
           <th scope="col" data-sort="decided"><button type="button" class="sortbtn">Decided<span class="arrow" aria-hidden="true"></span></button></th>
-          <th scope="col">Should</th><th scope="col">Will</th><th scope="col">Your notes</th>
+          <th scope="col">Prediction</th><th scope="col">My Opinion</th><th scope="col">Your notes</th>
         </tr></thead>
         <tbody id="rows"><tr class="empty-row"><td colspan="7">Loading the docket…</td></tr></tbody>
       </table>
@@ -236,15 +237,11 @@ footer ul{margin:6px 0 0;padding-left:18px}
 (function(){
 const KEY='scotus-ot2026-picks-v1';
 let EMAIL='joshua_herman@alumni.brown.edu';
-const OPTS=[['affirm','Affirm'],['reverse','Reverse'],['vacate','Vacate and remand']];
+// The Court's formal disposition, shown in the Decided column.
 const DISPOSITION={affirm:'Affirmed',reverse:'Reversed',vacate:'Vacated and remanded',dismissed:'Dismissed',mixed:'Mixed result'};
-const SCORED=new Set(['affirm','reverse','vacate']);
-const LABEL=Object.fromEntries(OPTS);
-const GENERAL={
-  affirm:"The lower court's decision stands.",
-  reverse:"The lower court's decision is overturned, and the side that lost below wins.",
-  vacate:"The lower court's decision is set aside and the case goes back for that court to decide again under the Supreme Court's guidance."
-};
+// Each case has its own answer options (approved by Joshua). Prediction is stored as "will", My Opinion as "should".
+const optionsOf=c=>(c.content&&c.content.options)||[];
+const labelOf=(c,id)=>{const o=optionsOf(c).find(x=>x.id===id);return o?o.label:'';};
 const MONTHS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 const pad=n=>String(n).padStart(2,'0');
 const now=new Date(); const TODAY=now.getFullYear()+'-'+pad(now.getMonth()+1)+'-'+pad(now.getDate());
@@ -277,7 +274,7 @@ function visible(){
     if(filter==='argued'&&status(c)!=='argued') return false;
     if(filter==='awaiting'&&status(c)!=='awaiting') return false;
     if(filter==='decided'&&status(c)!=='decided') return false;
-    if(filter==='unpicked'&&hasPick(c.docket)) return false;
+    if(filter==='unpicked'&&getPick(c.docket).will) return false;
     if(topic && !allTags(c).includes(topic)) return false;
     if(q && !(c.name.toLowerCase().includes(q)||c.docket.includes(q))) return false;
     return true;
@@ -306,19 +303,19 @@ document.querySelectorAll('th[data-sort] .sortbtn').forEach(b=>b.addEventListene
 updateSortHeaders();
 
 function pickCell(c,kind){
-  const id=kind+'-'+c.docket, p=getPick(c.docket);
+  const id=kind+'-'+c.docket, p=getPick(c.docket), opts=optionsOf(c);
+  const colName=kind==='will'?'Prediction':'My Opinion';
+  if(!opts.length) return h('td',{class:'pickcell','data-label':colName},h('span',{class:'soft'},'Options coming soon'));
   const sel=h('select',{class:'pick'+(p[kind]?'':' empty'),id:id,onchange:e=>{setPick(c.docket,kind,e.target.value);e.target.classList.toggle('empty',!e.target.value);}},
-    h('option',{value:''},'Choose…'), OPTS.map(([v,l])=>h('option',{value:v},l)));
+    h('option',{value:''},'Choose…'), opts.map(o=>h('option',{value:o.id},o.label)));
   sel.value=p[kind]||'';
   const pop=h('div',{class:'pop',role:'note',id:'pop-'+id,hidden:true});
-  const outcomes=c.content&&c.content.outcomes;
-  pop.append(h('div',{class:'eyebrow'},outcomes?'In this case, that means':'What each outcome means'));
-  OPTS.forEach(([v,l])=>pop.append(h('p',null,h('strong',null,l),' — '+((outcomes&&outcomes[v])||GENERAL[v]))));
-  if(!outcomes) pop.append(h('p',{class:'soft'},'A case-specific explanation is coming soon.'));
-  const btn=h('button',{class:'info',type:'button','aria-label':'What these outcomes mean','aria-expanded':'false','aria-controls':'pop-'+id,
+  pop.append(h('div',{class:'eyebrow'},'What each answer means'));
+  opts.forEach(o=>pop.append(h('p',null,h('strong',null,o.label),' — '+o.meaning)));
+  const btn=h('button',{class:'info',type:'button','aria-label':'What each answer means','aria-expanded':'false','aria-controls':'pop-'+id,
     onclick:e=>{e.stopPropagation();const show=pop.hidden;closePops();pop.hidden=!show;btn.setAttribute('aria-expanded',String(show));}},'i');
-  return h('td',{class:'pickcell','data-label':kind==='should'?'Should':'Will'},
-    h('div',{class:'pickrow'},h('label',{class:'sr',for:id},(kind==='should'?'The Court should':'The Court will')+' — '+c.name),sel,btn),pop);
+  return h('td',{class:'pickcell','data-label':colName},
+    h('div',{class:'pickrow'},h('label',{class:'sr',for:id},colName+' for '+c.name),sel,btn),pop);
 }
 function closePops(){document.querySelectorAll('.pop').forEach(p=>p.hidden=true);document.querySelectorAll('.info').forEach(b=>b.setAttribute('aria-expanded','false'));}
 
@@ -330,7 +327,11 @@ function render(){
     const isOpen=open.has(c.docket), st=status(c), p=getPick(c.docket);
     const isNew=c.addedOn&&((now-new Date(c.addedOn+'T12:00:00'))/864e5<14);
     const arg = c.argued ? h('div',null,h('span',{class:'date'},fmt(c.argued)), c.reargued?h('div',{class:'meta'},'(reargued)'):null) : c.scheduled ? h('div',null,h('span',{class:'date'},fmt(c.scheduled)),h('div',{class:'meta'},'(scheduled)')) : h('span',{class:'soft'},'Not yet scheduled');
-    const dec = c.decided ? h('span',{class:'date'},fmt(c.decided), h('div',{class:'meta'},DISPOSITION[c.outcome]||c.outcome)) : h('span',{class:'soft'},'TBD');
+    const dec = !c.decided ? h('span',{class:'soft'},'TBD') :
+      h('div',null,h('span',{class:'date'},fmt(c.decided)), h('div',{class:'meta'},DISPOSITION[c.outcome]||c.outcome),
+        c.result && c.result!=='none' ? h('div',{class:'meta'},'Answer: '+labelOf(c,c.result))
+        : c.result==='none' ? h('div',{class:'meta'},'Answer: none of the options')
+        : h('span',{class:'tag pending'},'Result pending'));
     const noteId='note-'+c.docket;
     tb.append(h('tr',{class:'case'},
       h('td',null,
@@ -341,7 +342,7 @@ function render(){
       h('td',{'data-label':'Granted'},h('span',{class:'date'},fmt(c.granted))),
       h('td',{'data-label':'Argued'},arg),
       h('td',{'data-label':'Decided'},dec),
-      pickCell(c,'should'), pickCell(c,'will'),
+      pickCell(c,'will'), pickCell(c,'should'),
       h('td',{class:'notecell','data-label':'Your notes'},h('label',{class:'sr',for:noteId},'Your notes on '+c.name),
         h('input',{class:'note',type:'text',id:noteId,maxlength:'280',placeholder:'Add notes (optional)',value:p.note||'',oninput:e=>setPick(c.docket,'note',e.target.value)}))
     ));
@@ -373,9 +374,10 @@ function updateStats(){
   $('s-will').textContent=cs.filter(c=>getPick(c.docket).will).length+' of '+cs.length;
   const dec=cs.filter(c=>c.decided);
   $('s-decided').textContent=dec.length;
-  // Dismissed and mixed outcomes can't be picked, so they're left out of both counts.
-  const scored=dec.filter(c=>SCORED.has(c.outcome)&&getPick(c.docket).will);
-  $('s-correct').textContent=scored.length?scored.filter(c=>getPick(c.docket).will===c.outcome).length+' of '+scored.length:'—';
+  // Scored only once Joshua records which answer happened. "none" (no option fits, e.g. a dismissal)
+  // is left out of both counts.
+  const scored=dec.filter(c=>c.result&&c.result!=='none'&&getPick(c.docket).will);
+  $('s-correct').textContent=scored.length?scored.filter(c=>getPick(c.docket).will===c.result).length+' of '+scored.length:'—';
 }
 
 function backupCode(){return 'OT26.'+btoa(unescape(encodeURIComponent(JSON.stringify({v:1,p:picks}))));}
@@ -384,9 +386,10 @@ function parseCode(s){
   const i=s.indexOf('OT26.'); if(i<0) throw new Error('That doesn\'t look like a backup code. Codes start with "OT26."');
   let obj; try{obj=JSON.parse(decodeURIComponent(escape(atob(s.slice(i+5)))))}catch(e){throw new Error('The code is incomplete or damaged. Copy the whole code and try again.')}
   if(!obj||obj.v!==1||typeof obj.p!=='object') throw new Error('The code is incomplete or damaged. Copy the whole code and try again.');
-  const ok=new Set(OPTS.map(o=>o[0]).concat(['']));const out={};
+  const out={};
+  const valid=(d,v)=>{const c=data&&data.cases.find(x=>x.docket===d);return c&&optionsOf(c).some(o=>o.id===v)?v:'';};
   for(const [d,p] of Object.entries(obj.p)){ if(!/^\d{2}-\d{1,5}$/.test(d)||!p) continue;
-    const r={should:ok.has(p.should)?p.should||'':'',will:ok.has(p.will)?p.will||'':'',note:String(p.note||'').slice(0,280)};
+    const r={should:valid(d,p.should),will:valid(d,p.will),note:String(p.note||'').slice(0,280)};
     if(r.should||r.will||r.note) out[d]=r; }
   return out;
 }
@@ -397,7 +400,7 @@ function message(){
   const picked=data?data.cases.filter(c=>picks[c.docket]):[];
   if(!picked.length) lines.push('(No predictions yet.)');
   for(const c of picked){const p=picks[c.docket];
-    let l=c.name+' (No. '+c.docket+'): Should: '+(LABEL[p.should]||'—')+' · Will: '+(LABEL[p.will]||'—');
+    let l=c.name+' (No. '+c.docket+'): Prediction: '+(labelOf(c,p.will)||'—')+' · My opinion: '+(labelOf(c,p.should)||'—');
     if(p.note) l+=' · Note: '+p.note; lines.push(l);}
   lines.push('','Backup code (paste into "Restore from a backup code" to recover these picks):',backupCode());
   return lines.join('\n');
@@ -451,6 +454,11 @@ fetch('cases.json',{cache:'no-cache'}).then(r=>{if(!r.ok) throw new Error(r.stat
   (j.tagGroups||[]).forEach(g=>{ const og=h('optgroup',{label:g.label});
     g.tags.filter(t=>counts[t]).forEach(t=>og.append(h('option',{value:t},t+' ('+counts[t]+')'))); if(og.children.length) sel.append(og); });
   sel.addEventListener('change',e=>{topic=e.target.value;render();});
+  let cleared=false;
+  for(const c of j.cases){ const p=picks[c.docket]; if(!p) continue; const ids=new Set(optionsOf(c).map(o=>o.id));
+    for(const k of ['should','will']) if(p[k]&&!ids.has(p[k])){ p[k]=''; cleared=true; }
+    if(!p.should&&!p.will&&!p.note) delete picks[c.docket]; }
+  if(cleared) savePicks();
   render(); updateStats(); updateMsg();
 }).catch(()=>{ $('rows').textContent=''; $('rows').append(h('tr',{class:'empty-row'},h('td',{colspan:'7'},'The case list didn\'t load. Refresh the page to try again.'))); $('revised').textContent=''; });
 })();

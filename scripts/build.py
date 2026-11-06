@@ -22,6 +22,9 @@ Fixed rules:
   - Every lower court must be in court_names.json. Unapproved names and missing write-ups are flagged.
   - Changes are found by comparing with the previous site/cases.json.
   - An argued case should have a transcript link; a missing one is flagged.
+  - Answer options in content.json: 2 to 4 per case, each with an id, label and meaning.
+  - results.json records which option happened in a decided case (or "none"); a decided case
+    without one is flagged, and the page shows "Result pending".
   - Tags in tags.json must be from its own lists. The Court's classification is added automatically
     from the third letter of the list's case code (X civil, Y criminal, H habeas) and the docket's
     capital-case flag.
@@ -46,8 +49,8 @@ SITE_DATA = ROOT / "site" / "cases.json"
 REPORT = ROOT / "build_report.md"
 NOTIFY = ROOT / "notify.md"   # written only when there's news; the workflow turns it into a GitHub issue
 OUTCOMES = {"affirm", "reverse", "vacate", "dismissed", "mixed"}
-CONTENT_KEYS = {"question", "facts", "petitioner", "respondent", "outcomes"}
-PICK_OPTIONS = {"affirm", "reverse", "vacate"}
+CONTENT_KEYS = {"question", "facts", "petitioner", "respondent", "options"}
+OPTION_KEYS = {"id", "label", "meaning"}
 COURT_CLASS = {"X": "Civil", "Y": "Criminal", "H": "Habeas"}
 DOCKET_PAGE = "https://www.supremecourt.gov/docket/docketfiles/html/public/{}.html"
 
@@ -118,6 +121,8 @@ def build(today: str):
     courts = {k: v for k, v in load("court_names.json").items() if not k.startswith("_")}
     content = {k: v for k, v in load("content.json").items() if not k.startswith("_")}
     transcripts = load("transcripts.json") if (DATA / "transcripts.json").exists() else {}
+    results = {k: v for k, v in load("results.json").items() if not k.startswith("_")} \
+        if (DATA / "results.json").exists() else {}
     audio = load("audio.json") if (DATA / "audio.json").exists() else {}
     tagfile = load("tags.json")
     allowed = {"kinds": tagfile["kinds"], "subjects": tagfile["subjects"]}
@@ -200,9 +205,26 @@ def build(today: str):
             tags["court"].append("Capital case")
         written = content.get(d)
         if written is not None:
-            bad = set(written) - CONTENT_KEYS or set(written.get("outcomes", {})) - PICK_OPTIONS
+            bad = set(written) - CONTENT_KEYS
             if bad:
                 problems.append(f"{d}: content.json has unexpected fields {sorted(bad)}")
+            opts = written.get("options")
+            if opts is not None:
+                ids = [o.get("id") for o in opts]
+                if not 2 <= len(opts) <= 4:
+                    problems.append(f"{d}: needs 2 to 4 answer options, has {len(opts)}")
+                if len(set(ids)) != len(ids) or any(set(o) != OPTION_KEYS or not all(o.values()) for o in opts):
+                    problems.append(f"{d}: each answer option needs a unique id, a label and a meaning")
+        # Which answer happened, recorded by Joshua after a decision ("none" = no option fits).
+        result = results.get(d)
+        if result is not None:
+            valid = {o["id"] for o in (written or {}).get("options", [])} | {"none"}
+            if result not in valid:
+                problems.append(f"{d}: results.json says {result!r}, which isn't one of this case's options")
+            if not rec["decided"]:
+                problems.append(f"{d}: results.json records an answer, but the case isn't decided")
+        elif rec["decided"]:
+            flags.append(f"{d}: decided {fmt(rec['decided'])}; record which answer happened in data/results.json.")
         cases.append({
             "docket": d, "name": name, "lowerCourt": court, "lowerCourtFull": rec["lowerCourt"],
             "granted": rec["granted"],
@@ -214,7 +236,7 @@ def build(today: str):
             "transcriptUrl": transcripts.get(d) or next((transcripts[x] for x in partners.get(d, []) if x in transcripts), None),
             "audioUrl": audio.get(d) or next((audio[x] for x in partners.get(d, []) if x in audio), None),
             "consolidatedWith": partners.get(d, []), "capitalCase": rec.get("capitalCase", False),
-            "addedOn": added, "content": written, "tags": tags,
+            "addedOn": added, "content": written, "tags": tags, "result": result,
         })
 
     for d in tagfile["cases"]:
