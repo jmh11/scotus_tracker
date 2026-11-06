@@ -495,7 +495,9 @@
    "consolidatedWith": [],
    "capitalCase": false,
    "addedOn": null,
-   "content": null
+   "content": {
+    "question": "(1) Whether a law lacks general applicability under the Free Exercise Clause only if it permits unfettered discretion or categorical exemptions for comparable secular conduct.\n(2) Whether the rule against excluding religious institutions from public benefits applies only to explicit government bans on participation by religious people and institutions."
+   }
   },
   {
    "docket": "25-5930",
@@ -763,6 +765,10 @@
   {
    "date": "2026-11-06",
    "text": "Case write-ups added or updated for 11 case(s)."
+  },
+  {
+   "date": "2026-11-06",
+   "text": "Case write-ups added or updated for St. Mary Catholic Parish v. Roy."
   }
  ]
 }
