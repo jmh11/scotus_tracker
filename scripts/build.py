@@ -41,7 +41,7 @@ DATA = ROOT / "data"
 SITE_DATA = ROOT / "site" / "cases.json"
 REPORT = ROOT / "build_report.md"
 OUTCOMES = {"affirm", "reverse", "vacate", "dismissed", "mixed"}
-CONTENT_KEYS = {"question", "petitioner", "respondent", "outcomes"}
+CONTENT_KEYS = {"question", "facts", "petitioner", "respondent", "outcomes"}
 PICK_OPTIONS = {"affirm", "reverse", "vacate"}
 DOCKET_PAGE = "https://www.supremecourt.gov/docket/docketfiles/html/public/{}.html"
 

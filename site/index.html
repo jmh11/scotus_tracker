@@ -85,6 +85,8 @@ select.pick.empty{border-style:dashed;border-color:var(--accent);color:var(--acc
 .note::placeholder{font-style:italic;color:var(--muted);opacity:1}
 .note:focus{border-bottom-color:var(--ink)}
 tr.detail td{background:var(--tint);border-top:0;padding:16px 16px 20px 40px}
+.question{max-width:1100px;margin-bottom:18px;padding-bottom:16px;border-bottom:1px solid var(--line)}
+.question p{margin:6px 0 0;font-size:16px}
 .brief{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;max-width:1100px}
 .brief p{margin:6px 0 0}
 .links{display:flex;flex-wrap:wrap;gap:18px;margin-top:14px}
@@ -305,7 +307,8 @@ function render(){
       const blk=(label,txt)=>h('div',null,h('div',{class:'eyebrow'},label),h('p',txt?null:{class:'soft'},txt||'Summary coming soon.'));
       const cw=(c.consolidatedWith||[])[0];
       tb.append(h('tr',{class:'detail'},h('td',{colspan:'7'},
-        h('div',{class:'brief'},blk('The question',ct.question),blk('For the petitioner',ct.petitioner),blk('For the respondent',ct.respondent)),
+        h('div',{class:'question'},blk('The question',ct.question)),
+        h('div',{class:'brief'},blk('Facts of the case',ct.facts),blk("Petitioner's argument",ct.petitioner),blk("Respondent's argument",ct.respondent)),
         cw?h('p',{style:'margin:14px 0 0'},'Argued together with ',h('em',null,cw.name),' (No. '+cw.docket+').'):null,
         h('div',{class:'links'},
           h('a',{href:c.docketUrl,target:'_blank',rel:'noopener'},'Docket & briefs ↗'),
