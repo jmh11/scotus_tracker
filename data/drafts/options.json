@@ -1,118 +1,473 @@
 {
  "_about": "Draft answer options for the Should/Will dropdowns (Nov 6). Each case gets 2-4 options; 'meaning' is the one-line explanation in the popup. Threshold questions come first. Not live until approved.",
  "24-1016": [
-  {"id":"fact","label":"Question of fact","meaning":"Trademark strength is decided like other facts, and appeals courts review it deferentially, as twelve circuits do."},
-  {"id":"law","label":"Question of law","meaning":"Trademark strength is a legal question that appeals courts decide for themselves, as the Second Circuit does."}],
+  {
+   "id": "fact",
+   "label": "Question of fact",
+   "meaning": "Trademark strength is decided like other facts, and appeals courts review it deferentially, as twelve circuits do."
+  },
+  {
+   "id": "law",
+   "label": "Question of law",
+   "meaning": "Trademark strength is a legal question that appeals courts decide for themselves, as the Second Circuit does."
+  }
+ ],
  "25-1003": [
-  {"id":"yes","label":"Yes","meaning":"A prisoner can bring a second habeas petition based on a new rule even if a claim based on it could have been raised earlier."},
-  {"id":"no","label":"No","meaning":"If the claim could have been raised in an earlier petition, the rule wasn't \"previously unavailable,\" and the second petition is barred."}],
+  {
+   "id": "yes",
+   "label": "Yes",
+   "meaning": "A prisoner can bring a second habeas petition based on a new rule even if a claim based on it could have been raised earlier."
+  },
+  {
+   "id": "no",
+   "label": "No",
+   "meaning": "If a claim based on the new rule could have been raised in an earlier petition, the rule wasn't \"previously unavailable,\" and the second petition is barred."
+  }
+ ],
  "25-1017": [
-  {"id":"az-both","label":"Arizona wins both","meaning":"Arizona can require proof of citizenship on its state registration form and can run its citizenship-based removal program close to a federal election."},
-  {"id":"az-proof","label":"Arizona wins proof of citizenship only","meaning":"Arizona can require proof of citizenship, but not run its removal program within 90 days of a federal election."},
-  {"id":"az-rolls","label":"Arizona wins voter rolls only","meaning":"Arizona can run its removal program, but can't require proof of citizenship on the state form."},
-  {"id":"az-neither","label":"Arizona loses both","meaning":"The NVRA or the consent decree blocks both Arizona laws, as the Ninth Circuit held."}],
+  {
+   "id": "az-both",
+   "label": "Arizona wins both",
+   "meaning": "Arizona can require proof of citizenship on its state registration form and can run its citizenship-based removal program close to a federal election."
+  },
+  {
+   "id": "az-proof",
+   "label": "Arizona wins proof of citizenship only",
+   "meaning": "Arizona can require proof of citizenship on its state registration form, but can't run its citizenship-based removal program within 90 days of a federal election."
+  },
+  {
+   "id": "az-rolls",
+   "label": "Arizona wins voter rolls only",
+   "meaning": "Arizona can run its citizenship-based removal program within 90 days of a federal election, but can't require proof of citizenship on its state registration form."
+  },
+  {
+   "id": "az-neither",
+   "label": "Arizona loses both",
+   "meaning": "The NVRA or the consent decree blocks both Arizona's proof-of-citizenship requirement and its removal program, as the Ninth Circuit held."
+  }
+ ],
  "25-1103": [
-  {"id":"yes","label":"Yes","meaning":"The court can order broad discovery against DOGE to decide whether FOIA applies to it."},
-  {"id":"no","label":"No","meaning":"The court can't order this kind of discovery against an advisory body just to decide whether FOIA applies."}],
+  {
+   "id": "yes",
+   "label": "Yes",
+   "meaning": "The court can order broad discovery against DOGE to decide whether FOIA applies to it."
+  },
+  {
+   "id": "no",
+   "label": "No",
+   "meaning": "The court can't order broad discovery against DOGE just to decide whether FOIA applies to it."
+  }
+ ],
  "25-1131": [
-  {"id":"yes","label":"Yes","meaning":"Barring a religious institution from building a religious structure on its own land substantially burdens religious exercise, so the rule must meet RLUIPA's strict test."},
-  {"id":"no","label":"No","meaning":"Such a ban isn't automatically a substantial burden; the institution has to show more."}],
+  {
+   "id": "yes",
+   "label": "Yes",
+   "meaning": "Barring a religious institution from building a religious structure on its own land substantially burdens religious exercise, so the rule must meet RLUIPA's strict test."
+  },
+  {
+   "id": "no",
+   "label": "No",
+   "meaning": "Barring a religious institution from building a religious structure on its own land isn't automatically a substantial burden; the institution has to show more."
+  }
+ ],
  "25-1223": [
-  {"id":"yes","label":"Yes","meaning":"Noncitizens who win habeas challenges to their immigration detention can recover attorney's fees under EAJA."},
-  {"id":"no","label":"No","meaning":"They can't recover fees under EAJA, as the Fourth Circuit held."}],
+  {
+   "id": "yes",
+   "label": "Yes",
+   "meaning": "Noncitizens who win habeas challenges to their immigration detention can recover attorney's fees under EAJA."
+  },
+  {
+   "id": "no",
+   "label": "No",
+   "meaning": "Noncitizens who win habeas challenges to their immigration detention can't recover attorney's fees under EAJA, as the Fourth Circuit held."
+  }
+ ],
  "25-1311": [
-  {"id":"spirit","label":"The injunction's spirit is enough","meaning":"A court can hold a party in contempt for conduct that undermines an injunction's purpose, even if the injunction doesn't expressly forbid it."},
-  {"id":"terms","label":"Clear terms are required","meaning":"Contempt requires violating an order that clearly and specifically prohibits the conduct."}],
+  {
+   "id": "spirit",
+   "label": "The injunction's spirit is enough",
+   "meaning": "A court can hold a party in contempt for conduct that undermines an injunction's purpose, even if the injunction doesn't expressly forbid it."
+  },
+  {
+   "id": "terms",
+   "label": "Clear terms are required",
+   "meaning": "Contempt requires violating an order that clearly and specifically prohibits the conduct."
+  }
+ ],
  "25-1343": [
-  {"id":"yes","label":"Yes","meaning":"The bar applies only if the support helped the organization carry out terrorism."},
-  {"id":"no","label":"No","meaning":"Material support to the organization triggers the bar even if it didn't advance any terrorist act."}],
+  {
+   "id": "yes",
+   "label": "Yes",
+   "meaning": "The material-support bar applies only if the support helped the organization carry out terrorism."
+  },
+  {
+   "id": "no",
+   "label": "No",
+   "meaning": "Any material support to a terrorist organization triggers the bar, even if it didn't advance a terrorist act."
+  }
+ ],
  "25-1349": [
-  {"id":"yes","label":"Yes","meaning":"State courts can't enforce a divorce agreement's promise to make up the ex-spouse's lost share when retirement pay is replaced by disability pay."},
-  {"id":"no","label":"No","meaning":"State courts can enforce indemnification promises that the veteran agreed to in a divorce settlement."}],
+  {
+   "id": "yes",
+   "label": "Yes",
+   "meaning": "State courts can't enforce a divorce agreement's promise to make up the ex-spouse's lost share when retirement pay is replaced by disability pay."
+  },
+  {
+   "id": "no",
+   "label": "No",
+   "meaning": "State courts can enforce indemnification promises that the veteran agreed to in a divorce settlement."
+  }
+ ],
  "25-1408": [
-  {"id":"arbitrate","label":"Enforce arbitration","meaning":"The consumers' automatic-stay claims go to arbitration under their card agreements."},
-  {"id":"court","label":"Bankruptcy court may keep the claims","meaning":"The bankruptcy court can refuse to send these claims to arbitration, as the Fourth Circuit held."}],
+  {
+   "id": "arbitrate",
+   "label": "Enforce arbitration",
+   "meaning": "The consumers' automatic-stay claims go to arbitration under their card agreements."
+  },
+  {
+   "id": "court",
+   "label": "Bankruptcy court may keep the claims",
+   "meaning": "The bankruptcy court can refuse to send the consumers' automatic-stay claims to arbitration, as the Fourth Circuit held."
+  }
+ ],
  "25-159": [
-  {"id":"yes","label":"Yes, state law","meaning":"Landowners get compensation measured by state law, which is often more generous."},
-  {"id":"no","label":"No, the federal minimum","meaning":"Landowners get only the minimum compensation the Fifth Amendment requires, as the Eighth Circuit held."}],
+  {
+   "id": "yes",
+   "label": "Yes, state law",
+   "meaning": "Landowners get compensation measured by state law, which is often more generous."
+  },
+  {
+   "id": "no",
+   "label": "No, the federal minimum",
+   "meaning": "Landowners get only the minimum compensation the Fifth Amendment requires, as the Eighth Circuit held."
+  }
+ ],
  "25-170": [
-  {"id":"no-juris","label":"No jurisdiction","meaning":"The Supreme Court can't decide the case, so the Colorado Supreme Court's ruling letting the suit go forward stands."},
-  {"id":"precluded","label":"Jurisdiction; claims precluded","meaning":"Federal law bars Boulder's state-law climate claims, ending the suit."},
-  {"id":"proceed","label":"Jurisdiction; claims may proceed","meaning":"Boulder's state-law climate claims can go forward in Colorado court."}],
+  {
+   "id": "no-juris",
+   "label": "No jurisdiction",
+   "meaning": "The Supreme Court can't decide the case, so the Colorado Supreme Court's ruling letting the suit go forward stands."
+  },
+  {
+   "id": "precluded",
+   "label": "Jurisdiction; claims precluded",
+   "meaning": "Federal law bars Boulder's state-law climate claims, ending the suit."
+  },
+  {
+   "id": "proceed",
+   "label": "Jurisdiction; claims may proceed",
+   "meaning": "Boulder's state-law climate claims can go forward in Colorado court."
+  }
+ ],
  "25-183": [
-  {"id":"yes","label":"Yes","meaning":"Employees of federally funded schools and universities can sue for sex discrimination under Title IX."},
-  {"id":"no","label":"No","meaning":"They can't sue under Title IX and must rely on other laws, such as Title VII."}],
+  {
+   "id": "yes",
+   "label": "Yes",
+   "meaning": "Employees of federally funded schools and universities can sue for sex discrimination under Title IX."
+  },
+  {
+   "id": "no",
+   "label": "No",
+   "meaning": "Employees of federally funded schools and universities can't sue for sex discrimination under Title IX and must rely on other laws, such as Title VII."
+  }
+ ],
  "25-238": [
-  {"id":"yes","label":"Yes","meaning":"The Second Amendment protects possessing AR-15-style rifles, putting bans like Cook County's in doubt."},
-  {"id":"no","label":"No","meaning":"The Second Amendment doesn't protect possessing these rifles, so bans like Cook County's can stand."}],
+  {
+   "id": "yes",
+   "label": "Yes",
+   "meaning": "The Second Amendment protects possessing AR-15-style rifles, putting bans like Cook County's in doubt."
+  },
+  {
+   "id": "no",
+   "label": "No",
+   "meaning": "The Second Amendment doesn't protect possessing AR-15-style rifles, so bans like Cook County's can stand."
+  }
+ ],
  "25-246": [
-  {"id":"abstract","label":"In the abstract","meaning":"Courts may judge how serious the offense is in general terms when deciding whether a forfeiture is excessive."},
-  {"id":"specific","label":"The owner's specific conduct","meaning":"Courts must look at what this particular owner actually did."}],
+  {
+   "id": "abstract",
+   "label": "In the abstract",
+   "meaning": "Courts may judge how serious the offense is in general terms when deciding whether a forfeiture is excessive."
+  },
+  {
+   "id": "specific",
+   "label": "The owner's specific conduct",
+   "meaning": "Courts must look at what the particular owner actually did when deciding whether a forfeiture is excessive."
+  }
+ ],
  "25-352": [
-  {"id":"yes-always","label":"Yes, even after the deadline","meaning":"A defendant can raise an unpleaded defense at summary judgment without amending, even when the deadline to amend has passed."},
-  {"id":"yes-if-timely","label":"Only if an amendment is still allowed","meaning":"A defendant can raise it without amending only when the court would still allow an amendment."},
-  {"id":"no","label":"No, it must amend first","meaning":"A defendant must amend its answer to include the defense before relying on it."}],
+  {
+   "id": "yes-always",
+   "label": "Yes, even after the deadline",
+   "meaning": "A defendant can raise an unpleaded defense at summary judgment without amending, even when the deadline to amend has passed."
+  },
+  {
+   "id": "yes-if-timely",
+   "label": "Only if an amendment is still allowed",
+   "meaning": "A defendant can raise an unpleaded defense at summary judgment without amending only when the court would still allow an amendment."
+  },
+  {
+   "id": "no",
+   "label": "No, it must amend first",
+   "meaning": "A defendant must amend its answer to include the defense before relying on it."
+  }
+ ],
  "25-417": [
-  {"id":"yes","label":"Yes","meaning":"The prisoner's damages suit can go forward under Bivens, as the Ninth Circuit held."},
-  {"id":"no","label":"No","meaning":"Bivens doesn't extend to this claim, so the suit is dismissed."}],
+  {
+   "id": "yes",
+   "label": "Yes",
+   "meaning": "The prisoner's damages suit can go forward under Bivens, as the Ninth Circuit held."
+  },
+  {
+   "id": "no",
+   "label": "No",
+   "meaning": "Bivens doesn't extend to the prisoner's claim, so the damages suit is dismissed."
+  }
+ ],
  "25-459": [
-  {"id":"all","label":"All goods and services","meaning":"A newsletter subscriber can be a protected \"consumer,\" so sharing his video-viewing history can create liability under the VPPA."},
-  {"id":"audiovisual","label":"Only audiovisual ones","meaning":"Only subscribers to video goods or services count, so the newsletter subscriber isn't protected."}],
+  {
+   "id": "all",
+   "label": "All goods and services",
+   "meaning": "A newsletter subscriber can be a protected \"consumer,\" so sharing his video-viewing history can create liability under the VPPA."
+  },
+  {
+   "id": "audiovisual",
+   "label": "Only audiovisual ones",
+   "meaning": "Only subscribers to video goods or services count, so the newsletter subscriber isn't protected."
+  }
+ ],
  "25-498": [
-  {"id":"yes","label":"Yes, a benchmark is required","meaning":"Plaintiffs claiming imprudent investing based on poor returns must point to a comparable investment that did better."},
-  {"id":"no","label":"No benchmark required","meaning":"Plaintiffs can state a claim without a specific comparison, based on the circumstances as a whole."}],
+  {
+   "id": "yes",
+   "label": "Yes, a benchmark is required",
+   "meaning": "Plaintiffs claiming imprudent investing based on poor returns must point to a comparable investment that did better."
+  },
+  {
+   "id": "no",
+   "label": "No benchmark required",
+   "meaning": "Plaintiffs can state a claim without a specific comparison, based on the circumstances as a whole."
+  }
+ ],
  "25-5343": [
-  {"id":"yes","label":"Yes","meaning":"Courts keep giving the Sentencing Commission's commentary strong deference under Stinson."},
-  {"id":"no","label":"No","meaning":"Stinson's rule is replaced, and courts give the commentary less weight."}],
+  {
+   "id": "yes",
+   "label": "Yes",
+   "meaning": "Courts keep giving the Sentencing Commission's commentary strong deference under Stinson."
+  },
+  {
+   "id": "no",
+   "label": "No",
+   "meaning": "Stinson's rule is replaced, and courts give the Sentencing Commission's commentary less weight."
+  }
+ ],
  "25-566": [
-  {"id":"yes","label":"Yes","meaning":"The Second Amendment protects possessing AR-15-style rifles, putting bans like Connecticut's in doubt."},
-  {"id":"no","label":"No","meaning":"The Second Amendment doesn't protect possessing these rifles, so bans like Connecticut's can stand."}],
+  {
+   "id": "yes",
+   "label": "Yes",
+   "meaning": "The Second Amendment protects possessing AR-15-style rifles, putting bans like Connecticut's in doubt."
+  },
+  {
+   "id": "no",
+   "label": "No",
+   "meaning": "The Second Amendment doesn't protect possessing AR-15-style rifles, so bans like Connecticut's can stand."
+  }
+ ],
  "25-579": [
-  {"id":"not-reviewable","label":"Not reviewable yet","meaning":"Submitting the renewal application isn't final agency action, so it can't be challenged now."},
-  {"id":"no-nepa","label":"Reviewable; NEPA not required","meaning":"The application can be challenged, but RCRA's own procedures replace NEPA review."},
-  {"id":"nepa","label":"Reviewable; NEPA required","meaning":"The application can be challenged, and the Air Force must complete NEPA review before applying."}],
+  {
+   "id": "not-reviewable",
+   "label": "Not reviewable yet",
+   "meaning": "The Air Force's submission of its permit-renewal application isn't final agency action, so it can't be challenged now."
+  },
+  {
+   "id": "no-nepa",
+   "label": "Reviewable; NEPA not required",
+   "meaning": "The Air Force's permit-renewal application can be challenged now, but it doesn't need NEPA review because RCRA has its own procedures."
+  },
+  {
+   "id": "nepa",
+   "label": "Reviewable; NEPA required",
+   "meaning": "The Air Force's permit-renewal application can be challenged now, and the Air Force must complete NEPA review before applying."
+  }
+ ],
  "25-581": [
-  {"id":"church-both","label":"St. Mary wins both","meaning":"Colorado's rule fails both tests, so excluding the Catholic preschools faces strict scrutiny."},
-  {"id":"church-q1","label":"St. Mary wins on general applicability only","meaning":"The exemptions make Colorado's rule not generally applicable, but the public-benefits rule doesn't apply."},
-  {"id":"church-q2","label":"St. Mary wins on public benefits only","meaning":"The rule against excluding religious institutions applies, but Colorado's rule still counts as generally applicable."},
-  {"id":"state-both","label":"Colorado wins both","meaning":"Colorado can exclude the Catholic preschools, as the Tenth Circuit held."}],
+  {
+   "id": "church-both",
+   "label": "St. Mary wins both",
+   "meaning": "Colorado's rule fails both tests, so excluding the Catholic preschools faces strict scrutiny."
+  },
+  {
+   "id": "church-q1",
+   "label": "St. Mary wins on general applicability only",
+   "meaning": "Colorado's exemptions make its preschool rule not generally applicable, but the rule against excluding religious institutions from public benefits doesn't apply."
+  },
+  {
+   "id": "church-q2",
+   "label": "St. Mary wins on public benefits only",
+   "meaning": "The rule against excluding religious institutions from public benefits applies, but Colorado's preschool rule still counts as generally applicable."
+  },
+  {
+   "id": "state-both",
+   "label": "Colorado wins both",
+   "meaning": "Colorado can exclude the Catholic preschools, as the Tenth Circuit held."
+  }
+ ],
  "25-5930": [
-  {"id":"yes","label":"Yes","meaning":"Prisoners can use habeas to challenge how First Step Act time credits affect their transfer to a halfway house or home confinement."},
-  {"id":"no","label":"No","meaning":"They must bring these claims another way, such as a civil-rights suit, as the Fifth Circuit held."}],
+  {
+   "id": "yes",
+   "label": "Yes",
+   "meaning": "Prisoners can use habeas to challenge how First Step Act time credits affect their transfer to a halfway house or home confinement."
+  },
+  {
+   "id": "no",
+   "label": "No",
+   "meaning": "Prisoners must bring challenges to First Step Act time credits another way, such as a civil-rights suit, as the Fifth Circuit held."
+  }
+ ],
  "25-6623": [
-  {"id":"yes","label":"Yes","meaning":"Defendants charged with serious felonies are entitled to 12-person juries, so Florida's six-person felony juries are unconstitutional."},
-  {"id":"no","label":"No","meaning":"States may keep using smaller juries in felony trials."}],
+  {
+   "id": "yes",
+   "label": "Yes",
+   "meaning": "Defendants charged with serious felonies are entitled to 12-person juries, so Florida's six-person felony juries are unconstitutional."
+  },
+  {
+   "id": "no",
+   "label": "No",
+   "meaning": "States may keep using smaller juries in felony trials."
+  }
+ ],
  "25-7026": [
-  {"id":"yes","label":"Yes","meaning":"When circuits disagree, a prisoner gets permission to appeal even if his own circuit's precedent is against him."},
-  {"id":"no","label":"No","meaning":"Binding circuit precedent against the prisoner is enough to deny permission to appeal."}],
+  {
+   "id": "yes",
+   "label": "Yes",
+   "meaning": "When circuits disagree, a prisoner gets permission to appeal even if his own circuit's precedent is against him."
+  },
+  {
+   "id": "no",
+   "label": "No",
+   "meaning": "Binding circuit precedent against the prisoner is enough to deny permission to appeal."
+  }
+ ],
  "25-735": [
-  {"id":"yes","label":"Yes","meaning":"Veterans can't bring these constitutional challenges in district court and must go through the veterans' benefits review system."},
-  {"id":"no","label":"No","meaning":"District courts can still hear constitutional challenges to laws affecting veterans' benefits."}],
+  {
+   "id": "yes",
+   "label": "Yes",
+   "meaning": "Veterans can't bring constitutional challenges to laws affecting veterans' benefits in district court and must go through the veterans' benefits review system."
+  },
+  {
+   "id": "no",
+   "label": "No",
+   "meaning": "District courts can still hear constitutional challenges to laws affecting veterans' benefits."
+  }
+ ],
  "25-840": [
-  {"id":"yes","label":"Yes","meaning":"The parents can challenge Washington's law in federal court."},
-  {"id":"no","label":"No","meaning":"The parents lack standing, so the suit is dismissed without a ruling on the law itself."}],
+  {
+   "id": "yes",
+   "label": "Yes",
+   "meaning": "The parents can challenge Washington's law in federal court."
+  },
+  {
+   "id": "no",
+   "label": "No",
+   "meaning": "The parents lack standing to challenge Washington's law, so the suit is dismissed without a ruling on the law itself."
+  }
+ ],
  "25-842": [
-  {"id":"eligible","label":"Eligible","meaning":"People whose asylum was terminated can still seek permanent residence if they meet the other requirements."},
-  {"id":"ineligible","label":"Categorically ineligible","meaning":"Termination of asylum ends the path to permanent residence through asylum."}],
+  {
+   "id": "eligible",
+   "label": "Eligible",
+   "meaning": "People whose asylum was terminated can still seek permanent residence if they meet the other requirements."
+  },
+  {
+   "id": "ineligible",
+   "label": "Categorically ineligible",
+   "meaning": "Termination of asylum ends the path to permanent residence through asylum."
+  }
+ ],
  "25-965": [
-  {"id":"yes","label":"Yes","meaning":"The plaintiff can sue over the chilling threats now, without waiting for a final land-use decision."},
-  {"id":"no","label":"No","meaning":"The suit has to wait until the city completes a final land-use decision."}],
+  {
+   "id": "yes",
+   "label": "Yes",
+   "meaning": "The plaintiff can sue over the chilling threats now, without waiting for a final land-use decision."
+  },
+  {
+   "id": "no",
+   "label": "No",
+   "meaning": "A plaintiff challenging the chilling threats has to wait until the city completes a final land-use decision."
+  }
+ ],
  "25-966": [
-  {"id":"dol-both","label":"Labor Department wins both","meaning":"The Department can keep deciding these H-2A penalty cases itself."},
-  {"id":"no-statute","label":"The INA doesn't authorize it","meaning":"Congress didn't give the Department this power, so the cases must go to court."},
-  {"id":"article-iii","label":"Article III bars it","meaning":"Even if the INA authorizes it, the Constitution requires these cases to be decided by a federal court."}],
+  {
+   "id": "dol-both",
+   "label": "Labor Department wins both",
+   "meaning": "The Department can keep deciding these H-2A penalty cases itself."
+  },
+  {
+   "id": "no-statute",
+   "label": "The INA doesn't authorize it",
+   "meaning": "The INA doesn't give the Labor Department power to decide these H-2A penalty cases, so they must go to court."
+  },
+  {
+   "id": "article-iii",
+   "label": "Article III bars it",
+   "meaning": "Even if the INA authorizes the Labor Department to decide these H-2A penalty cases, the Constitution requires a federal court to decide them."
+  }
+ ],
  "26-104": [
-  {"id":"yes","label":"Yes","meaning":"People who entered without being admitted must be detained while their removal cases proceed, without bond hearings."},
-  {"id":"no","label":"No","meaning":"They aren't subject to mandatory detention and may seek release on bond."}],
+  {
+   "id": "yes",
+   "label": "Yes",
+   "meaning": "People who entered without being admitted must be detained while their removal cases proceed, without bond hearings."
+  },
+  {
+   "id": "no",
+   "label": "No",
+   "meaning": "People who entered without being admitted aren't subject to mandatory detention and may seek release on bond."
+  }
+ ],
  "26-12": [
-  {"id":"yes","label":"Yes","meaning":"A challenge fails unless the targeted group, overall, fared worse relative to its share of applicants."},
-  {"id":"no","label":"No","meaning":"Evidence of discriminatory intent can support a challenge even without that overall statistical showing."}],
+  {
+   "id": "yes",
+   "label": "Yes",
+   "meaning": "A challenge fails unless the targeted group, overall, fared worse relative to its share of applicants."
+  },
+  {
+   "id": "no",
+   "label": "No",
+   "meaning": "Evidence of discriminatory intent can support a challenge even without that overall statistical showing."
+  }
+ ],
  "26-204": [
-  {"id":"yes","label":"Yes","meaning":"The ban on home distilling is a valid exercise of Congress's taxing power."},
-  {"id":"no","label":"No","meaning":"Congress lacks the power to ban home distilling this way, as the Fifth Circuit held."}],
+  {
+   "id": "yes",
+   "label": "Yes",
+   "meaning": "The ban on home distilling is a valid exercise of Congress's taxing power."
+  },
+  {
+   "id": "no",
+   "label": "No",
+   "meaning": "Congress lacks the power to ban home distilling this way, as the Fifth Circuit held."
+  }
+ ],
  "26-426": [
-  {"id":"no-juris","label":"No jurisdiction","meaning":"The district court couldn't hear the challenge, so its judgment is undone."},
-  {"id":"no-class","label":"Jurisdiction; no classwide relief","meaning":"The court could hear the case but couldn't grant classwide relief or set aside the guidance."},
-  {"id":"lawful","label":"Classwide relief allowed; guidance lawful","meaning":"The court could grant classwide relief, but the guidance itself is lawful."},
-  {"id":"unlawful","label":"Classwide relief allowed; guidance unlawful","meaning":"The court's judgment setting aside the guidance stands."}]
+  {
+   "id": "no-juris",
+   "label": "No jurisdiction",
+   "meaning": "The district court couldn't hear the challenge, so its judgment is undone."
+  },
+  {
+   "id": "no-class",
+   "label": "Jurisdiction; no classwide relief",
+   "meaning": "The district court could hear the challenge but couldn't grant classwide relief or set aside the guidance."
+  },
+  {
+   "id": "lawful",
+   "label": "Classwide relief allowed; guidance lawful",
+   "meaning": "The district court could grant classwide relief, but the government's third-country removal guidance is lawful."
+  },
+  {
+   "id": "unlawful",
+   "label": "Classwide relief allowed; guidance unlawful",
+   "meaning": "The district court's judgment setting aside the government's third-country removal guidance stands."
+  }
+ ]
 }
