@@ -33,9 +33,12 @@ def edit(path, fn):
 
 
 def test_current_data_builds_cleanly(sandbox):
-    *_, cases, excluded, _, _, problems, _, _ = build.build("2026-11-06")[0:10]
+    _, listed, tracked, cases, excluded, _, _, problems, _, _ = build.build("2026-11-06")
     assert not problems
-    assert len(cases) == 34 and not excluded
+    # Every case the list shows for argument (up to the cutoff) is on the page, plus the 34 launch cases.
+    for_argument = {c["docket"] for c in listed["cases"] if c["section"] == "for argument"}
+    assert for_argument <= {c["docket"] for c in cases}
+    assert len(cases) >= 34
 
 
 def test_change_log_and_new_grant_rules(sandbox):
