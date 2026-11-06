@@ -3,6 +3,7 @@
 
 1. The Granted & Noted list  -> data/raw/granted_noted_list.pdf
    The argument transcripts page -> data/raw/argument_transcripts_2026.html
+   The argument audio page       -> data/raw/argument_audio_2026.html
 2. Docket data for every case that is tracked (data/tracked_dockets.txt) or appears on
    that list                 -> data/raw/dockets/<docket>.json
 
@@ -26,6 +27,7 @@ RAW = ROOT / "data" / "raw"
 DOCKET_URL = "https://www.supremecourt.gov/RSS/Cases/JSON/{}.json"
 GRANTED_URL = "https://www.supremecourt.gov/orders/26grantednotedlist.pdf"
 TRANSCRIPTS_URL = "https://www.supremecourt.gov/oral_arguments/argument_transcript/2026"
+AUDIO_URL = "https://www.supremecourt.gov/oral_arguments/argument_audio/2026"
 
 
 def download(url: str, dest: pathlib.Path) -> int:
@@ -42,6 +44,8 @@ def main() -> int:
     print(f"OK    {download(GRANTED_URL, pdf):>9,} bytes  {pdf.relative_to(ROOT)}")
     tx = RAW / "argument_transcripts_2026.html"
     print(f"OK    {download(TRANSCRIPTS_URL, tx):>9,} bytes  {tx.relative_to(ROOT)}")
+    au = RAW / "argument_audio_2026.html"
+    print(f"OK    {download(AUDIO_URL, au):>9,} bytes  {au.relative_to(ROOT)}")
     text = subprocess.run(["pdftotext", "-layout", str(pdf), "-"], check=True,
                           capture_output=True, text=True).stdout
     listed, problems = gl.parse(text)

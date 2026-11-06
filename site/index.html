@@ -166,7 +166,7 @@ footer ul{margin:6px 0 0;padding-left:18px}
         </colgroup>
         <thead><tr>
           <th scope="col">Case</th><th scope="col">Granted</th><th scope="col">Argued</th><th scope="col">Decided</th>
-          <th scope="col">Should</th><th scope="col">Will</th><th scope="col">Your note</th>
+          <th scope="col">Should</th><th scope="col">Will</th><th scope="col">Your notes</th>
         </tr></thead>
         <tbody id="rows"><tr class="empty-row"><td colspan="7">Loading the docket…</td></tr></tbody>
       </table>
@@ -297,8 +297,8 @@ function render(){
       h('td',{'data-label':'Argued'},arg),
       h('td',{'data-label':'Decided'},dec),
       pickCell(c,'should'), pickCell(c,'will'),
-      h('td',{class:'notecell','data-label':'Your note'},h('label',{class:'sr',for:noteId},'Your note on '+c.name),
-        h('input',{class:'note',type:'text',id:noteId,maxlength:'280',placeholder:'Add a sentence (optional)',value:p.note||'',oninput:e=>setPick(c.docket,'note',e.target.value)}))
+      h('td',{class:'notecell','data-label':'Your notes'},h('label',{class:'sr',for:noteId},'Your notes on '+c.name),
+        h('input',{class:'note',type:'text',id:noteId,maxlength:'280',placeholder:'Add notes (optional)',value:p.note||'',oninput:e=>setPick(c.docket,'note',e.target.value)}))
     ));
     if(isOpen){
       const ct=c.content||{};
