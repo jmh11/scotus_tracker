@@ -1,4 +1,4 @@
 # Build 2026-11-06
 
 ## Changes
-- Case write-ups added or updated for Montoya Palacios v. Liggins.
+- Case write-ups added or updated for 6 case(s).
