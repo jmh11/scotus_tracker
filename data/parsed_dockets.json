@@ -14,7 +14,7 @@
   "judgmentText": null,
   "opinionUrl": null,
   "qpUrl": "https://www.supremecourt.gov/qp/24-01016qp.pdf",
-  "docketJsonCreated": "11/05/2026"
+  "docketJsonCreated": "11/06/2026"
  },
  {
   "docket": "25-1003",
@@ -476,6 +476,23 @@
   "docketJsonCreated": "11/05/2026"
  },
  {
+  "docket": "25-886",
+  "capitalCase": false,
+  "petitionerTitle": "Kenneth Genalo, Director of the New York Field Office of U.S. Immigration and Customs Enforcement, et al., Petitioners",
+  "respondentTitle": "Carol Williams Black, et al.",
+  "lowerCourt": "United States Court of Appeals for the Second Circuit",
+  "granted": "2026-06-15",
+  "scheduled": "2026-10-13",
+  "argued": null,
+  "reargued": false,
+  "decided": null,
+  "outcome": null,
+  "judgmentText": null,
+  "opinionUrl": null,
+  "qpUrl": "https://www.supremecourt.gov/qp/25-00886qp.pdf",
+  "docketJsonCreated": "09/15/2026"
+ },
+ {
   "docket": "25-965",
   "capitalCase": false,
   "petitionerTitle": "Daniel Grand, Petitioner",
@@ -541,7 +558,7 @@
   "judgmentText": null,
   "opinionUrl": null,
   "qpUrl": "https://www.supremecourt.gov/qp/26-00012qp.pdf",
-  "docketJsonCreated": "11/02/2026"
+  "docketJsonCreated": "11/06/2026"
  },
  {
   "docket": "26-204",
