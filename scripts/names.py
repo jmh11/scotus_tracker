@@ -10,7 +10,7 @@ import re
 SMALL = {"a", "an", "and", "as", "at", "by", "for", "in", "of", "on", "or", "the", "to"}
 # Tokens with a fixed spelling (compared in upper case).
 FIXED = {
-    "U.S.": "U.S.", "U.S.A.": "U.S.A.", "LLC": "LLC", "L.L.C.": "L.L.C.", "INC.": "Inc.",
+    "U.S.": "U.S.", "U.S.A.": "U.S.A.", "USA": "USA", "LLC": "LLC", "L.L.C.": "L.L.C.", "INC.": "Inc.",
     "CORP.": "Corp.", "CO.": "Co.", "BD.": "Bd.", "ED.": "Ed.", "DEPT.": "Dept.", "DIST.": "Dist.",
     "ATT'Y": "Att'y", "ATT’Y": "Att’y", "GEN.": "Gen.", "COMM.": "Comm.", "UNIV.": "Univ.",
     "DOGE": "DOGE", "FBI": "FBI", "EPA": "EPA", "FCC": "FCC", "SEC": "SEC", "NLRB": "NLRB",

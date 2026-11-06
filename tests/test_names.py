@@ -19,3 +19,7 @@ def test_auto_names():
 def test_approved_name_wins():
     assert display_name("1-1", {"1-1": "Approved v. Name"}, "OTHER V. NAME") == ("Approved v. Name", True)
     assert display_name("1-2", {}, "OTHER V. NAME") == ("Other v. Name", False)
+
+
+def test_usa_stays_capitalized():
+    assert auto_name("GOLDMAN SACHS BANK USA V. BROWN") == "Goldman Sachs Bank USA v. Brown"
