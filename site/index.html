@@ -59,7 +59,7 @@ main{display:flex;flex-direction:column;gap:20px;padding-block:22px 48px}
 .tablebox{border:1px solid var(--line);background:var(--surface)}
 /* Fixed column widths, so every filter view lines up identically. */
 table{width:100%;border-collapse:collapse;font-size:15px;table-layout:fixed}
-col.c-case{width:33%} col.c-date{width:8%} col.c-arg{width:8%} col.c-pick{width:13%} col.c-note{width:17%}
+col.c-case{width:33%} col.c-date{width:8%} col.c-arg{width:8%} col.c-pred{width:calc(13% + 19px)} col.c-op{width:calc(13% - 19px)} col.c-note{width:17%}
 tbody td{overflow-wrap:anywhere}
 thead th{text-align:left;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600;padding:12px 8px;border-bottom:1px solid var(--ink);white-space:nowrap}
 thead th:first-child{padding-left:16px}
@@ -193,7 +193,7 @@ footer ul{margin:6px 0 0;padding-left:18px}
     <div class="tablebox">
       <table>
         <colgroup>
-          <col class="c-case"><col class="c-date"><col class="c-arg"><col class="c-date"><col class="c-pick"><col class="c-pick"><col class="c-note">
+          <col class="c-case"><col class="c-date"><col class="c-arg"><col class="c-date"><col class="c-pred"><col class="c-op"><col class="c-note">
         </colgroup>
         <thead><tr>
           <th scope="col" data-sort="name"><button type="button" class="sortbtn">Case<span class="arrow" aria-hidden="true"></span></button></th>
