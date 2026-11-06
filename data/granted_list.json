@@ -1,6 +1,6 @@
 {
- "asOf": "2026-10-19",
- "statedTotal": 35,
+ "asOf": "2026-11-06",
+ "statedTotal": 36,
  "cases": [
   {
    "docket": "24-1016",
@@ -10,7 +10,7 @@
    "section": "for argument",
    "courtCodes": "USCA-2",
    "granted": "2026-06-29",
-   "argumentDate": null,
+   "argumentDate": "2027-01-12",
    "result": null
   },
   {
@@ -241,7 +241,7 @@
    "section": "for argument",
    "courtCodes": "SC-KY",
    "granted": "2026-10-01",
-   "argumentDate": null,
+   "argumentDate": "2027-01-20",
    "result": null
   },
   {
@@ -252,7 +252,7 @@
    "section": "for argument",
    "courtCodes": "USCA-4",
    "granted": "2026-06-29",
-   "argumentDate": null,
+   "argumentDate": "2027-01-11",
    "result": null
   },
   {
@@ -263,7 +263,7 @@
    "section": "for argument",
    "courtCodes": "USCA-9",
    "granted": "2026-06-30",
-   "argumentDate": null,
+   "argumentDate": "2027-01-11",
    "result": null
   },
   {
@@ -285,6 +285,17 @@
    "section": "for argument",
    "courtCodes": "SC-ND",
    "granted": "2026-10-01",
+   "argumentDate": "2027-01-19",
+   "result": null
+  },
+  {
+   "docket": "25-1408",
+   "group": null,
+   "code": "CFX",
+   "captionAsListed": "GOLDMAN SACHS BANK USA V. BROWN",
+   "section": "for argument",
+   "courtCodes": "USCA-4",
+   "granted": "2026-11-06",
    "argumentDate": null,
    "result": null
   },
@@ -318,7 +329,7 @@
    "section": "for argument",
    "courtCodes": "Dist. Ct App. FL, 4th Dist.",
    "granted": "2026-06-15",
-   "argumentDate": null,
+   "argumentDate": "2027-01-13",
    "result": null
   },
   {

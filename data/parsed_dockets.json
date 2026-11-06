@@ -153,6 +153,23 @@
   "docketJsonCreated": "11/04/2026"
  },
  {
+  "docket": "25-1408",
+  "capitalCase": false,
+  "petitionerTitle": "Goldman Sachs Bank USA, dba Marcus by Goldman Sachs, Petitioner",
+  "respondentTitle": "Rhea Ann Brown, et al.",
+  "lowerCourt": "United States Court of Appeals for the Fourth Circuit",
+  "granted": "2026-11-06",
+  "scheduled": null,
+  "argued": null,
+  "reargued": false,
+  "decided": null,
+  "outcome": null,
+  "judgmentText": null,
+  "opinionUrl": null,
+  "qpUrl": null,
+  "docketJsonCreated": "11/06/2026"
+ },
+ {
   "docket": "25-159",
   "capitalCase": false,
   "petitionerTitle": "Leonard W. Hoffmann, et al., Petitioners",

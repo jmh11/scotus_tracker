@@ -3,7 +3,7 @@
  "email": "joshua_herman@alumni.brown.edu",
  "repo": "https://github.com/jmh11/scotus_tracker",
  "newGrantCutoff": "2027-01-31",
- "grantedListAsOf": "2026-10-19",
+ "grantedListAsOf": "2026-11-06",
  "checkedAt": "2026-11-06",
  "updatedAt": "2026-11-06",
  "cases": [
@@ -311,6 +311,34 @@
     "subjects": [
      "Family law"
     ],
+    "court": [
+     "Civil"
+    ]
+   }
+  },
+  {
+   "docket": "25-1408",
+   "name": "Goldman Sachs Bank Usa v. Brown",
+   "lowerCourt": "4th Cir.",
+   "lowerCourtFull": "United States Court of Appeals for the Fourth Circuit",
+   "granted": "2026-11-06",
+   "scheduled": null,
+   "argued": null,
+   "reargued": false,
+   "decided": null,
+   "outcome": null,
+   "opinionUrl": null,
+   "qpUrl": null,
+   "docketUrl": "https://www.supremecourt.gov/docket/docketfiles/html/public/25-1408.html",
+   "transcriptUrl": null,
+   "audioUrl": null,
+   "consolidatedWith": [],
+   "capitalCase": false,
+   "addedOn": "2026-11-06",
+   "content": null,
+   "tags": {
+    "kinds": [],
+    "subjects": [],
     "court": [
      "Civil"
     ]
@@ -1267,6 +1295,10 @@
   {
    "date": "2026-11-06",
    "text": "Case write-ups added or updated for 16 case(s)."
+  },
+  {
+   "date": "2026-11-06",
+   "text": "Added Goldman Sachs Bank Usa v. Brown (No. 25-1408), granted Nov 6, 2026."
   }
  ]
 }
