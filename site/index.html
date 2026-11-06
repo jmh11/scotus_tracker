@@ -54,7 +54,7 @@ main{display:flex;flex-direction:column;gap:20px;padding-block:22px 48px}
 .controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
 .chip{min-height:40px;padding:0 14px;border:1px solid var(--line);background:var(--surface);cursor:pointer;font-size:15px}
 .chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent);font-weight:600}
-.search{margin-left:auto;min-height:40px;width:min(260px,100%);padding:0 4px;border:0;border-bottom:1px solid var(--ink);background:transparent;font-size:16px}
+.search{margin-left:auto;min-height:40px;width:min(330px,100%);padding:0 4px;border:0;border-bottom:1px solid var(--ink);background:transparent;font-size:16px}
 
 .tablebox{border:1px solid var(--line);background:var(--surface)}
 table{width:100%;border-collapse:collapse;font-size:15px}
@@ -78,7 +78,8 @@ select.pick.empty{border-style:dashed;border-color:var(--accent);color:var(--acc
 .pop{position:absolute;z-index:5;top:56px;left:8px;width:min(340px,80vw);background:var(--surface);border:1px solid var(--ink);border-top:3px solid var(--accent);padding:14px 16px;font-size:14px;line-height:1.5;box-shadow:0 10px 28px var(--shadow)}
 .pop p{margin:0 0 6px}
 .pop .eyebrow{margin-bottom:8px}
-.note{width:100%;min-width:180px;box-sizing:border-box;min-height:40px;border:0;border-bottom:1px solid var(--line);background:transparent;padding:0 2px;font-style:italic}
+.note{width:100%;min-width:180px;box-sizing:border-box;min-height:40px;border:0;border-bottom:1px solid var(--line);background:transparent;padding:0 2px;font-style:normal}
+.note::placeholder{font-style:italic;color:var(--muted);opacity:1}
 .note:focus{border-bottom-color:var(--ink)}
 tr.detail td{background:var(--tint);border-top:0;padding:16px 16px 20px 40px}
 .brief{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;max-width:1100px}
@@ -277,7 +278,7 @@ function render(){
     for(const c of list){
     const isOpen=open.has(c.docket), st=status(c), p=getPick(c.docket);
     const isNew=c.addedOn&&((now-new Date(c.addedOn+'T12:00:00'))/864e5<14);
-    const arg = c.argued ? h('span',{class:'date'},fmt(c.argued), c.reargued?h('span',{class:'soft'},' (reargued)'):null) : c.scheduled ? h('span',{class:'date'},fmt(c.scheduled),h('span',{class:'soft'},' (scheduled)')) : h('span',{class:'soft'},'Not yet scheduled');
+    const arg = c.argued ? h('div',null,h('span',{class:'date'},fmt(c.argued)), c.reargued?h('div',{class:'meta'},'(reargued)'):null) : c.scheduled ? h('div',null,h('span',{class:'date'},fmt(c.scheduled)),h('div',{class:'meta'},'(scheduled)')) : h('span',{class:'soft'},'Not yet scheduled');
     const dec = c.decided ? h('span',{class:'date'},fmt(c.decided), h('div',{class:'meta'},DISPOSITION[c.outcome]||c.outcome)) : h('span',{class:'soft'},'TBD');
     const noteId='note-'+c.docket;
     tb.append(h('tr',{class:'case'},
