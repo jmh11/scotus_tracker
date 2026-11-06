@@ -1163,7 +1163,9 @@
    "consolidatedWith": [],
    "capitalCase": false,
    "addedOn": null,
-   "content": null,
+   "content": {
+    "question": "(1) Whether the district court had jurisdiction to hear the challenge.\n(2) Whether federal immigration law allowed the district court to enter classwide declaratory relief and set aside the government's guidance on removing noncitizens to countries not named in their removal orders.\n(3) Whether that guidance, including its procedures for notice and for raising a fear of persecution or torture, is lawful under federal immigration law, the Due Process Clause, or the Convention Against Torture as implemented by the Foreign Affairs Reform and Restructuring Act and its regulations."
+   },
    "tags": {
     "kinds": [
      "Statutory",
@@ -1247,6 +1249,10 @@
   {
    "date": "2026-11-06",
    "text": "Case write-ups added or updated for Blanche v. Ozurumba, Department of Justice v. McNutt."
+  },
+  {
+   "date": "2026-11-06",
+   "text": "Case write-ups added or updated for Department of Homeland Security v. D.V.D.."
   }
  ]
 }
