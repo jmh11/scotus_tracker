@@ -122,8 +122,9 @@
  },
  "25-1103": {
   "source": "Questions Presented",
-  "draft": "(1) Whether the court of appeals' order departed from the Supreme Court's instructions and the separation-of-powers principles it articulated in Cheney v. United States District Court.\n(2) Whether a court may order broad discovery against an Executive Office advisory body—potentially providing much information sought on the merits of a plaintiff's Freedom of Information Act (FOIA) claims—to determine whether FOIA's disclosure requirements apply in the first place.",
-  "notes": "Background dropped; case citation removed; FOIA spelled out; \"plaintiffs\" corrected to \"plaintiff's\"; \"this Court\" clarified."
+  "draft": "Whether a court may order broad discovery against an Executive Office advisory body—potentially providing much information sought on the merits of a plaintiff's Freedom of Information Act (FOIA) claims—to determine whether FOIA's disclosure requirements apply in the first place.",
+  "notes": "Background dropped; case citation removed; FOIA spelled out; \"plaintiffs\" corrected to \"plaintiff's\"; \"this Court\" clarified. Edited by Joshua. Question 1 (about the court of appeals' compliance with the Supreme Court's remand) dropped at Joshua's request.",
+  "status": "approved 2026-11-06"
  },
  "25-1131": {
   "source": "Questions Presented, limited to Question 1",
@@ -145,8 +146,9 @@
  },
  "25-1343": {
   "source": "Questions Presented",
-  "draft": "Whether material support to a terrorist organization, which makes an alien removable and ineligible for various immigration benefits under 8 U.S.C. § 1182(a)(3)(B)(iv)(VI), must advance the organization's actual commission of terrorism to qualify for that bar.",
-  "notes": "The official question refers to \"such support\" defined in the sentence before it, so that sentence's substance is folded in. \"(Vl)\" typo corrected to \"(VI)\". Lightest-touch rewrite in the set; worth a careful look."
+  "draft": "Whether material support to a terrorist organization, which makes an alien removable and ineligible for various immigration benefits—including asylum eligibility—under 8 U.S.C. § 1182(a)(3)(B)(iv)(VI), must advance the organization's actual commission of terrorism to qualify for that bar.",
+  "notes": "The official question refers to \"such support\" defined in the sentence before it, so that sentence's substance is folded in. \"(Vl)\" typo corrected to \"(VI)\". Lightest-touch rewrite in the set; worth a careful look. Edited by Joshua.",
+  "status": "approved 2026-11-06"
  },
  "25-1349": {
   "source": "Questions Presented",
@@ -174,23 +176,28 @@
  },
  "25-7026": {
   "source": "Questions Presented",
-  "draft": "Whether a certificate of appealability under 28 U.S.C. § 2253 should be granted where the issue that the petitioner seeks to raise on appeal has been resolved against him by binding circuit precedent but has been resolved in his favor by another circuit.",
-  "notes": "Background dropped."
+  "draft": "Whether an appeals court must grant a petitioner permission to appeal under 28 U.S.C. § 2253 where the petitioner's argument has been foreclosed by binding circuit precedent but has been resolved in the petitioner's favor by another circuit.",
+  "notes": "Background dropped. Edited by Joshua.",
+  "status": "approved 2026-11-06"
  },
  "26-12": {
   "source": "The Court's grant order (limited to its own question)",
   "draft": "Whether a plaintiff challenging a facially neutral admissions policy as racially discriminatory must establish that the targeted racial group suffered an aggregate disparate impact relative to its share of the applicant pool.",
-  "notes": "The Court granted only its own reworded question. Converted from all caps."
+  "notes": "The Court granted only its own reworded question. Converted from all caps.",
+  "status": "approved 2026-11-06"
  },
  "26-104": {
   "source": "Questions Presented",
   "draft": "Whether 8 U.S.C. § 1225(b)(2)(A) mandates the detention pending removal proceedings of aliens who, like the respondent, are present in the United States without having been admitted.",
-  "notes": "\"respondent\" given an article."
+  "notes": "\"respondent\" given an article.",
+  "status": "approved 2026-11-06"
  },
  "26-204": {
   "source": "Questions Presented",
   "draft": "Whether the federal prohibition on the production of distilled spirits in particular locations, including \"in any dwelling house\" or \"in any shed, yard, or inclosure connected with any dwelling house,\" is necessary and proper for carrying into execution Congress's enumerated power to lay and collect taxes.",
-  "notes": "Background dropped; code citation dropped and \"federal\" added so the law is still identified."
+  "notes": "Background dropped; code citation dropped and \"federal\" added so the law is still identified.",
+  "status": "held: choosing between the official-based draft and a plain-language rewrite",
+  "proposed": "Whether the federal ban on distilling spirits in a home, or in a shed or yard connected to a home, is a valid use of Congress's taxing power and the Necessary and Proper Clause."
  },
  "26-426": {
   "source": "The Court's order of September 29, 2026",
