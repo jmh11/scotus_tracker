@@ -87,6 +87,8 @@ select.pick.empty{border-style:dashed;border-color:var(--accent);color:var(--acc
 tr.detail td{background:var(--tint);border-top:0;padding:16px 16px 20px 40px}
 .question{max-width:1100px;margin-bottom:18px;padding-bottom:16px;border-bottom:1px solid var(--line)}
 .question p{margin:6px 0 0;font-size:16px}
+.qlink{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+.qlink:hover{color:var(--accent-strong)}
 .brief{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;max-width:1100px}
 .brief p{margin:6px 0 0}
 .links{display:flex;flex-wrap:wrap;gap:18px;margin-top:14px}
@@ -307,12 +309,13 @@ function render(){
       const blk=(label,txt)=>h('div',null,h('div',{class:'eyebrow'},label),h('p',txt?null:{class:'soft'},txt||'Summary coming soon.'));
       const cw=(c.consolidatedWith||[])[0];
       tb.append(h('tr',{class:'detail'},h('td',{colspan:'7'},
-        h('div',{class:'question'},blk('The question',ct.question)),
+        h('div',{class:'question'},
+          c.qpUrl?h('a',{class:'eyebrow qlink',href:c.qpUrl,target:'_blank',rel:'noopener',title:'Read the official question presented (PDF)'},'The question ↗'):h('div',{class:'eyebrow'},'The question'),
+          h('p',ct.question?null:{class:'soft'},ct.question||'Summary coming soon.')),
         h('div',{class:'brief'},blk('Facts of the case',ct.facts),blk("Petitioner's argument",ct.petitioner),blk("Respondent's argument",ct.respondent)),
         cw?h('p',{style:'margin:14px 0 0'},'Argued together with ',h('em',null,cw.name),' (No. '+cw.docket+').'):null,
         h('div',{class:'links'},
           h('a',{href:c.docketUrl,target:'_blank',rel:'noopener'},'Docket & briefs ↗'),
-          c.qpUrl?h('a',{href:c.qpUrl,target:'_blank',rel:'noopener'},'Questions presented ↗'):null,
           c.transcriptUrl?h('a',{href:c.transcriptUrl,target:'_blank',rel:'noopener'},'Argument transcript ↗'):null,
           c.audioUrl?h('a',{href:c.audioUrl,target:'_blank',rel:'noopener'},'Argument audio ↗'):null,
           c.opinionUrl?h('a',{href:c.opinionUrl,target:'_blank',rel:'noopener'},'Opinion ↗'):null)
