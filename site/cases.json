@@ -32,12 +32,12 @@
      {
       "id": "fact",
       "label": "Question of fact",
-      "meaning": "Trademark strength is decided like other facts, and appeals courts review it deferentially, as twelve circuits do."
+      "meaning": "Trademark strength is decided like other facts, and appeals courts review it deferentially."
      },
      {
       "id": "law",
       "label": "Question of law",
-      "meaning": "Trademark strength is a legal question that appeals courts decide for themselves, as the Second Circuit does."
+      "meaning": "Trademark strength is a legal question that appeals courts decide for themselves."
      }
     ]
    },
@@ -1819,6 +1819,10 @@
   {
    "date": "2026-11-06",
    "text": "Case write-ups added or updated for 35 case(s)."
+  },
+  {
+   "date": "2026-11-06",
+   "text": "Case write-ups added or updated for RiseandShine Corp. v. PepsiCo, Inc.."
   }
  ]
 }
