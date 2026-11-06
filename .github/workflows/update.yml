@@ -16,6 +16,7 @@ permissions:
   contents: write
   pages: write
   id-token: write
+  issues: write
 
 concurrency:
   group: data-writes
@@ -62,6 +63,16 @@ jobs:
             git commit -m "Update $(TZ=America/New_York date +%Y-%m-%d)"
             git push
           fi
+
+      - name: Email Joshua about new cases and decisions
+        if: hashFiles('notify.md') != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue create --repo "$GITHUB_REPOSITORY" \
+            --title "Tracker update $(TZ=America/New_York date +%Y-%m-%d): needs your review" \
+            --body-file notify.md
+          rm notify.md
 
       - uses: actions/upload-pages-artifact@v3
         with:

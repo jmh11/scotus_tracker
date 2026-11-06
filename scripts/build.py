@@ -44,6 +44,7 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
 SITE_DATA = ROOT / "site" / "cases.json"
 REPORT = ROOT / "build_report.md"
+NOTIFY = ROOT / "notify.md"   # written only when there's news; the workflow turns it into a GitHub issue
 OUTCOMES = {"affirm", "reverse", "vacate", "dismissed", "mixed"}
 CONTENT_KEYS = {"question", "facts", "petitioner", "respondent", "outcomes"}
 PICK_OPTIONS = {"affirm", "reverse", "vacate"}
@@ -250,6 +251,16 @@ def main() -> int:
     if problems:
         lines += ["## Problems (nothing was published)"] + [f"- {x}" for x in problems] + [""]
     REPORT.write_text("\n".join(lines))
+
+    # Alert Joshua (by GitHub issue -> email) only for events that need him: a new case or a decision.
+    events = [c for c in changes if c.startswith("Added ") or " was decided on " in c]
+    if events and not problems:
+        NOTIFY.write_text("\n".join(
+            ["@jmh11, the Supreme Court Tracker has news that needs your review:", ""]
+            + [f"- {e}" for e in events]
+            + ["", "New cases need an approved name, tags, question and answer options.",
+               "Decided cases need the answer recorded so picks can be scored.",
+               "", "Full build report: build_report.md in the repository."]))
     print("\n".join(lines))
     if problems:
         return 1
