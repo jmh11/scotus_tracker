@@ -1,0 +1,26 @@
+name: Send a test alert
+
+# Manual only. Sends one alert through the same route as real ones (a GitHub issue
+# mentioning @jmh11, created by GitHub's automation account), so the email can be checked.
+on:
+  workflow_dispatch:
+
+permissions:
+  issues: write
+
+jobs:
+  alert:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          printf '%s\n' \
+            "@jmh11, this is a test of the Supreme Court Tracker's email alerts." \
+            "" \
+            "Real alerts look like this and list what happened, for example:" \
+            "- Added Goldman Sachs Bank USA v. Brown (No. 25-1408), granted Nov 6, 2026." \
+            "" \
+            "Nothing needs doing. You can close this issue." > body.md
+          gh issue create --repo "$GITHUB_REPOSITORY" --title "Test: Supreme Court Tracker alert" --body-file body.md

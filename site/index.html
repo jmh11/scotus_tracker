@@ -150,7 +150,7 @@ footer ul{margin:6px 0 0;padding-left:18px}
       <h1>The Supreme Court Tracker</h1>
       <div class="revised" id="revised">Loading the docket…</div>
     </div>
-    <button class="btn" id="go-send" type="button">Send my predictions to Joshua</button>
+    <button class="btn" id="go-send" type="button">Send my answers to Joshua</button>
   </header>
   <div class="notice" id="cutoff" hidden></div>
 
@@ -195,12 +195,12 @@ footer ul{margin:6px 0 0;padding-left:18px}
 
     <section class="tools">
       <div class="panel" id="send">
-        <h2>Send your predictions to Joshua</h2>
-        <p>This opens an email to Joshua with your picks filled in. If no email app opens, copy the message and send it yourself. It includes a backup code, so your picks can be restored later if needed.</p>
+        <h2>Send your answers to Joshua</h2>
+        <p>This opens an email to Joshua with your predictions, opinions and notes filled in. If no email app opens, copy the message and send it yourself. It includes a backup code, so your picks can be restored later if needed.</p>
         <div class="field"><label for="your-name">Your name</label><input id="your-name" type="text" autocomplete="name" placeholder="So Joshua knows who sent it"></div>
         <div class="field"><label for="msg">Message</label><textarea id="msg" readonly></textarea></div>
         <div class="row">
-          <a class="btn" id="mailto" href="#" style="display:inline-flex;align-items:center;text-decoration:none">Email my predictions</a>
+          <a class="btn" id="mailto" href="#" style="display:inline-flex;align-items:center;text-decoration:none">Email my answers</a>
           <button class="btn ghost" type="button" id="copy-msg">Copy message</button>
         </div>
         <div class="row" style="font-size:14px">Send to <span class="addr" id="addr">joshua_herman@alumni.brown.edu</span><button class="chip" type="button" id="copy-addr">Copy address</button></div>
@@ -396,9 +396,9 @@ function parseCode(s){
 
 function message(){
   const name=$('your-name').value.trim()||'[your name]';
-  const lines=['Supreme Court Tracker (October Term 2026): predictions from '+name,''];
+  const lines=['Supreme Court Tracker (October Term 2026): answers from '+name,''];
   const picked=data?data.cases.filter(c=>picks[c.docket]):[];
-  if(!picked.length) lines.push('(No predictions yet.)');
+  if(!picked.length) lines.push('(No answers yet.)');
   for(const c of picked){const p=picks[c.docket];
     let l=c.name+' (No. '+c.docket+'): Prediction: '+(labelOf(c,p.will)||'—')+' · My opinion: '+(labelOf(c,p.should)||'—');
     if(p.note) l+=' · Note: '+p.note; lines.push(l);}
@@ -406,7 +406,7 @@ function message(){
   return lines.join('\n');
 }
 function updateMsg(){ if(!data) return; const m=message(); $('msg').value=m;
-  const subj='SCOTUS predictions from '+($('your-name').value.trim()||'a tracker user');
+  const subj='SCOTUS Tracker answers from '+($('your-name').value.trim()||'a tracker user');
   $('mailto').href='mailto:'+EMAIL+'?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(m); }
 
 async function copy(text,ta,statusEl,okMsg){
