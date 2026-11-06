@@ -1,7 +1,7 @@
 # Build 2026-11-06
 
 ## Changes
-- Case write-ups added or updated for 5 case(s).
+- Case write-ups added or updated for Blanche v. Ozurumba, Department of Justice v. McNutt.
 
 ## Needs your attention
-- 3 case(s) still show "summary coming soon".
+- 2 case(s) still show "summary coming soon".

@@ -266,7 +266,7 @@
    "capitalCase": false,
    "addedOn": null,
    "content": {
-    "question": "Whether material support to a terrorist organization, which makes an alien removable and ineligible for various immigration benefits—including asylum eligibility—under 8 U.S.C. § 1182(a)(3)(B)(iv)(VI), must advance the organization's actual commission of terrorism to qualify for that bar."
+    "question": "Whether material support to a terrorist organization, which makes an alien removable and ineligible for various immigration benefits—including asylum—under 8 U.S.C. § 1182(a)(3)(B)(iv)(VI), must advance the organization's actual commission of terrorism to qualify for that bar."
    },
    "tags": {
     "kinds": [
@@ -1129,7 +1129,9 @@
    "consolidatedWith": [],
    "capitalCase": false,
    "addedOn": null,
-   "content": null,
+   "content": {
+    "question": "Whether the federal ban on distilling spirits in a home, or in a shed or yard connected to a home, is a valid use of Congress's taxing power and the Necessary and Proper Clause."
+   },
    "tags": {
     "kinds": [
      "Constitutional"
@@ -1241,6 +1243,10 @@
   {
    "date": "2026-11-06",
    "text": "Case write-ups added or updated for 5 case(s)."
+  },
+  {
+   "date": "2026-11-06",
+   "text": "Case write-ups added or updated for Blanche v. Ozurumba, Department of Justice v. McNutt."
   }
  ]
 }
