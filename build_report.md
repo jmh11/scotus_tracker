@@ -1,7 +1,7 @@
 # Build 2026-11-06
 
 ## Changes
-- Case write-ups added or updated for International Partners for Ethical Care, Inc. v. Ferguson.
+- Case write-ups added or updated for 5 case(s).
 
 ## Needs your attention
-- 8 case(s) still show "summary coming soon".
+- 3 case(s) still show "summary coming soon".
