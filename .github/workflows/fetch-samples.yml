@@ -1,0 +1,28 @@
+name: Download sample decided cases (development)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: data-writes
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python scripts/fetch_samples.py
+      - name: Save the samples to the repository
+        run: |
+          git config user.name "scotus-tracker-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/samples
+          git diff --cached --quiet || { git commit -m "Sample decided dockets from the 2025 term"; git push; }

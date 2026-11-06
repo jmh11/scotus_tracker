@@ -1,0 +1,22 @@
+{
+  "_about": "Fixed lookup: the lower court's name exactly as the Court's docket states it -> the short form shown on the page. The build stops if a docket names a court missing from this table.",
+  "United States Court of Appeals for the First Circuit": "1st Cir.",
+  "United States Court of Appeals for the Second Circuit": "2nd Cir.",
+  "United States Court of Appeals for the Third Circuit": "3rd Cir.",
+  "United States Court of Appeals for the Fourth Circuit": "4th Cir.",
+  "United States Court of Appeals for the Fifth Circuit": "5th Cir.",
+  "United States Court of Appeals for the Sixth Circuit": "6th Cir.",
+  "United States Court of Appeals for the Seventh Circuit": "7th Cir.",
+  "United States Court of Appeals for the Eighth Circuit": "8th Cir.",
+  "United States Court of Appeals for the Ninth Circuit": "9th Cir.",
+  "United States Court of Appeals for the Tenth Circuit": "10th Cir.",
+  "United States Court of Appeals for the Eleventh Circuit": "11th Cir.",
+  "United States Court of Appeals for the District of Columbia Circuit": "D.C. Cir.",
+  "United States Court of Appeals for the Federal Circuit": "Fed. Cir.",
+  "United States Court of Appeals for the Armed Forces": "C.A.A.F.",
+  "Supreme Court of Alaska": "Alaska Sup. Ct.",
+  "Supreme Court of Colorado": "Colo. Sup. Ct.",
+  "Supreme Court of Kentucky": "Ky. Sup. Ct.",
+  "Supreme Court of North Dakota": "N.D. Sup. Ct.",
+  "District Court of Appeal of Florida, Fourth District": "Fla. 4th DCA"
+}
