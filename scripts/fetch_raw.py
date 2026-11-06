@@ -10,7 +10,8 @@
 
 Case numbers are read from the list with the same fixed rules as parse_granted_list.py.
 This script does not interpret or change the content of anything it downloads.
-Exits with an error if any download fails.
+Exits with an error if any download fails. If the site serves an older Granted list than
+the one already saved, the saved one is kept.
 """
 import json
 import pathlib
@@ -33,6 +34,16 @@ AUDIO_URL = "https://www.supremecourt.gov/oral_arguments/argument_audio/2026"
 QP_BASE = "https://www.supremecourt.gov/qp/"
 
 
+def pdf_text(path: pathlib.Path) -> str:
+    return subprocess.run(["pdftotext", "-layout", str(path), "-"], check=True,
+                          capture_output=True, text=True).stdout
+
+
+def pdf_text_from_bytes(data: bytes) -> str:
+    return subprocess.run(["pdftotext", "-layout", "-", "-"], input=data, check=True,
+                          capture_output=True).stdout.decode("utf-8", "replace")
+
+
 def download(url: str, dest: pathlib.Path) -> int:
     req = urllib.request.Request(url, headers={"User-Agent": UA})
     with urllib.request.urlopen(req, timeout=30) as r:
@@ -44,14 +55,22 @@ def download(url: str, dest: pathlib.Path) -> int:
 
 def main() -> int:
     pdf = RAW / "granted_noted_list.pdf"
+    previous = pdf.read_bytes() if pdf.exists() else None
     print(f"OK    {download(GRANTED_URL, pdf):>9,} bytes  {pdf.relative_to(ROOT)}")
+    # The Court's site sometimes serves an older copy of the list. Never replace the saved list
+    # with one whose "As of" date is earlier: keep the newer one and say so.
+    if previous is not None:
+        old_as_of = gl.parse(pdf_text_from_bytes(previous))[0]["asOf"]
+        new_as_of = gl.parse(pdf_text(pdf))[0]["asOf"]
+        if old_as_of and new_as_of and new_as_of < old_as_of:
+            pdf.write_bytes(previous)
+            print(f"NOTE  the site served an older Granted list (as of {new_as_of}); "
+                  f"kept the saved one (as of {old_as_of})")
     tx = RAW / "argument_transcripts_2026.html"
     print(f"OK    {download(TRANSCRIPTS_URL, tx):>9,} bytes  {tx.relative_to(ROOT)}")
     au = RAW / "argument_audio_2026.html"
     print(f"OK    {download(AUDIO_URL, au):>9,} bytes  {au.relative_to(ROOT)}")
-    text = subprocess.run(["pdftotext", "-layout", str(pdf), "-"], check=True,
-                          capture_output=True, text=True).stdout
-    listed, problems = gl.parse(text)
+    listed, problems = gl.parse(pdf_text(pdf))
     if problems:
         for p in problems:
             print(f"PROBLEM granted list: {p}")
