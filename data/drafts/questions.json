@@ -146,7 +146,7 @@
  },
  "25-1343": {
   "source": "Questions Presented",
-  "draft": "Whether material support to a terrorist organization, which makes an alien removable and ineligible for various immigration benefits—including asylum eligibility—under 8 U.S.C. § 1182(a)(3)(B)(iv)(VI), must advance the organization's actual commission of terrorism to qualify for that bar.",
+  "draft": "Whether material support to a terrorist organization, which makes an alien removable and ineligible for various immigration benefits—including asylum—under 8 U.S.C. § 1182(a)(3)(B)(iv)(VI), must advance the organization's actual commission of terrorism to qualify for that bar.",
   "notes": "The official question refers to \"such support\" defined in the sentence before it, so that sentence's substance is folded in. \"(Vl)\" typo corrected to \"(VI)\". Lightest-touch rewrite in the set; worth a careful look. Edited by Joshua.",
   "status": "approved 2026-11-06"
  },
@@ -194,10 +194,9 @@
  },
  "26-204": {
   "source": "Questions Presented",
-  "draft": "Whether the federal prohibition on the production of distilled spirits in particular locations, including \"in any dwelling house\" or \"in any shed, yard, or inclosure connected with any dwelling house,\" is necessary and proper for carrying into execution Congress's enumerated power to lay and collect taxes.",
-  "notes": "Background dropped; code citation dropped and \"federal\" added so the law is still identified.",
-  "status": "held: choosing between the official-based draft and a plain-language rewrite",
-  "proposed": "Whether the federal ban on distilling spirits in a home, or in a shed or yard connected to a home, is a valid use of Congress's taxing power and the Necessary and Proper Clause."
+  "draft": "Whether the federal ban on distilling spirits in a home, or in a shed or yard connected to a home, is a valid use of Congress's taxing power and the Necessary and Proper Clause.",
+  "notes": "Background dropped; code citation dropped and \"federal\" added so the law is still identified. Plain-language rewrite by Claude, approved by Joshua.",
+  "status": "approved 2026-11-06"
  },
  "26-426": {
   "source": "The Court's order of September 29, 2026",

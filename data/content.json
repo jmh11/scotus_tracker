@@ -82,7 +82,7 @@
   "question": "Whether an appeals court must grant a petitioner permission to appeal under 28 U.S.C. § 2253 where the petitioner's argument has been foreclosed by binding circuit precedent but has been resolved in the petitioner's favor by another circuit."
  },
  "25-1343": {
-  "question": "Whether material support to a terrorist organization, which makes an alien removable and ineligible for various immigration benefits—including asylum eligibility—under 8 U.S.C. § 1182(a)(3)(B)(iv)(VI), must advance the organization's actual commission of terrorism to qualify for that bar."
+  "question": "Whether material support to a terrorist organization, which makes an alien removable and ineligible for various immigration benefits—including asylum—under 8 U.S.C. § 1182(a)(3)(B)(iv)(VI), must advance the organization's actual commission of terrorism to qualify for that bar."
  },
  "25-1103": {
   "question": "Whether a court may order broad discovery against an Executive Office advisory body—potentially providing much information sought on the merits of a plaintiff's Freedom of Information Act (FOIA) claims—to determine whether FOIA's disclosure requirements apply in the first place."
@@ -92,5 +92,8 @@
  },
  "26-104": {
   "question": "Whether 8 U.S.C. § 1225(b)(2)(A) mandates the detention pending removal proceedings of aliens who, like the respondent, are present in the United States without having been admitted."
+ },
+ "26-204": {
+  "question": "Whether the federal ban on distilling spirits in a home, or in a shed or yard connected to a home, is a valid use of Congress's taxing power and the Necessary and Proper Clause."
  }
 }
