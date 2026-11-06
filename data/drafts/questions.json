@@ -2,14 +2,14 @@
  "_about": "Draft questions for Joshua's review. Not shown on the page until approved and copied into data/content.json. 'source' says which official text the draft is based on.",
  "24-1016": {
   "source": "Questions Presented",
-  "draft": "Whether trademark strength is a question of fact or law in a trademark infringement likelihood-of-confusion analysis under 15 U.S.C. § 1114.",
-  "notes": "Background paragraph dropped. Statute citation kept because it's the only place the law is identified. Edited by Joshua.",
+  "draft": "Whether trademark strength is a question of fact or law in a trademark infringement likelihood-of-confusion analysis under the Lanham Act.",
+  "notes": "Background paragraph dropped. Statute citation kept because it's the only place the law is identified. Edited by Joshua. Consistency pass (laws named, abbreviations added) approved by Joshua.",
   "status": "approved 2026-11-06"
  },
  "25-159": {
   "source": "Questions Presented",
-  "draft": "Whether \"just compensation\" should be determined by reference to state law when a private company uses the Natural Gas Act to seize someone's land for natural gas infrastructure.",
-  "notes": "Background paragraph dropped. Edited by Joshua. Revised by Joshua for consistency.",
+  "draft": "Whether \"just compensation\" should be determined by reference to state law when a private company uses the Natural Gas Act (NGA) to seize someone's land for natural gas infrastructure.",
+  "notes": "Background paragraph dropped. Edited by Joshua. Revised by Joshua for consistency. Consistency pass (laws named, abbreviations added) approved by Joshua.",
   "status": "approved 2026-11-06"
  },
  "25-170": {
@@ -50,14 +50,14 @@
  },
  "25-459": {
   "source": "Questions Presented",
-  "draft": "Whether the phrase \"goods or services from a video tape service provider,\" as used in the Video Privacy Protection Act's definition of \"consumer,\" refers to all of a video tape service provider's goods or services or only to its audiovisual goods or services.",
-  "notes": "Background dropped; \"the VPPA\" spelled out.",
+  "draft": "Whether the phrase \"goods or services from a video tape service provider,\" as used in the Video Privacy Protection Act's (VPPA) definition of \"consumer,\" refers to all of a video tape service provider's goods or services or only to its audiovisual goods or services.",
+  "notes": "Background dropped; \"the VPPA\" spelled out. Consistency pass (laws named, abbreviations added) approved by Joshua.",
   "status": "approved 2026-11-06"
  },
  "25-498": {
   "source": "Questions Presented",
-  "draft": "Whether, for claims predicated on fund underperformance, pleading that an ERISA fiduciary failed to use the requisite \"care, skill, prudence, or diligence\" under the circumstances and thus breached ERISA's duty of prudence when investing plan assets requires alleging a \"meaningful benchmark.\"",
-  "notes": "Background paragraph and its citations dropped.",
+  "draft": "Whether, for claims predicated on fund underperformance, pleading that a fiduciary under the Employee Retirement Income Security Act (ERISA) failed to use the requisite \"care, skill, prudence, or diligence\" under the circumstances and thus breached ERISA's duty of prudence when investing plan assets requires alleging a \"meaningful benchmark.\"",
+  "notes": "Background paragraph and its citations dropped. Consistency pass (laws named, abbreviations added) approved by Joshua.",
   "status": "approved 2026-11-06"
  },
  "25-566": {
@@ -68,8 +68,8 @@
  },
  "25-579": {
   "source": "Questions Presented",
-  "draft": "(1) Whether the federal government's submission to a state or territorial regulator of an application to renew a permit under the Resource Conservation and Recovery Act (RCRA) is \"final agency action\" that is immediately reviewable under the Administrative Procedure Act.\n(2) Whether the federal government must comply with the general environmental-review procedures of the National Environmental Policy Act of 1969 before submitting a permit-renewal application under RCRA, which sets forth its own specific procedures to review environmental impacts in the context of hazardous-waste treatment.",
-  "notes": "Background dropped; RCRA spelled out; code citations for the APA and NEPA dropped because both laws are named. Edited by Joshua.",
+  "draft": "(1) Whether the federal government's submission to a state or territorial regulator of an application to renew a permit under the Resource Conservation and Recovery Act (RCRA) is \"final agency action\" that is immediately reviewable under the Administrative Procedure Act (APA).\n(2) Whether the federal government must comply with the general environmental-review procedures of the National Environmental Policy Act (NEPA) before submitting a permit-renewal application under RCRA, which sets forth its own specific procedures to review environmental impacts in the context of hazardous-waste treatment.",
+  "notes": "Background dropped; RCRA spelled out; code citations for the APA and NEPA dropped because both laws are named. Edited by Joshua. Consistency pass (laws named, abbreviations added) approved by Joshua.",
   "status": "approved 2026-11-06"
  },
  "25-581": {
@@ -80,8 +80,8 @@
  },
  "25-735": {
   "source": "Questions Presented",
-  "draft": "Whether the Veterans' Judicial Review Act stripped district courts of jurisdiction to hear challenges to the constitutionality of acts of Congress affecting veterans' benefits.",
-  "notes": "Case citation removed, matching the Oyez example. \"This Court\" changed to \"the Supreme Court.\" Revised by Joshua for consistency.",
+  "draft": "Whether the Veterans' Judicial Review Act (VJRA) stripped district courts of jurisdiction to hear challenges to the constitutionality of acts of Congress affecting veterans' benefits.",
+  "notes": "Case citation removed, matching the Oyez example. \"This Court\" changed to \"the Supreme Court.\" Revised by Joshua for consistency. Consistency pass (laws named, abbreviations added) approved by Joshua.",
   "status": "approved 2026-11-06"
  },
  "25-840": {
@@ -92,8 +92,8 @@
  },
  "25-842": {
   "source": "Questions Presented",
-  "draft": "Whether noncitizens who were \"granted asylum,\" but whose asylum was later terminated, are eligible for adjustment to lawful permanent resident status under 8 U.S.C. § 1159(b), or are categorically ineligible.",
-  "notes": "Background dropped; \"LPR\" spelled out; \"Section 1159(b)\" given its full citation since the sentence that defined it was dropped. Edited by Joshua.",
+  "draft": "Whether noncitizens who were \"granted asylum,\" but whose asylum was later terminated, are eligible for adjustment to lawful permanent resident status under the Immigration and Nationality Act (INA), or are categorically ineligible.",
+  "notes": "Background dropped; \"LPR\" spelled out; \"Section 1159(b)\" given its full citation since the sentence that defined it was dropped. Edited by Joshua. Consistency pass (laws named, abbreviations added) approved by Joshua.",
   "status": "approved 2026-11-06"
  },
  "25-965": {
@@ -104,14 +104,14 @@
  },
  "25-966": {
   "source": "The Court's grant order (limited to its own two questions)",
-  "draft": "(1) Whether Article III of the Constitution precludes the Department of Labor from adjudicating proceedings to collect monetary remedies from employers who have allegedly violated the terms and conditions of employment of H-2A workers and domestic workers in corresponding employment and instead requires them to be decided by a federal court.\n(2) Whether 8 U.S.C. § 1188(g)(2) authorizes the Department of Labor to adjudicate such proceedings.",
-  "notes": "The Court granted only its own two questions, so those replace the petition's question. Converted from all caps. Edited by Joshua.",
+  "draft": "(1) Whether Article III of the Constitution precludes the Department of Labor from adjudicating proceedings to collect monetary remedies from employers who have allegedly violated the terms and conditions of employment of H-2A workers and domestic workers in corresponding employment and instead requires them to be decided by a federal court.\n(2) Whether the Immigration and Nationality Act (INA) authorizes the Department of Labor to adjudicate such proceedings.",
+  "notes": "The Court granted only its own two questions, so those replace the petition's question. Converted from all caps. Edited by Joshua. Consistency pass (laws named, abbreviations added) approved by Joshua.",
   "status": "approved 2026-11-06"
  },
  "25-1003": {
   "source": "Questions Presented",
-  "draft": "Whether a claim relies on \"a new rule of constitutional law . . . that was previously unavailable\" when the habeas petitioner could have asserted a claim based on the rule in a prior federal habeas petition.",
-  "notes": "Background dropped; doubled \"a\" fixed. Edited by Joshua.",
+  "draft": "Whether, under the Antiterrorism and Effective Death Penalty Act (AEDPA), a claim relies on \"a new rule of constitutional law . . . that was previously unavailable\" when the habeas petitioner could have asserted a claim based on the rule in a prior federal habeas petition.",
+  "notes": "Background dropped; doubled \"a\" fixed. Edited by Joshua. Consistency pass (laws named, abbreviations added) approved by Joshua.",
   "status": "approved 2026-11-06"
  },
  "25-1017": {
@@ -134,8 +134,8 @@
  },
  "25-1223": {
   "source": "Questions Presented",
-  "draft": "Whether a noncitizen who wins a habeas case challenging civil immigration detention can recover attorney's fees from the government under the Equal Access to Justice Act.",
-  "notes": "Background dropped; \"EAJA\" spelled out. Plain-language rewrite approved by Joshua.",
+  "draft": "Whether a noncitizen who wins a habeas case challenging civil immigration detention can recover attorney's fees from the government under the Equal Access to Justice Act (EAJA).",
+  "notes": "Background dropped; \"EAJA\" spelled out. Plain-language rewrite approved by Joshua. Consistency pass (laws named, abbreviations added) approved by Joshua.",
   "status": "approved 2026-11-06"
  },
  "25-1311": {
@@ -146,14 +146,14 @@
  },
  "25-1343": {
   "source": "Questions Presented",
-  "draft": "Whether material support to a terrorist organization, which makes an alien removable and ineligible for various immigration benefits—including asylum—under 8 U.S.C. § 1182(a)(3)(B)(iv)(VI), must advance the organization's actual commission of terrorism to qualify for that bar.",
-  "notes": "The official question refers to \"such support\" defined in the sentence before it, so that sentence's substance is folded in. \"(Vl)\" typo corrected to \"(VI)\". Lightest-touch rewrite in the set; worth a careful look. Edited by Joshua.",
+  "draft": "Whether material support to a terrorist organization, which makes an alien removable and ineligible for various immigration benefits—including asylum—under the Immigration and Nationality Act (INA), must advance the organization's actual commission of terrorism to qualify for that bar.",
+  "notes": "The official question refers to \"such support\" defined in the sentence before it, so that sentence's substance is folded in. \"(Vl)\" typo corrected to \"(VI)\". Lightest-touch rewrite in the set; worth a careful look. Edited by Joshua. Consistency pass (laws named, abbreviations added) approved by Joshua.",
   "status": "approved 2026-11-06"
  },
  "25-1349": {
   "source": "Questions Presented",
-  "draft": "Whether the Uniformed Services Former Spouses' Protection Act requires state courts to refuse enforcement of indemnification provisions in divorce settlement agreements.",
-  "notes": "Background dropped; \"USFSPA\" spelled out. Revised by Joshua for consistency.",
+  "draft": "Whether the Uniformed Services Former Spouses' Protection Act (USFSPA) requires state courts to refuse enforcement of indemnification provisions in divorce settlement agreements.",
+  "notes": "Background dropped; \"USFSPA\" spelled out. Revised by Joshua for consistency. Consistency pass (laws named, abbreviations added) approved by Joshua.",
   "status": "approved 2026-11-06"
  },
  "25-5343": {
@@ -164,8 +164,8 @@
  },
  "25-5930": {
   "source": "The Court's grant order (limited to its own question)",
-  "draft": "Whether a claim regarding application of time credits under the First Step Act of 2018, seeking accelerated transfer to a halfway house or home confinement, can be brought in a habeas petition under 28 U.S.C. § 2241.",
-  "notes": "The Court granted only its own question. Statutes at Large and code citations for the First Step Act dropped because the law is named; § 2241 kept because it's the only identifier for the habeas statute.",
+  "draft": "Whether a claim regarding application of time credits under the First Step Act (FSA), seeking accelerated transfer to a halfway house or home confinement, can be brought in a habeas petition under the federal habeas corpus statute.",
+  "notes": "The Court granted only its own question. Statutes at Large and code citations for the First Step Act dropped because the law is named; § 2241 kept because it's the only identifier for the habeas statute. Consistency pass (laws named, abbreviations added) approved by Joshua.",
   "status": "approved 2026-11-06"
  },
  "25-6623": {
@@ -176,8 +176,8 @@
  },
  "25-7026": {
   "source": "Questions Presented",
-  "draft": "Whether an appeals court must grant a petitioner permission to appeal under 28 U.S.C. § 2253 where the petitioner's argument has been foreclosed by binding circuit precedent but has been resolved in the petitioner's favor by another circuit.",
-  "notes": "Background dropped. Edited by Joshua.",
+  "draft": "Whether an appeals court must grant a petitioner permission to appeal under the Antiterrorism and Effective Death Penalty Act (AEDPA) where the petitioner's argument has been foreclosed by binding circuit precedent but has been resolved in the petitioner's favor by another circuit.",
+  "notes": "Background dropped. Edited by Joshua. Consistency pass (laws named, abbreviations added) approved by Joshua.",
   "status": "approved 2026-11-06"
  },
  "26-12": {
@@ -188,8 +188,8 @@
  },
  "26-104": {
   "source": "Questions Presented",
-  "draft": "Whether 8 U.S.C. § 1225(b)(2)(A) mandates the detention pending removal proceedings of aliens who, like the respondent, are present in the United States without having been admitted.",
-  "notes": "\"respondent\" given an article.",
+  "draft": "Whether the Immigration and Nationality Act (INA) mandates the detention pending removal proceedings of aliens who, like the respondent, are present in the United States without having been admitted.",
+  "notes": "\"respondent\" given an article. Consistency pass (laws named, abbreviations added) approved by Joshua.",
   "status": "approved 2026-11-06"
  },
  "26-204": {
@@ -200,8 +200,8 @@
  },
  "26-426": {
   "source": "The Court's order of September 29, 2026",
-  "draft": "(1) Whether the district court had jurisdiction to hear the challenge.\n(2) Whether federal immigration law allowed the district court to enter classwide declaratory relief and set aside the government's guidance on removing noncitizens to countries not named in their removal orders.\n(3) Whether that guidance, including its procedures for notice and for raising a fear of persecution or torture, is lawful under federal immigration law, the Due Process Clause, or the Convention Against Torture as implemented by the Foreign Affairs Reform and Restructuring Act and its regulations.",
-  "notes": "The Court set these questions itself. Its fourth item (\"such other questions that the Government determines are appropriate\") is left out because it isn't a question. Acronyms spelled out. \"APA vacatur under § 1252(f)(1)\" lightly reworded; worth a careful look. Rewritten in plain language with Joshua; FARRA paired with the Convention Against Torture as in the Court's order.",
+  "draft": "(1) Whether the district court had jurisdiction to hear the challenge.\n(2) Whether the Immigration and Nationality Act (INA) allowed the district court to enter classwide declaratory relief and set aside the government's guidance on removing noncitizens to countries not named in their removal orders.\n(3) Whether that guidance, including its procedures for notice and for raising a fear of persecution or torture, is lawful under the INA, the Due Process Clause, or the Convention Against Torture (CAT) as implemented by the Foreign Affairs Reform and Restructuring Act (FARRA) and its regulations.",
+  "notes": "The Court set these questions itself. Its fourth item (\"such other questions that the Government determines are appropriate\") is left out because it isn't a question. Acronyms spelled out. \"APA vacatur under § 1252(f)(1)\" lightly reworded; worth a careful look. Rewritten in plain language with Joshua; FARRA paired with the Convention Against Torture as in the Court's order. Consistency pass (laws named, abbreviations added) approved by Joshua.",
   "status": "approved 2026-11-06"
  }
 }

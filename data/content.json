@@ -1,34 +1,34 @@
 {
  "_about": "Approved written content, keyed by docket number. Only Joshua approves additions and changes. Shape: {\"<docket>\": {\"question\": \"...\", \"facts\": \"...\", \"petitioner\": \"...\", \"respondent\": \"...\", \"outcomes\": {\"affirm\": \"...\", \"reverse\": \"...\", \"vacate\": \"...\"}}}. A case missing from here shows 'coming soon' on the page.",
  "25-735": {
-  "question": "Whether the Veterans' Judicial Review Act stripped district courts of jurisdiction to hear challenges to the constitutionality of acts of Congress affecting veterans' benefits."
+  "question": "Whether the Veterans' Judicial Review Act (VJRA) stripped district courts of jurisdiction to hear challenges to the constitutionality of acts of Congress affecting veterans' benefits."
  },
  "25-170": {
   "question": "(1) Whether the Supreme Court has statutory and Article III jurisdiction to hear this case.\n(2) Whether federal law precludes state-law claims seeking relief for injuries allegedly caused by the effects of interstate and international greenhouse-gas emissions on the global climate."
  },
  "25-498": {
-  "question": "Whether, for claims predicated on fund underperformance, pleading that an ERISA fiduciary failed to use the requisite \"care, skill, prudence, or diligence\" under the circumstances and thus breached ERISA's duty of prudence when investing plan assets requires alleging a \"meaningful benchmark.\""
+  "question": "Whether, for claims predicated on fund underperformance, pleading that a fiduciary under the Employee Retirement Income Security Act (ERISA) failed to use the requisite \"care, skill, prudence, or diligence\" under the circumstances and thus breached ERISA's duty of prudence when investing plan assets requires alleging a \"meaningful benchmark.\""
  },
  "25-579": {
-  "question": "(1) Whether the federal government's submission to a state or territorial regulator of an application to renew a permit under the Resource Conservation and Recovery Act (RCRA) is \"final agency action\" that is immediately reviewable under the Administrative Procedure Act.\n(2) Whether the federal government must comply with the general environmental-review procedures of the National Environmental Policy Act of 1969 before submitting a permit-renewal application under RCRA, which sets forth its own specific procedures to review environmental impacts in the context of hazardous-waste treatment."
+  "question": "(1) Whether the federal government's submission to a state or territorial regulator of an application to renew a permit under the Resource Conservation and Recovery Act (RCRA) is \"final agency action\" that is immediately reviewable under the Administrative Procedure Act (APA).\n(2) Whether the federal government must comply with the general environmental-review procedures of the National Environmental Policy Act (NEPA) before submitting a permit-renewal application under RCRA, which sets forth its own specific procedures to review environmental impacts in the context of hazardous-waste treatment."
  },
  "25-5343": {
   "question": "Whether Stinson v. United States still correctly states the rule for the deference that courts must give the commentary to the Sentencing Guidelines."
  },
  "25-459": {
-  "question": "Whether the phrase \"goods or services from a video tape service provider,\" as used in the Video Privacy Protection Act's definition of \"consumer,\" refers to all of a video tape service provider's goods or services or only to its audiovisual goods or services."
+  "question": "Whether the phrase \"goods or services from a video tape service provider,\" as used in the Video Privacy Protection Act's (VPPA) definition of \"consumer,\" refers to all of a video tape service provider's goods or services or only to its audiovisual goods or services."
  },
  "25-5930": {
-  "question": "Whether a claim regarding application of time credits under the First Step Act of 2018, seeking accelerated transfer to a halfway house or home confinement, can be brought in a habeas petition under 28 U.S.C. § 2241."
+  "question": "Whether a claim regarding application of time credits under the First Step Act (FSA), seeking accelerated transfer to a halfway house or home confinement, can be brought in a habeas petition under the federal habeas corpus statute."
  },
  "25-352": {
   "question": "Whether a defendant who has filed an answer without pleading an affirmative defense may nonetheless assert that affirmative defense as the basis for a summary judgment motion without amending or seeking to amend its answer to plead that affirmative defense, and whether they may do so even if an amendment adding that affirmative defense would be barred by the court's scheduling order deadline under Federal Rule of Civil Procedure 16(b)(4)."
  },
  "25-1003": {
-  "question": "Whether a claim relies on \"a new rule of constitutional law . . . that was previously unavailable\" when the habeas petitioner could have asserted a claim based on the rule in a prior federal habeas petition."
+  "question": "Whether, under the Antiterrorism and Effective Death Penalty Act (AEDPA), a claim relies on \"a new rule of constitutional law . . . that was previously unavailable\" when the habeas petitioner could have asserted a claim based on the rule in a prior federal habeas petition."
  },
  "25-159": {
-  "question": "Whether \"just compensation\" should be determined by reference to state law when a private company uses the Natural Gas Act to seize someone's land for natural gas infrastructure."
+  "question": "Whether \"just compensation\" should be determined by reference to state law when a private company uses the Natural Gas Act (NGA) to seize someone's land for natural gas infrastructure."
  },
  "25-417": {
   "question": "Whether a federal prisoner can sue prison officials for money damages under the Bivens doctrine for deliberate indifference to a non-life-threatening injury."
@@ -37,10 +37,10 @@
   "question": "(1) Whether a law lacks general applicability under the Free Exercise Clause only if it permits unfettered discretion or categorical exemptions for comparable secular conduct.\n(2) Whether the rule against excluding religious institutions from public benefits applies only to explicit government bans on participation by religious people and institutions."
  },
  "25-966": {
-  "question": "(1) Whether Article III of the Constitution precludes the Department of Labor from adjudicating proceedings to collect monetary remedies from employers who have allegedly violated the terms and conditions of employment of H-2A workers and domestic workers in corresponding employment and instead requires them to be decided by a federal court.\n(2) Whether 8 U.S.C. § 1188(g)(2) authorizes the Department of Labor to adjudicate such proceedings."
+  "question": "(1) Whether Article III of the Constitution precludes the Department of Labor from adjudicating proceedings to collect monetary remedies from employers who have allegedly violated the terms and conditions of employment of H-2A workers and domestic workers in corresponding employment and instead requires them to be decided by a federal court.\n(2) Whether the Immigration and Nationality Act (INA) authorizes the Department of Labor to adjudicate such proceedings."
  },
  "25-842": {
-  "question": "Whether noncitizens who were \"granted asylum,\" but whose asylum was later terminated, are eligible for adjustment to lawful permanent resident status under 8 U.S.C. § 1159(b), or are categorically ineligible."
+  "question": "Whether noncitizens who were \"granted asylum,\" but whose asylum was later terminated, are eligible for adjustment to lawful permanent resident status under the Immigration and Nationality Act (INA), or are categorically ineligible."
  },
  "25-1017": {
   "question": "(1) Whether the National Voter Registration Act (NVRA) or a federal consent decree prohibits Arizona from requiring voter-registration applicants to produce \"satisfactory evidence\" of U.S. citizenship when registering with a state registration form.\n(2) Whether the NVRA prohibits Arizona from implementing a program within 90 days of a federal election to cancel the registrations of voters who are not U.S. citizens."
@@ -52,7 +52,7 @@
   "question": "Whether a court may hold a party in civil contempt based on a violation of an injunction's \"spirit\" where the injunction is silent as to the conduct upon which contempt is based; or, instead, whether a court must ground a finding of civil contempt on the violation of an order that clearly and unambiguously proscribes the precise conduct at issue."
  },
  "24-1016": {
-  "question": "Whether trademark strength is a question of fact or law in a trademark infringement likelihood-of-confusion analysis under 15 U.S.C. § 1114."
+  "question": "Whether trademark strength is a question of fact or law in a trademark infringement likelihood-of-confusion analysis under the Lanham Act."
  },
  "25-6623": {
   "question": "Whether the Sixth and Fourteenth Amendments guarantee a defendant charged with a serious felony the right to a trial by a 12-person jury."
@@ -70,7 +70,7 @@
   "question": "Whether the Second and Fourteenth Amendments guarantee the right to possess AR-15 platform and similar semiautomatic rifles."
  },
  "25-1349": {
-  "question": "Whether the Uniformed Services Former Spouses' Protection Act requires state courts to refuse enforcement of indemnification provisions in divorce settlement agreements."
+  "question": "Whether the Uniformed Services Former Spouses' Protection Act (USFSPA) requires state courts to refuse enforcement of indemnification provisions in divorce settlement agreements."
  },
  "25-1131": {
   "question": "Whether a land-use regulation that prohibits a religious institution from building a religious structure on its own property constitutes a \"substantial burden\" on religious exercise under the Substantial Burden Provision of the Religious Land Use and Institutionalized Persons Act (RLUIPA)."
@@ -79,10 +79,10 @@
   "question": "Whether parents have standing to challenge a state law that requires youth shelters to notify a state child-welfare agency, rather than the parents directly, when a runaway minor seeks gender-affirming care."
  },
  "25-7026": {
-  "question": "Whether an appeals court must grant a petitioner permission to appeal under 28 U.S.C. § 2253 where the petitioner's argument has been foreclosed by binding circuit precedent but has been resolved in the petitioner's favor by another circuit."
+  "question": "Whether an appeals court must grant a petitioner permission to appeal under the Antiterrorism and Effective Death Penalty Act (AEDPA) where the petitioner's argument has been foreclosed by binding circuit precedent but has been resolved in the petitioner's favor by another circuit."
  },
  "25-1343": {
-  "question": "Whether material support to a terrorist organization, which makes an alien removable and ineligible for various immigration benefits—including asylum—under 8 U.S.C. § 1182(a)(3)(B)(iv)(VI), must advance the organization's actual commission of terrorism to qualify for that bar."
+  "question": "Whether material support to a terrorist organization, which makes an alien removable and ineligible for various immigration benefits—including asylum—under the Immigration and Nationality Act (INA), must advance the organization's actual commission of terrorism to qualify for that bar."
  },
  "25-1103": {
   "question": "Whether a court may order broad discovery against an Executive Office advisory body—potentially providing much information sought on the merits of a plaintiff's Freedom of Information Act (FOIA) claims—to determine whether FOIA's disclosure requirements apply in the first place."
@@ -91,15 +91,15 @@
   "question": "Whether a plaintiff challenging a facially neutral admissions policy as racially discriminatory must establish that the targeted racial group suffered an aggregate disparate impact relative to its share of the applicant pool."
  },
  "26-104": {
-  "question": "Whether 8 U.S.C. § 1225(b)(2)(A) mandates the detention pending removal proceedings of aliens who, like the respondent, are present in the United States without having been admitted."
+  "question": "Whether the Immigration and Nationality Act (INA) mandates the detention pending removal proceedings of aliens who, like the respondent, are present in the United States without having been admitted."
  },
  "26-204": {
   "question": "Whether the federal ban on distilling spirits in a home, or in a shed or yard connected to a home, is a valid use of Congress's taxing power and the Necessary and Proper Clause."
  },
  "26-426": {
-  "question": "(1) Whether the district court had jurisdiction to hear the challenge.\n(2) Whether federal immigration law allowed the district court to enter classwide declaratory relief and set aside the government's guidance on removing noncitizens to countries not named in their removal orders.\n(3) Whether that guidance, including its procedures for notice and for raising a fear of persecution or torture, is lawful under federal immigration law, the Due Process Clause, or the Convention Against Torture as implemented by the Foreign Affairs Reform and Restructuring Act and its regulations."
+  "question": "(1) Whether the district court had jurisdiction to hear the challenge.\n(2) Whether the Immigration and Nationality Act (INA) allowed the district court to enter classwide declaratory relief and set aside the government's guidance on removing noncitizens to countries not named in their removal orders.\n(3) Whether that guidance, including its procedures for notice and for raising a fear of persecution or torture, is lawful under the INA, the Due Process Clause, or the Convention Against Torture (CAT) as implemented by the Foreign Affairs Reform and Restructuring Act (FARRA) and its regulations."
  },
  "25-1223": {
-  "question": "Whether a noncitizen who wins a habeas case challenging civil immigration detention can recover attorney's fees from the government under the Equal Access to Justice Act."
+  "question": "Whether a noncitizen who wins a habeas case challenging civil immigration detention can recover attorney's fees from the government under the Equal Access to Justice Act (EAJA)."
  }
 }
