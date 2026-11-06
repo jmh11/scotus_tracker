@@ -27,7 +27,7 @@
    "capitalCase": false,
    "addedOn": null,
    "content": {
-    "question": "Whether trademark strength is a question of fact or law in a trademark infringement likelihood-of-confusion analysis under 15 U.S.C. § 1114."
+    "question": "Whether trademark strength is a question of fact or law in a trademark infringement likelihood-of-confusion analysis under the Lanham Act."
    },
    "tags": {
     "kinds": [
@@ -61,7 +61,7 @@
    "capitalCase": true,
    "addedOn": null,
    "content": {
-    "question": "Whether a claim relies on \"a new rule of constitutional law . . . that was previously unavailable\" when the habeas petitioner could have asserted a claim based on the rule in a prior federal habeas petition."
+    "question": "Whether, under the Antiterrorism and Effective Death Penalty Act (AEDPA), a claim relies on \"a new rule of constitutional law . . . that was previously unavailable\" when the habeas petitioner could have asserted a claim based on the rule in a prior federal habeas petition."
    },
    "tags": {
     "kinds": [
@@ -199,7 +199,7 @@
    "capitalCase": false,
    "addedOn": null,
    "content": {
-    "question": "Whether a noncitizen who wins a habeas case challenging civil immigration detention can recover attorney's fees from the government under the Equal Access to Justice Act."
+    "question": "Whether a noncitizen who wins a habeas case challenging civil immigration detention can recover attorney's fees from the government under the Equal Access to Justice Act (EAJA)."
    },
    "tags": {
     "kinds": [
@@ -268,7 +268,7 @@
    "capitalCase": false,
    "addedOn": null,
    "content": {
-    "question": "Whether material support to a terrorist organization, which makes an alien removable and ineligible for various immigration benefits—including asylum—under 8 U.S.C. § 1182(a)(3)(B)(iv)(VI), must advance the organization's actual commission of terrorism to qualify for that bar."
+    "question": "Whether material support to a terrorist organization, which makes an alien removable and ineligible for various immigration benefits—including asylum—under the Immigration and Nationality Act (INA), must advance the organization's actual commission of terrorism to qualify for that bar."
    },
    "tags": {
     "kinds": [
@@ -302,7 +302,7 @@
    "capitalCase": false,
    "addedOn": null,
    "content": {
-    "question": "Whether the Uniformed Services Former Spouses' Protection Act requires state courts to refuse enforcement of indemnification provisions in divorce settlement agreements."
+    "question": "Whether the Uniformed Services Former Spouses' Protection Act (USFSPA) requires state courts to refuse enforcement of indemnification provisions in divorce settlement agreements."
    },
    "tags": {
     "kinds": [
@@ -336,7 +336,7 @@
    "capitalCase": false,
    "addedOn": null,
    "content": {
-    "question": "Whether \"just compensation\" should be determined by reference to state law when a private company uses the Natural Gas Act to seize someone's land for natural gas infrastructure."
+    "question": "Whether \"just compensation\" should be determined by reference to state law when a private company uses the Natural Gas Act (NGA) to seize someone's land for natural gas infrastructure."
    },
    "tags": {
     "kinds": [
@@ -580,7 +580,7 @@
    "capitalCase": false,
    "addedOn": null,
    "content": {
-    "question": "Whether the phrase \"goods or services from a video tape service provider,\" as used in the Video Privacy Protection Act's definition of \"consumer,\" refers to all of a video tape service provider's goods or services or only to its audiovisual goods or services."
+    "question": "Whether the phrase \"goods or services from a video tape service provider,\" as used in the Video Privacy Protection Act's (VPPA) definition of \"consumer,\" refers to all of a video tape service provider's goods or services or only to its audiovisual goods or services."
    },
    "tags": {
     "kinds": [
@@ -614,7 +614,7 @@
    "capitalCase": false,
    "addedOn": null,
    "content": {
-    "question": "Whether, for claims predicated on fund underperformance, pleading that an ERISA fiduciary failed to use the requisite \"care, skill, prudence, or diligence\" under the circumstances and thus breached ERISA's duty of prudence when investing plan assets requires alleging a \"meaningful benchmark.\""
+    "question": "Whether, for claims predicated on fund underperformance, pleading that a fiduciary under the Employee Retirement Income Security Act (ERISA) failed to use the requisite \"care, skill, prudence, or diligence\" under the circumstances and thus breached ERISA's duty of prudence when investing plan assets requires alleging a \"meaningful benchmark.\""
    },
    "tags": {
     "kinds": [
@@ -721,7 +721,7 @@
    "capitalCase": false,
    "addedOn": null,
    "content": {
-    "question": "(1) Whether the federal government's submission to a state or territorial regulator of an application to renew a permit under the Resource Conservation and Recovery Act (RCRA) is \"final agency action\" that is immediately reviewable under the Administrative Procedure Act.\n(2) Whether the federal government must comply with the general environmental-review procedures of the National Environmental Policy Act of 1969 before submitting a permit-renewal application under RCRA, which sets forth its own specific procedures to review environmental impacts in the context of hazardous-waste treatment."
+    "question": "(1) Whether the federal government's submission to a state or territorial regulator of an application to renew a permit under the Resource Conservation and Recovery Act (RCRA) is \"final agency action\" that is immediately reviewable under the Administrative Procedure Act (APA).\n(2) Whether the federal government must comply with the general environmental-review procedures of the National Environmental Policy Act (NEPA) before submitting a permit-renewal application under RCRA, which sets forth its own specific procedures to review environmental impacts in the context of hazardous-waste treatment."
    },
    "tags": {
     "kinds": [
@@ -789,7 +789,7 @@
    "capitalCase": false,
    "addedOn": null,
    "content": {
-    "question": "Whether a claim regarding application of time credits under the First Step Act of 2018, seeking accelerated transfer to a halfway house or home confinement, can be brought in a habeas petition under 28 U.S.C. § 2241."
+    "question": "Whether a claim regarding application of time credits under the First Step Act (FSA), seeking accelerated transfer to a halfway house or home confinement, can be brought in a habeas petition under the federal habeas corpus statute."
    },
    "tags": {
     "kinds": [
@@ -858,7 +858,7 @@
    "capitalCase": false,
    "addedOn": null,
    "content": {
-    "question": "Whether an appeals court must grant a petitioner permission to appeal under 28 U.S.C. § 2253 where the petitioner's argument has been foreclosed by binding circuit precedent but has been resolved in the petitioner's favor by another circuit."
+    "question": "Whether an appeals court must grant a petitioner permission to appeal under the Antiterrorism and Effective Death Penalty Act (AEDPA) where the petitioner's argument has been foreclosed by binding circuit precedent but has been resolved in the petitioner's favor by another circuit."
    },
    "tags": {
     "kinds": [
@@ -893,7 +893,7 @@
    "capitalCase": false,
    "addedOn": null,
    "content": {
-    "question": "Whether the Veterans' Judicial Review Act stripped district courts of jurisdiction to hear challenges to the constitutionality of acts of Congress affecting veterans' benefits."
+    "question": "Whether the Veterans' Judicial Review Act (VJRA) stripped district courts of jurisdiction to hear challenges to the constitutionality of acts of Congress affecting veterans' benefits."
    },
    "tags": {
     "kinds": [
@@ -961,7 +961,7 @@
    "capitalCase": false,
    "addedOn": null,
    "content": {
-    "question": "Whether noncitizens who were \"granted asylum,\" but whose asylum was later terminated, are eligible for adjustment to lawful permanent resident status under 8 U.S.C. § 1159(b), or are categorically ineligible."
+    "question": "Whether noncitizens who were \"granted asylum,\" but whose asylum was later terminated, are eligible for adjustment to lawful permanent resident status under the Immigration and Nationality Act (INA), or are categorically ineligible."
    },
    "tags": {
     "kinds": [
@@ -1029,7 +1029,7 @@
    "capitalCase": false,
    "addedOn": null,
    "content": {
-    "question": "(1) Whether Article III of the Constitution precludes the Department of Labor from adjudicating proceedings to collect monetary remedies from employers who have allegedly violated the terms and conditions of employment of H-2A workers and domestic workers in corresponding employment and instead requires them to be decided by a federal court.\n(2) Whether 8 U.S.C. § 1188(g)(2) authorizes the Department of Labor to adjudicate such proceedings."
+    "question": "(1) Whether Article III of the Constitution precludes the Department of Labor from adjudicating proceedings to collect monetary remedies from employers who have allegedly violated the terms and conditions of employment of H-2A workers and domestic workers in corresponding employment and instead requires them to be decided by a federal court.\n(2) Whether the Immigration and Nationality Act (INA) authorizes the Department of Labor to adjudicate such proceedings."
    },
    "tags": {
     "kinds": [
@@ -1064,7 +1064,7 @@
    "capitalCase": false,
    "addedOn": null,
    "content": {
-    "question": "Whether 8 U.S.C. § 1225(b)(2)(A) mandates the detention pending removal proceedings of aliens who, like the respondent, are present in the United States without having been admitted."
+    "question": "Whether the Immigration and Nationality Act (INA) mandates the detention pending removal proceedings of aliens who, like the respondent, are present in the United States without having been admitted."
    },
    "tags": {
     "kinds": [
@@ -1166,7 +1166,7 @@
    "capitalCase": false,
    "addedOn": null,
    "content": {
-    "question": "(1) Whether the district court had jurisdiction to hear the challenge.\n(2) Whether federal immigration law allowed the district court to enter classwide declaratory relief and set aside the government's guidance on removing noncitizens to countries not named in their removal orders.\n(3) Whether that guidance, including its procedures for notice and for raising a fear of persecution or torture, is lawful under federal immigration law, the Due Process Clause, or the Convention Against Torture as implemented by the Foreign Affairs Reform and Restructuring Act and its regulations."
+    "question": "(1) Whether the district court had jurisdiction to hear the challenge.\n(2) Whether the Immigration and Nationality Act (INA) allowed the district court to enter classwide declaratory relief and set aside the government's guidance on removing noncitizens to countries not named in their removal orders.\n(3) Whether that guidance, including its procedures for notice and for raising a fear of persecution or torture, is lawful under the INA, the Due Process Clause, or the Convention Against Torture (CAT) as implemented by the Foreign Affairs Reform and Restructuring Act (FARRA) and its regulations."
    },
    "tags": {
     "kinds": [
@@ -1263,6 +1263,10 @@
   {
    "date": "2026-11-06",
    "text": "Case write-ups added or updated for 6 case(s)."
+  },
+  {
+   "date": "2026-11-06",
+   "text": "Case write-ups added or updated for 16 case(s)."
   }
  ]
 }
