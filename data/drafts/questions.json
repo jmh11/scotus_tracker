@@ -200,8 +200,8 @@
  },
  "26-426": {
   "source": "The Court's order of September 29, 2026",
-  "draft": "(1) Whether the district court had jurisdiction over the respondents' claims.\n(2) Whether the district court had authority to enter classwide declaratory relief and vacatur under the Administrative Procedure Act, given 8 U.S.C. § 1252(f)(1).\n(3) Whether the government's guidance on third-country removals is unlawful under 8 U.S.C. § 1231(b), the Due Process Clause, or the Foreign Affairs Reform and Restructuring Act and Convention Against Torture and their implementing regulations.",
-  "notes": "The Court set these questions itself. Its fourth item (\"such other questions that the Government determines are appropriate\") is left out because it isn't a question. Acronyms spelled out. \"APA vacatur under § 1252(f)(1)\" lightly reworded; worth a careful look.",
-  "status": "held by Joshua: compare with how others summarize the case"
+  "draft": "(1) Whether the district court had jurisdiction to hear the challenge.\n(2) Whether federal immigration law allowed the district court to enter classwide declaratory relief and set aside the government's guidance on removing noncitizens to countries not named in their removal orders.\n(3) Whether that guidance, including its procedures for notice and for raising a fear of persecution or torture, is lawful under federal immigration law, the Due Process Clause, or the Convention Against Torture as implemented by the Foreign Affairs Reform and Restructuring Act and its regulations.",
+  "notes": "The Court set these questions itself. Its fourth item (\"such other questions that the Government determines are appropriate\") is left out because it isn't a question. Acronyms spelled out. \"APA vacatur under § 1252(f)(1)\" lightly reworded; worth a careful look. Rewritten in plain language with Joshua; FARRA paired with the Convention Against Torture as in the Court's order.",
+  "status": "approved 2026-11-06"
  }
 }
