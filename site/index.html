@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Supreme Court Tracker</title>
+<meta name="description" content="Track every argued Supreme Court case this term and record what the Court should and will do.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<style>
+/* Layout: a court-reporter masthead over one ledger table; each case row expands into its briefing; send/backup tools sit below. */
+:root{
+  --bg:#F7F3EA; --surface:#FFFDF8; --tint:#F3ECDD; --ink:#1F1A14; --muted:#5A5045; --line:#CFC5B3;
+  --accent:#7A1F1F; --accent-strong:#561313; --on-accent:#FFFDF8; --shadow:rgba(31,26,20,.18);
+  --display:'Libre Caslon Text', Georgia, 'Times New Roman', serif;
+  --body:'Source Serif 4', Georgia, 'Times New Roman', serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#17130F; --surface:#211B16; --tint:#2A231C; --ink:#EDE6D8; --muted:#B8AC97; --line:#3D342B;
+  --accent:#E09A8A; --accent-strong:#F0B7AA; --on-accent:#1A0F0C; --shadow:rgba(0,0,0,.5); color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bg:#17130F; --surface:#211B16; --tint:#2A231C; --ink:#EDE6D8; --muted:#B8AC97; --line:#3D342B;
+  --accent:#E09A8A; --accent-strong:#F0B7AA; --on-accent:#1A0F0C; --shadow:rgba(0,0,0,.5); color-scheme:dark }
+
+html{color-scheme:light}
+@media (prefers-color-scheme: dark){html{color-scheme:dark}}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5;padding-block:env(safe-area-inset-top,0px) env(safe-area-inset-bottom,0px);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a{color:var(--accent)} a:hover{color:var(--accent-strong)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.wrap{max-width:1280px;margin:0 auto}
+[hidden]{display:none!important}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.eyebrow{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+button,select,input,textarea{font:inherit;color:inherit}
+.num{font-variant-numeric:tabular-nums}
+
+header.mast{border-bottom:3px double var(--ink);padding-block:24px 18px;display:flex;flex-wrap:wrap;gap:16px;align-items:flex-end;justify-content:space-between}
+h1{font-family:var(--display);font-size:clamp(28px,4vw,38px);margin:4px 0 2px;line-height:1.15;text-wrap:balance}
+.revised{font-style:italic;color:var(--muted);font-size:15px}
+.btn{min-height:44px;padding:0 18px;border:1px solid var(--accent);background:var(--accent);color:var(--on-accent);font-weight:600;cursor:pointer}
+.btn:hover{background:var(--accent-strong);border-color:var(--accent-strong)}
+.btn.ghost{background:var(--surface);color:var(--accent)}
+.btn.ghost:hover{background:var(--tint)}
+
+.notice{margin-top:18px;border:1px solid var(--accent);background:var(--tint);padding:12px 16px;font-size:15px}
+main{display:flex;flex-direction:column;gap:20px;padding-block:22px 48px}
+
+.record{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+.record>div{padding:12px 16px;border-left:1px solid var(--line)}
+.record>div:first-child{border-left:0;padding-left:0}
+.record .big{font-family:var(--display);font-size:28px;font-weight:700;font-variant-numeric:tabular-nums}
+@media (max-width:640px){.record{grid-template-columns:repeat(2,minmax(0,1fr))}.record>div:nth-child(3){border-left:0;padding-left:0}.record>div:nth-child(n+3){border-top:1px solid var(--line)}}
+
+.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.chip{min-height:40px;padding:0 14px;border:1px solid var(--line);background:var(--surface);cursor:pointer;font-size:15px}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent);font-weight:600}
+.search{margin-left:auto;min-height:40px;width:min(260px,100%);padding:0 4px;border:0;border-bottom:1px solid var(--ink);background:transparent;font-size:16px}
+
+.tablebox{border:1px solid var(--line);background:var(--surface)}
+table{width:100%;border-collapse:collapse;font-size:15px}
+thead th{text-align:left;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600;padding:12px 8px;border-bottom:1px solid var(--ink);white-space:nowrap}
+thead th:first-child{padding-left:16px}
+tbody td{padding:14px 8px;vertical-align:top;border-top:1px solid var(--line)}
+tbody td:first-child{padding-left:16px}
+tbody td:last-child{padding-right:16px}
+.case-btn{all:unset;cursor:pointer;font-family:var(--display);font-size:17px;line-height:1.3;display:block}
+.case-btn:focus-visible{outline:2px solid var(--accent)}
+.case-btn .tw{display:inline-block;width:1em;color:var(--muted)}
+.meta{font-size:13px;color:var(--muted);margin-top:4px}
+.tag{display:inline-block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--accent);color:var(--accent);padding:0 6px;margin-left:6px;vertical-align:2px}
+.date{white-space:nowrap;font-variant-numeric:tabular-nums}
+.soft{color:var(--muted);font-style:italic}
+.pickcell{position:relative}
+.pickrow{display:flex;gap:6px;align-items:center}
+select.pick{min-height:40px;border:1px solid var(--ink);background:var(--surface);padding:0 6px;max-width:170px}
+select.pick.empty{border-style:dashed;border-color:var(--accent);color:var(--accent)}
+.info{width:32px;height:32px;flex:none;border-radius:999px;border:1px solid var(--accent);background:var(--surface);color:var(--accent);font-style:italic;font-weight:700;cursor:pointer}
+.pop{position:absolute;z-index:5;top:56px;left:8px;width:min(340px,80vw);background:var(--surface);border:1px solid var(--ink);border-top:3px solid var(--accent);padding:14px 16px;font-size:14px;line-height:1.5;box-shadow:0 10px 28px var(--shadow)}
+.pop p{margin:0 0 6px}
+.pop .eyebrow{margin-bottom:8px}
+.note{width:100%;min-width:180px;box-sizing:border-box;min-height:40px;border:0;border-bottom:1px solid var(--line);background:transparent;padding:0 2px;font-style:italic}
+.note:focus{border-bottom-color:var(--ink)}
+tr.detail td{background:var(--tint);border-top:0;padding:16px 16px 20px 40px}
+.brief{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;max-width:1100px}
+.brief p{margin:6px 0 0}
+.links{display:flex;flex-wrap:wrap;gap:18px;margin-top:14px}
+.empty-row td{text-align:center;padding:32px;color:var(--muted);font-style:italic}
+
+@media (max-width:1100px){
+  .tablebox{border:0;background:transparent}
+  table,tbody,tr,td{display:block}
+  thead{display:none}
+  tbody tr.case{background:var(--surface);border:1px solid var(--line);margin-top:12px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:12px;padding:14px 16px}
+  tbody tr.case td{border:0;padding:6px 0}
+  tbody tr.case td:first-child{grid-column:1/-1;padding-left:0}
+  tbody tr.case td.pickcell,tbody tr.case td.notecell{grid-column:1/-1}
+  tbody tr.case td:last-child{padding-right:0}
+  tbody tr.case td[data-label]::before{content:attr(data-label);display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  tr.detail td{padding:14px 16px;border:1px solid var(--line);border-top:0}
+  .brief{grid-template-columns:1fr;gap:12px}
+  select.pick{max-width:none;flex:1}
+  .pop{top:auto;bottom:calc(100% + 6px)}
+}
+
+.tools{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+@media (max-width:860px){.tools{grid-template-columns:1fr}}
+.panel{background:var(--surface);border:1px solid var(--line);padding:20px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.panel h2{font-family:var(--display);font-size:22px;margin:0}
+.panel p{margin:0}
+.field{display:flex;flex-direction:column;gap:4px;font-size:14px}
+.field input,.field textarea{border:1px solid var(--line);background:var(--bg);padding:8px 10px;font-size:15px}
+textarea{min-height:120px;resize:vertical;font-family:ui-monospace,Menlo,Consolas,monospace !important;font-size:13px !important}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.addr{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:14px;user-select:all;background:var(--tint);padding:4px 8px;overflow-wrap:anywhere}
+.status{font-size:14px;color:var(--muted);min-height:1.5em}
+.confirm{border:1px solid var(--accent);background:var(--tint);padding:12px;display:flex;flex-direction:column;gap:10px}
+
+.changes{border-top:1px solid var(--ink);padding-top:14px}
+.changes h2{font-family:var(--display);font-size:20px;margin:0 0 8px}
+.changes ul{margin:0;padding-left:20px;font-size:15px}
+footer{font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:14px}
+footer ul{margin:6px 0 0;padding-left:18px}
+@media (prefers-reduced-motion: reduce){*{scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="mast">
+    <div>
+      <div class="eyebrow" id="term-line">October Term 2026 · The Argued Docket</div>
+      <h1>The Supreme Court Tracker</h1>
+      <div class="revised" id="revised">Loading the docket…</div>
+    </div>
+    <button class="btn" id="go-send" type="button">Send my predictions to Joshua</button>
+  </header>
+  <div class="notice" id="cutoff" hidden></div>
+
+  <main>
+    <section class="record" aria-label="Your record">
+      <div><div class="eyebrow">Cases tracked</div><div class="big" id="s-cases">–</div></div>
+      <div><div class="eyebrow">Your predictions</div><div class="big" id="s-picks">–</div></div>
+      <div><div class="eyebrow">Decided</div><div class="big" id="s-decided">–</div></div>
+      <div><div class="eyebrow">"Will" picks correct</div><div class="big" id="s-correct">–</div></div>
+    </section>
+
+    <div class="controls" role="group" aria-label="Filter cases">
+      <span class="soft">Show</span>
+      <button class="chip" type="button" data-f="all" aria-pressed="true">All</button>
+      <button class="chip" type="button" data-f="argued" aria-pressed="false">Argued</button>
+      <button class="chip" type="button" data-f="awaiting" aria-pressed="false">Awaiting argument</button>
+      <button class="chip" type="button" data-f="decided" aria-pressed="false">Decided</button>
+      <button class="chip" type="button" data-f="unpicked" aria-pressed="false">No prediction yet</button>
+      <label class="sr" for="q">Search cases</label>
+      <input class="search" id="q" type="search" placeholder="Search by name or docket number">
+    </div>
+
+    <div class="tablebox">
+      <table>
+        <thead><tr>
+          <th scope="col">Case</th><th scope="col">Granted</th><th scope="col">Argued</th><th scope="col">Decided</th>
+          <th scope="col">Should</th><th scope="col">Will</th><th scope="col">Your note</th>
+        </tr></thead>
+        <tbody id="rows"><tr class="empty-row"><td colspan="7">Loading the docket…</td></tr></tbody>
+      </table>
+    </div>
+    <p class="soft" style="margin:0;font-size:14px">Your picks save automatically in this browser. To keep them safe or move them to another device, use "Back up your picks" below.</p>
+
+    <section class="tools">
+      <div class="panel" id="send">
+        <h2>Send your predictions to Joshua</h2>
+        <p>This opens an email to Joshua with your picks filled in. If no email app opens, copy the message and send it yourself. It includes a backup code, so your picks can be restored later if needed.</p>
+        <div class="field"><label for="your-name">Your name</label><input id="your-name" type="text" autocomplete="name" placeholder="So Joshua knows who sent it"></div>
+        <div class="field"><label for="msg">Message</label><textarea id="msg" readonly></textarea></div>
+        <div class="row">
+          <a class="btn" id="mailto" href="#" style="display:inline-flex;align-items:center;text-decoration:none">Email my predictions</a>
+          <button class="btn ghost" type="button" id="copy-msg">Copy message</button>
+        </div>
+        <div class="row" style="font-size:14px">Send to <span class="addr" id="addr">joshua_herman@alumni.brown.edu</span><button class="chip" type="button" id="copy-addr">Copy address</button></div>
+        <div class="status" id="send-status" aria-live="polite"></div>
+      </div>
+
+      <div class="panel" id="backup">
+        <h2>Back up your picks</h2>
+        <p>Your picks live only in this browser. Copy your backup code and keep it in a note or email to yourself. Paste it here later to restore your picks on any device.</p>
+        <div class="row"><button class="btn" type="button" id="make-code">Copy my backup code</button></div>
+        <div class="field" id="code-wrap" hidden><label for="code-out">Your backup code</label><textarea id="code-out" readonly style="min-height:80px"></textarea></div>
+        <div class="field"><label for="code-in">Restore from a backup code</label><textarea id="code-in" placeholder="Paste a backup code here" style="min-height:80px"></textarea></div>
+        <div class="row"><button class="btn ghost" type="button" id="check-code">Restore picks</button></div>
+        <div class="confirm" id="confirm" hidden>
+          <div id="confirm-text"></div>
+          <div class="row"><button class="btn" type="button" id="do-restore">Replace my picks</button><button class="btn ghost" type="button" id="cancel-restore">Cancel</button></div>
+        </div>
+        <div class="status" id="backup-status" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="changes" aria-labelledby="ch-h"><h2 id="ch-h">What's changed</h2><ul id="changes"></ul></section>
+
+    <section class="changes" id="excluded" hidden><h2>Removed from the argument docket</h2><ul id="excluded-list"></ul></section>
+
+    <footer>
+      Case facts come from the Supreme Court's own docket data and are checked every week by a fixed script. Summaries are written for this tracker and reviewed before they appear.
+      <ul id="sources"></ul>
+    </footer>
+  </main>
+</div>
+
+<script>
+(function(){
+const KEY='scotus-ot2026-picks-v1';
+let EMAIL='joshua_herman@alumni.brown.edu';
+const OPTS=[['affirm','Affirm'],['reverse','Reverse'],['vacate','Vacate and remand']];
+const DISPOSITION={affirm:'Affirmed',reverse:'Reversed',vacate:'Vacated and remanded',dismissed:'Dismissed',mixed:'Mixed result'};
+const SCORED=new Set(['affirm','reverse','vacate']);
+const LABEL=Object.fromEntries(OPTS);
+const GENERAL={
+  affirm:"The lower court's decision stands.",
+  reverse:"The lower court's decision is overturned, and the side that lost below wins.",
+  vacate:"The lower court's decision is set aside and the case goes back for that court to decide again under the Supreme Court's guidance."
+};
+const MONTHS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const pad=n=>String(n).padStart(2,'0');
+const now=new Date(); const TODAY=now.getFullYear()+'-'+pad(now.getMonth()+1)+'-'+pad(now.getDate());
+const fmt=iso=>{const [y,m,d]=iso.split('-').map(Number);return MONTHS[m-1]+' '+d+', '+y};
+const $=id=>document.getElementById(id);
+
+let data=null, picks=loadPicks(), filter='all', query='', open=new Set(), pendingRestore=null;
+
+function loadPicks(){try{const v=JSON.parse(localStorage.getItem(KEY)||'{}');return v&&typeof v==='object'?v:{}}catch(e){return {}}}
+function savePicks(){try{localStorage.setItem(KEY,JSON.stringify(picks))}catch(e){}}
+function getPick(d){return picks[d]||{should:'',will:'',note:''}}
+function setPick(d,k,v){const p=Object.assign({should:'',will:'',note:''},picks[d]);p[k]=v;
+  if(!p.should&&!p.will&&!p.note) delete picks[d]; else picks[d]=p; savePicks(); updateStats(); updateMsg();}
+function hasPick(d){const p=picks[d];return !!(p&&(p.should||p.will))}
+
+function h(tag,attrs,...kids){const el=document.createElement(tag);
+  if(attrs) for(const [k,v] of Object.entries(attrs)){ if(v==null||v===false) continue;
+    if(k==='class') el.className=v; else if(k.startsWith('on')) el.addEventListener(k.slice(2),v); else if(k==='text') el.textContent=v; else el.setAttribute(k,v===true?'':v);}
+  for(const c of kids.flat()){ if(c==null||c===false) continue; el.append(c.nodeType?c:document.createTextNode(c)); }
+  return el;}
+
+function status(c){ if(c.decided) return 'decided'; if(c.argued) return 'argued'; return 'awaiting'; }
+
+function visible(){
+  const q=query.trim().toLowerCase();
+  return data.cases.filter(c=>{
+    if(filter==='argued'&&status(c)!=='argued') return false;
+    if(filter==='awaiting'&&status(c)!=='awaiting') return false;
+    if(filter==='decided'&&status(c)!=='decided') return false;
+    if(filter==='unpicked'&&hasPick(c.docket)) return false;
+    if(q && !(c.name.toLowerCase().includes(q)||c.docket.includes(q))) return false;
+    return true;
+  }).sort((a,b)=>{const x=a.argued||a.scheduled||'9999', y=b.argued||b.scheduled||'9999'; return x<y?-1:x>y?1:a.name.localeCompare(b.name);});
+}
+
+function pickCell(c,kind){
+  const id=kind+'-'+c.docket, p=getPick(c.docket);
+  const sel=h('select',{class:'pick'+(p[kind]?'':' empty'),id:id,onchange:e=>{setPick(c.docket,kind,e.target.value);e.target.classList.toggle('empty',!e.target.value);}},
+    h('option',{value:''},'Choose…'), OPTS.map(([v,l])=>h('option',{value:v},l)));
+  sel.value=p[kind]||'';
+  const pop=h('div',{class:'pop',role:'note',id:'pop-'+id,hidden:true});
+  const outcomes=c.content&&c.content.outcomes;
+  pop.append(h('div',{class:'eyebrow'},outcomes?'In this case, that means':'What each outcome means'));
+  OPTS.forEach(([v,l])=>pop.append(h('p',null,h('strong',null,l),' — '+((outcomes&&outcomes[v])||GENERAL[v]))));
+  if(!outcomes) pop.append(h('p',{class:'soft'},'A case-specific explanation is coming soon.'));
+  const btn=h('button',{class:'info',type:'button','aria-label':'What these outcomes mean','aria-expanded':'false','aria-controls':'pop-'+id,
+    onclick:e=>{e.stopPropagation();const show=pop.hidden;closePops();pop.hidden=!show;btn.setAttribute('aria-expanded',String(show));}},'i');
+  return h('td',{class:'pickcell','data-label':kind==='should'?'Should':'Will'},
+    h('div',{class:'pickrow'},h('label',{class:'sr',for:id},(kind==='should'?'The Court should':'The Court will')+' — '+c.name),sel,btn),pop);
+}
+function closePops(){document.querySelectorAll('.pop').forEach(p=>p.hidden=true);document.querySelectorAll('.info').forEach(b=>b.setAttribute('aria-expanded','false'));}
+
+function render(){
+  const tb=$('rows'); tb.textContent='';
+  const list=visible();
+  if(!list.length){tb.append(h('tr',{class:'empty-row'},h('td',{colspan:'7'},'No cases match this view.')));return;}
+    for(const c of list){
+    const isOpen=open.has(c.docket), st=status(c), p=getPick(c.docket);
+    const isNew=c.addedOn&&((now-new Date(c.addedOn+'T12:00:00'))/864e5<14);
+    const arg = c.argued ? h('span',{class:'date'},fmt(c.argued), c.reargued?h('span',{class:'soft'},' (reargued)'):null) : c.scheduled ? h('span',{class:'date'},fmt(c.scheduled),h('span',{class:'soft'},' (scheduled)')) : h('span',{class:'soft'},'Not yet scheduled');
+    const dec = c.decided ? h('span',{class:'date'},fmt(c.decided), h('div',{class:'meta'},DISPOSITION[c.outcome]||c.outcome)) : h('span',{class:'soft'},'TBD');
+    const noteId='note-'+c.docket;
+    tb.append(h('tr',{class:'case'},
+      h('td',null,
+        h('button',{class:'case-btn',type:'button','aria-expanded':String(isOpen),onclick:()=>{isOpen?open.delete(c.docket):open.add(c.docket);render();}},
+          h('span',{class:'tw','aria-hidden':'true'},isOpen?'▾':'▸'), c.name),
+        h('div',{class:'meta'},'No. '+c.docket+' · '+c.lowerCourt, isNew?h('span',{class:'tag'},'New'):null)),
+      h('td',{'data-label':'Granted'},h('span',{class:'date'},fmt(c.granted))),
+      h('td',{'data-label':'Argued'},arg),
+      h('td',{'data-label':'Decided'},dec),
+      pickCell(c,'should'), pickCell(c,'will'),
+      h('td',{class:'notecell','data-label':'Your note'},h('label',{class:'sr',for:noteId},'Your note on '+c.name),
+        h('input',{class:'note',type:'text',id:noteId,maxlength:'280',placeholder:'Add a sentence (optional)',value:p.note||'',oninput:e=>setPick(c.docket,'note',e.target.value)}))
+    ));
+    if(isOpen){
+      const ct=c.content||{};
+      const blk=(label,txt)=>h('div',null,h('div',{class:'eyebrow'},label),h('p',txt?null:{class:'soft'},txt||'Summary coming soon.'));
+      const cw=(c.consolidatedWith||[])[0];
+      tb.append(h('tr',{class:'detail'},h('td',{colspan:'7'},
+        h('div',{class:'brief'},blk('The question',ct.question),blk('For the petitioner',ct.petitioner),blk('For the respondent',ct.respondent)),
+        cw?h('p',{style:'margin:14px 0 0'},'Argued together with ',h('em',null,cw.name),' (No. '+cw.docket+').'):null,
+        h('div',{class:'links'},
+          h('a',{href:c.docketUrl,target:'_blank',rel:'noopener'},'Docket & briefs ↗'),
+          c.qpUrl?h('a',{href:c.qpUrl,target:'_blank',rel:'noopener'},'Questions presented ↗'):null,
+          st!=='awaiting'?h('a',{href:'https://www.supremecourt.gov/oral_arguments/argument_transcript/2026',target:'_blank',rel:'noopener'},'Argument transcripts ↗'):null,
+          c.opinionUrl?h('a',{href:c.opinionUrl,target:'_blank',rel:'noopener'},'Opinion ↗'):null)
+      )));
+    }
+  }
+}
+
+function updateStats(){
+  if(!data) return;
+  const cs=data.cases;
+  $('s-cases').textContent=cs.length;
+  $('s-picks').textContent=cs.filter(c=>hasPick(c.docket)).length+' of '+cs.length;
+  const dec=cs.filter(c=>c.decided);
+  $('s-decided').textContent=dec.length;
+  // Dismissed and mixed outcomes can't be picked, so they're left out of both counts.
+  const scored=dec.filter(c=>SCORED.has(c.outcome)&&getPick(c.docket).will);
+  $('s-correct').textContent=scored.length?scored.filter(c=>getPick(c.docket).will===c.outcome).length+' of '+scored.length:'—';
+}
+
+function backupCode(){return 'OT26.'+btoa(unescape(encodeURIComponent(JSON.stringify({v:1,p:picks}))));}
+function parseCode(s){
+  s=(s||'').replace(/\s+/g,'');
+  const i=s.indexOf('OT26.'); if(i<0) throw new Error('That doesn\'t look like a backup code. Codes start with "OT26."');
+  let obj; try{obj=JSON.parse(decodeURIComponent(escape(atob(s.slice(i+5)))))}catch(e){throw new Error('The code is incomplete or damaged. Copy the whole code and try again.')}
+  if(!obj||obj.v!==1||typeof obj.p!=='object') throw new Error('The code is incomplete or damaged. Copy the whole code and try again.');
+  const ok=new Set(OPTS.map(o=>o[0]).concat(['']));const out={};
+  for(const [d,p] of Object.entries(obj.p)){ if(!/^\d{2}-\d{1,5}$/.test(d)||!p) continue;
+    const r={should:ok.has(p.should)?p.should||'':'',will:ok.has(p.will)?p.will||'':'',note:String(p.note||'').slice(0,280)};
+    if(r.should||r.will||r.note) out[d]=r; }
+  return out;
+}
+
+function message(){
+  const name=$('your-name').value.trim()||'[your name]';
+  const lines=['Supreme Court Tracker (October Term 2026): predictions from '+name,''];
+  const picked=data?data.cases.filter(c=>picks[c.docket]):[];
+  if(!picked.length) lines.push('(No predictions yet.)');
+  for(const c of picked){const p=picks[c.docket];
+    let l=c.name+' (No. '+c.docket+'): Should: '+(LABEL[p.should]||'—')+' · Will: '+(LABEL[p.will]||'—');
+    if(p.note) l+=' · Note: '+p.note; lines.push(l);}
+  lines.push('','Backup code (paste into "Restore from a backup code" to recover these picks):',backupCode());
+  return lines.join('\n');
+}
+function updateMsg(){ if(!data) return; const m=message(); $('msg').value=m;
+  const subj='SCOTUS predictions from '+($('your-name').value.trim()||'a tracker user');
+  $('mailto').href='mailto:'+EMAIL+'?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(m); }
+
+async function copy(text,ta,statusEl,okMsg){
+  try{await navigator.clipboard.writeText(text);statusEl.textContent=okMsg;}
+  catch(e){ if(ta){ta.hidden=false;ta.focus();ta.select();} statusEl.textContent='Your browser blocked copying. The text is selected; press Ctrl+C (or ⌘C) to copy it.'; }
+}
+
+// events
+document.querySelectorAll('.chip[data-f]').forEach(b=>b.addEventListener('click',()=>{
+  filter=b.dataset.f; document.querySelectorAll('.chip[data-f]').forEach(x=>x.setAttribute('aria-pressed',String(x===b))); render();}));
+$('q').addEventListener('input',e=>{query=e.target.value;render();});
+document.addEventListener('click',e=>{ if(!e.target.closest('.pop')&&!e.target.closest('.info')) closePops(); });
+document.addEventListener('keydown',e=>{ if(e.key==='Escape') closePops(); });
+$('go-send').addEventListener('click',()=>{ $('send').scrollIntoView({behavior:'smooth',block:'start'}); setTimeout(()=>$('your-name').focus({preventScroll:true}),400); });
+$('your-name').addEventListener('input',updateMsg);
+$('copy-msg').addEventListener('click',()=>copy($('msg').value,$('msg'),$('send-status'),'Message copied. Paste it into an email to '+EMAIL+'.'));
+$('copy-addr').addEventListener('click',()=>copy(EMAIL,null,$('send-status'),'Address copied.'));
+$('mailto').addEventListener('click',()=>{ $('send-status').textContent='If your email app didn\'t open, copy the message and send it to the address below.'; });
+$('make-code').addEventListener('click',()=>{ const c=backupCode(); $('code-out').value=c; $('code-wrap').hidden=false;
+  copy(c,$('code-out'),$('backup-status'),'Backup code copied. Keep it somewhere safe, like a note or an email to yourself.'); });
+$('check-code').addEventListener('click',()=>{ $('backup-status').textContent='';
+  try{ pendingRestore=parseCode($('code-in').value); const n=Object.keys(pendingRestore).length, cur=Object.keys(picks).length;
+    $('confirm-text').textContent='This code holds picks for '+n+' case'+(n===1?'':'s')+'. Restoring will replace the '+cur+' you have in this browser now.';
+    $('confirm').hidden=false; }
+  catch(e){ $('confirm').hidden=true; $('backup-status').textContent=e.message; } });
+$('do-restore').addEventListener('click',()=>{ if(!pendingRestore) return; picks=pendingRestore; pendingRestore=null; savePicks();
+  $('confirm').hidden=true; $('code-in').value=''; render(); updateStats(); updateMsg(); $('backup-status').textContent='Picks restored.'; });
+$('cancel-restore').addEventListener('click',()=>{ pendingRestore=null; $('confirm').hidden=true; $('backup-status').textContent='Restore canceled. Your picks are unchanged.'; });
+
+// load data
+fetch('cases.json',{cache:'no-cache'}).then(r=>{if(!r.ok) throw new Error(r.status);return r.json();}).then(j=>{
+  data=j;
+  EMAIL=j.email||EMAIL; $('addr').textContent=EMAIL;
+  $('revised').textContent='Updated '+fmt(j.updatedAt)+' · checked '+fmt(j.checkedAt);
+  if(j.newGrantCutoff && TODAY>j.newGrantCutoff){ const n=$('cutoff'); n.hidden=false;
+    n.textContent='New grants are no longer being added. Cases the Court agrees to hear after '+fmt(j.newGrantCutoff)+' will most likely be argued next term. Dates and decisions for the cases below are still updated.'; }
+  const ch=$('changes'); (j.changelog||[]).slice().sort((a,b)=>a.date<b.date?1:-1).slice(0,8).forEach(x=>ch.append(h('li',null,h('span',{class:'num'},fmt(x.date)),' — '+x.text)));
+  const srcs=$('sources');
+  [['Supreme Court docket data (one file per case)','https://www.supremecourt.gov/docket/docket.aspx'],
+   ['Granted & Noted List, as of '+fmt(j.grantedListAsOf),'https://www.supremecourt.gov/orders/26grantednotedlist.pdf'],
+   ['How this page is built and updated (code)',j.repo]].forEach(([t,u])=>srcs.append(h('li',null,h('a',{href:u,target:'_blank',rel:'noopener'},t))));
+  if((j.excluded||[]).length){ const ex=$('excluded'); ex.hidden=false; j.excluded.forEach(x=>$('excluded-list').append(h('li',null,h('em',null,x.name),' (No. '+x.docket+'): '+x.result))); }
+  render(); updateStats(); updateMsg();
+}).catch(()=>{ $('rows').textContent=''; $('rows').append(h('tr',{class:'empty-row'},h('td',{colspan:'7'},'The case list didn\'t load. Refresh the page to try again.'))); $('revised').textContent=''; });
+})();
+</script>
+</body>
+</html>

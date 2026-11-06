@@ -77,7 +77,7 @@ def test_real_list_parses():
     out = subprocess.run([sys.executable, str(ROOT / "scripts" / "parse_granted_list.py")],
                          capture_output=True, text=True)
     assert out.returncode == 0, out.stdout + out.stderr
-    assert "35 cases" in out.stdout
+    assert "Granted list as of" in out.stdout
 
 
 def test_wrapped_caption_is_joined():

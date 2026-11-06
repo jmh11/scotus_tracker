@@ -1,0 +1,3 @@
+{
+  "_about": "Approved written content, keyed by docket number. Only Joshua approves additions and changes. Shape: {\"<docket>\": {\"question\": \"...\", \"petitioner\": \"...\", \"respondent\": \"...\", \"outcomes\": {\"affirm\": \"...\", \"reverse\": \"...\", \"vacate\": \"...\"}}}. A case missing from here shows 'coming soon' on the page."
+}
