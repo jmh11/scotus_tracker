@@ -41,7 +41,7 @@ jobs:
         run: python scripts/parse_granted_list.py
       - name: Read the docket data
         run: python scripts/parse_dockets.py
-      - name: Read the transcripts page
+      - name: Read the transcripts and audio pages
         run: python scripts/parse_transcripts.py
       - name: Run the tests
         run: python -m pytest -q

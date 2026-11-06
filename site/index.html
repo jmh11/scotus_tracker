@@ -311,6 +311,7 @@ function render(){
           h('a',{href:c.docketUrl,target:'_blank',rel:'noopener'},'Docket & briefs ↗'),
           c.qpUrl?h('a',{href:c.qpUrl,target:'_blank',rel:'noopener'},'Questions presented ↗'):null,
           c.transcriptUrl?h('a',{href:c.transcriptUrl,target:'_blank',rel:'noopener'},'Argument transcript ↗'):null,
+          c.audioUrl?h('a',{href:c.audioUrl,target:'_blank',rel:'noopener'},'Argument audio ↗'):null,
           c.opinionUrl?h('a',{href:c.opinionUrl,target:'_blank',rel:'noopener'},'Opinion ↗'):null)
       )));
     }

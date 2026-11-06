@@ -22,3 +22,22 @@ def test_mismatched_link_is_an_error():
 def test_real_page():
     found, problems = pt.parse(pt.PAGE.read_text(encoding="utf-8", errors="replace"))
     assert not problems and len(found) >= 10
+
+
+AUDIO = "<a href='../audio/2026/{f}'>{t}</a>"
+
+
+def test_audio_link():
+    found, problems = pt.parse_audio(AUDIO.format(f="25-170", t="25-170"))
+    assert not problems
+    assert found == {"25-170": "https://www.supremecourt.gov/oral_arguments/audio/2026/25-170"}
+
+
+def test_mismatched_audio_link_is_an_error():
+    _, problems = pt.parse_audio(AUDIO.format(f="25-171", t="25-170"))
+    assert problems
+
+
+def test_real_audio_page():
+    found, problems = pt.parse_audio(pt.AUDIO_PAGE.read_text(encoding="utf-8", errors="replace"))
+    assert not problems and len(found) >= 10

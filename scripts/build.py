@@ -7,7 +7,7 @@ Inputs (all in data/):
   tracked_dockets.txt  tracked cases (this script adds new grants to it)
   display_names.json   approved names        court_names.json  court-name lookup
   content.json         approved write-ups     config.json       term, cutoff, email
-  transcripts.json     from parse_transcripts.py
+  transcripts.json, audio.json  from parse_transcripts.py
   changelog.json       running list of changes (this script appends to it)
 Outputs:
   site/cases.json      what the page shows
@@ -109,6 +109,7 @@ def build(today: str):
     courts = {k: v for k, v in load("court_names.json").items() if not k.startswith("_")}
     content = {k: v for k, v in load("content.json").items() if not k.startswith("_")}
     transcripts = load("transcripts.json") if (DATA / "transcripts.json").exists() else {}
+    audio = load("audio.json") if (DATA / "audio.json").exists() else {}
     changelog = load("changelog.json") if (DATA / "changelog.json").exists() else []
     tracked = read_tracked()
     prev_site = json.loads(SITE_DATA.read_text()) if SITE_DATA.exists() else {"cases": [], "updatedAt": None}
@@ -181,6 +182,7 @@ def build(today: str):
             "qpUrl": rec["qpUrl"], "docketUrl": DOCKET_PAGE.format(d),
             # consolidated cases share one transcript, which may be filed under either docket
             "transcriptUrl": transcripts.get(d) or next((transcripts[x] for x in partners.get(d, []) if x in transcripts), None),
+            "audioUrl": audio.get(d) or next((audio[x] for x in partners.get(d, []) if x in audio), None),
             "consolidatedWith": partners.get(d, []), "capitalCase": rec.get("capitalCase", False),
             "addedOn": added, "content": written,
         })
@@ -191,6 +193,8 @@ def build(today: str):
     for c in cases:
         if c["argued"] and not c["transcriptUrl"]:
             flags.append(f"{c['docket']}: argued, but no transcript link on the Court's transcripts page yet.")
+        if c["argued"] and not c["audioUrl"]:
+            flags.append(f"{c['docket']}: argued, but no audio link on the Court's audio page yet.")
     unwritten = [c["docket"] for c in cases if not c["content"]]
     if unwritten:
         flags.append(f"{len(unwritten)} case(s) still show \"summary coming soon\".")
