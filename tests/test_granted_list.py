@@ -78,3 +78,12 @@ def test_real_list_parses():
                          capture_output=True, text=True)
     assert out.returncode == 0, out.stdout + out.stderr
     assert "35 cases" in out.stdout
+
+
+def test_wrapped_caption_is_joined():
+    text = SAMPLE.replace(
+        "25-159     CFX   HOFFMANN V. WBI ENERGY TRANSMISSION, INC.\n",
+        "25-159     CFX   HOFFMANN V. WBI ENERGY\n                 TRANSMISSION, INC.\n")
+    cases, problems, _ = by_docket(text)
+    assert not problems
+    assert cases["25-159"]["captionAsListed"] == "HOFFMANN V. WBI ENERGY TRANSMISSION, INC."

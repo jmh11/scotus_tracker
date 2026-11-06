@@ -8,6 +8,7 @@ Output: data/granted_list.json  every case on the list, as listed
 
 Text is extracted with `pdftotext -layout` (poppler). Rules:
   case line     "<docket>[)<n>]  <3-letter code>  <CAPTION>"   e.g. "25-238)1   CFX   VIRAMONTES V. COOK COUNTY"
+                a long caption continues on the indented line(s) directly below it
   court/grant   "Court: <court codes>  Granted: M/D/YY"        applies to the case line(s) just above it
   argument      "Argument Date: M/D/YY"                        optional
   consolidated  cases may share one Court/Granted line only if the list marks them ")1", ")2", ...
@@ -42,7 +43,7 @@ def mdy(s: str) -> str:
 
 def parse(text: str):
     cases, pending, block, problems = [], [], [], []
-    in_note, as_of, total = False, None, None
+    in_note, as_of, total, caption_line = False, None, None, -1
     for n, line in enumerate(text.splitlines(), 1):
         if m := ASOF_RE.match(line):
             as_of = dt.datetime.strptime(m.group(1), "%B %d, %Y").date().isoformat()
@@ -51,6 +52,12 @@ def parse(text: str):
         elif m := CASE_RE.match(line):
             pending.append({"docket": m.group(1), "group": m.group(2), "code": m.group(3),
                             "captionAsListed": m.group(4), "section": "note" if in_note else "for argument"})
+            caption_line = n
+        elif (pending and n == caption_line + 1 and line.startswith((" ", "\t")) and line.strip()
+              and not re.match(r"\s*(?:Court|Argument Date|Order|Result):", line)):
+            # a long caption wraps onto the next, indented line
+            pending[-1]["captionAsListed"] += " " + line.strip()
+            caption_line = n
         elif m := GRANT_RE.match(line):
             if not pending:
                 problems.append(f"line {n}: 'Court/Granted' line with no case above it")
