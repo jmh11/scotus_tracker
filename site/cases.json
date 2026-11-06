@@ -318,7 +318,7 @@
   },
   {
    "docket": "25-1408",
-   "name": "Goldman Sachs Bank Usa v. Brown",
+   "name": "Goldman Sachs Bank USA v. Brown",
    "lowerCourt": "4th Cir.",
    "lowerCourtFull": "United States Court of Appeals for the Fourth Circuit",
    "granted": "2026-11-06",
@@ -337,8 +337,13 @@
    "addedOn": "2026-11-06",
    "content": null,
    "tags": {
-    "kinds": [],
-    "subjects": [],
+    "kinds": [
+     "Statutory"
+    ],
+    "subjects": [
+     "Business and consumers",
+     "Litigation procedure"
+    ],
     "court": [
      "Civil"
     ]
@@ -1299,6 +1304,10 @@
   {
    "date": "2026-11-06",
    "text": "Added Goldman Sachs Bank Usa v. Brown (No. 25-1408), granted Nov 6, 2026."
+  },
+  {
+   "date": "2026-11-06",
+   "text": "No. 25-1408 is now listed as Goldman Sachs Bank USA v. Brown."
   }
  ]
 }
