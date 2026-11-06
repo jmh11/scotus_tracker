@@ -82,22 +82,27 @@
  "25-840": {
   "source": "Questions Presented",
   "draft": "Whether parents have standing to challenge a law or policy that deliberately displaces their decision-making role as to \"gender transitions\" of their children, and in so doing creates present and likely future impediments to their ability to parent their children as they deem best for them.",
-  "notes": "Background paragraphs dropped."
+  "notes": "Background paragraphs dropped.",
+  "status": "held: neutral rewording under discussion",
+  "proposed": "Whether parents have standing to challenge a state law that requires youth shelters to notify a state child-welfare agency, rather than the parents directly, when a runaway minor seeks gender-affirming or reproductive health care."
  },
  "25-842": {
   "source": "Questions Presented",
-  "draft": "Whether noncitizens who were \"granted asylum,\" but whose asylum was later terminated, are eligible for adjustment to lawful permanent resident status under 8 U.S.C. § 1159(b) (as the Fifth Circuit held), or are categorically ineligible (as the Second and Fourth Circuits held).",
-  "notes": "Background dropped; \"LPR\" spelled out; \"Section 1159(b)\" given its full citation since the sentence that defined it was dropped."
+  "draft": "Whether noncitizens who were \"granted asylum,\" but whose asylum was later terminated, are eligible for adjustment to lawful permanent resident status under 8 U.S.C. § 1159(b), or are categorically ineligible.",
+  "notes": "Background dropped; \"LPR\" spelled out; \"Section 1159(b)\" given its full citation since the sentence that defined it was dropped. Edited by Joshua.",
+  "status": "approved 2026-11-06"
  },
  "25-965": {
   "source": "Questions Presented",
-  "draft": "Whether the First Amendment's established chilling-effect doctrine—under which a credible government threat that deters the exercise of fundamental rights constitutes a complete and independently actionable constitutional injury—is displaced by Williamson County's land-use finality requirement when a plaintiff alleges that government threats both before and after a Planning Commission meeting chilled religious exercise, worship, and assembly.",
-  "notes": "\"Williamson Cnty.\" spelled out; dashes restored."
+  "draft": "Whether the First Amendment's established chilling-effect doctrine—under which a credible government threat that deters the exercise of fundamental rights constitutes a complete and independently actionable constitutional injury—allows a plaintiff to bring a lawsuit based on government threats both before and after a Planning Commission meeting that chilled religious exercise, worship, and assembly, even when the city had not completed a final land-use decision.",
+  "notes": "\"Williamson Cnty.\" spelled out; dashes restored. Edited by Joshua. \"county\" corrected to \"city\" (the defendant is the City of University Heights).",
+  "status": "approved 2026-11-06"
  },
  "25-966": {
   "source": "The Court's grant order (limited to its own two questions)",
-  "draft": "(1) Whether Article III of the Constitution precludes the Department of Labor from adjudicating proceedings to collect monetary remedies from employers who have allegedly violated the terms and conditions of employment of H-2A workers and domestic workers in corresponding employment.\n(2) Whether 8 U.S.C. § 1188(g)(2) authorizes the Department of Labor to adjudicate proceedings to collect monetary remedies from employers who have allegedly violated the terms and conditions of employment of H-2A workers and domestic workers in corresponding employment.",
-  "notes": "The Court granted only its own two questions, so those replace the petition's question. Converted from all caps."
+  "draft": "(1) Whether Article III of the Constitution precludes the Department of Labor from adjudicating proceedings to collect monetary remedies from employers who have allegedly violated the terms and conditions of employment of H-2A workers and domestic workers in corresponding employment and instead requires them to be decided by a federal court.\n(2) Whether 8 U.S.C. § 1188(g)(2) authorizes the Department of Labor to adjudicate such proceedings.",
+  "notes": "The Court granted only its own two questions, so those replace the petition's question. Converted from all caps. Edited by Joshua.",
+  "status": "approved 2026-11-06"
  },
  "25-1003": {
   "source": "Questions Presented",
@@ -107,8 +112,9 @@
  },
  "25-1017": {
   "source": "Questions Presented",
-  "draft": "(1) Does the National Voter Registration Act or a federal consent decree prohibit Arizona from requiring voter-registration applicants to produce \"satisfactory evidence\" of U.S. citizenship when registering with a state registration form?\n(2) Does the National Voter Registration Act prohibit Arizona from implementing a program within 90 days of a federal election to cancel the registrations of voters who are not U.S. citizens?",
-  "notes": "Background dropped."
+  "draft": "(1) Does the National Voter Registration Act (NVRA) or a federal consent decree prohibit Arizona from requiring voter-registration applicants to produce \"satisfactory evidence\" of U.S. citizenship when registering with a state registration form?\n(2) Does the NVRA prohibit Arizona from implementing a program within 90 days of a federal election to cancel the registrations of voters who are not U.S. citizens?",
+  "notes": "Background dropped. Edited by Joshua.",
+  "status": "approved 2026-11-06"
  },
  "25-1103": {
   "source": "Questions Presented",
@@ -123,12 +129,14 @@
  "25-1223": {
   "source": "Questions Presented",
   "draft": "Whether, under the Equal Access to Justice Act, \"any civil action\" encompasses an action seeking a writ of habeas corpus to challenge civil immigration detention.",
-  "notes": "Background dropped; \"EAJA\" spelled out."
+  "notes": "Background dropped; \"EAJA\" spelled out.",
+  "status": "held by Joshua"
  },
  "25-1311": {
   "source": "Questions Presented, limited to Question 1",
-  "draft": "Whether a court may hold a party in civil contempt based on a violation of an injunction's \"spirit\" where the injunction is silent as to the conduct upon which contempt is based, as the Ninth Circuit holds; or, instead, whether a court must ground a finding of civil contempt on the violation of an order that clearly and unambiguously proscribes the precise conduct at issue, as other circuits hold.",
-  "notes": "Question 2 (the Trump v. CASA question) left out because the Court did not grant it."
+  "draft": "Whether a court may hold a party in civil contempt based on a violation of an injunction's \"spirit\" where the injunction is silent as to the conduct upon which contempt is based; or, instead, whether a court must ground a finding of civil contempt on the violation of an order that clearly and unambiguously proscribes the precise conduct at issue.",
+  "notes": "Question 2 (the Trump v. CASA question) left out because the Court did not grant it. Edited by Joshua.",
+  "status": "approved 2026-11-06"
  },
  "25-1343": {
   "source": "Questions Presented",
@@ -180,6 +188,7 @@
  "26-426": {
   "source": "The Court's order of September 29, 2026",
   "draft": "(1) Whether the district court had jurisdiction over the respondents' claims.\n(2) Whether the district court had authority to enter classwide declaratory relief and vacatur under the Administrative Procedure Act, given 8 U.S.C. § 1252(f)(1).\n(3) Whether the government's guidance on third-country removals is unlawful under 8 U.S.C. § 1231(b), the Due Process Clause, or the Foreign Affairs Reform and Restructuring Act and Convention Against Torture and their implementing regulations.",
-  "notes": "The Court set these questions itself. Its fourth item (\"such other questions that the Government determines are appropriate\") is left out because it isn't a question. Acronyms spelled out. \"APA vacatur under § 1252(f)(1)\" lightly reworded; worth a careful look."
+  "notes": "The Court set these questions itself. Its fourth item (\"such other questions that the Government determines are appropriate\") is left out because it isn't a question. Acronyms spelled out. \"APA vacatur under § 1252(f)(1)\" lightly reworded; worth a careful look.",
+  "status": "held by Joshua: compare with how others summarize the case"
  }
 }

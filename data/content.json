@@ -35,5 +35,20 @@
  },
  "25-581": {
   "question": "(1) Whether a law lacks general applicability under the Free Exercise Clause only if it permits unfettered discretion or categorical exemptions for comparable secular conduct.\n(2) Whether the rule against excluding religious institutions from public benefits applies only to explicit government bans on participation by religious people and institutions."
+ },
+ "25-966": {
+  "question": "(1) Whether Article III of the Constitution precludes the Department of Labor from adjudicating proceedings to collect monetary remedies from employers who have allegedly violated the terms and conditions of employment of H-2A workers and domestic workers in corresponding employment and instead requires them to be decided by a federal court.\n(2) Whether 8 U.S.C. § 1188(g)(2) authorizes the Department of Labor to adjudicate such proceedings."
+ },
+ "25-842": {
+  "question": "Whether noncitizens who were \"granted asylum,\" but whose asylum was later terminated, are eligible for adjustment to lawful permanent resident status under 8 U.S.C. § 1159(b), or are categorically ineligible."
+ },
+ "25-1017": {
+  "question": "(1) Does the National Voter Registration Act (NVRA) or a federal consent decree prohibit Arizona from requiring voter-registration applicants to produce \"satisfactory evidence\" of U.S. citizenship when registering with a state registration form?\n(2) Does the NVRA prohibit Arizona from implementing a program within 90 days of a federal election to cancel the registrations of voters who are not U.S. citizens?"
+ },
+ "25-965": {
+  "question": "Whether the First Amendment's established chilling-effect doctrine—under which a credible government threat that deters the exercise of fundamental rights constitutes a complete and independently actionable constitutional injury—allows a plaintiff to bring a lawsuit based on government threats both before and after a Planning Commission meeting that chilled religious exercise, worship, and assembly, even when the city had not completed a final land-use decision."
+ },
+ "25-1311": {
+  "question": "Whether a court may hold a party in civil contempt based on a violation of an injunction's \"spirit\" where the injunction is silent as to the conduct upon which contempt is based; or, instead, whether a court must ground a finding of civil contempt on the violation of an order that clearly and unambiguously proscribes the precise conduct at issue."
  }
 }
