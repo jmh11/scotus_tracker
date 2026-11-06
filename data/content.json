@@ -1,7 +1,7 @@
 {
  "_about": "Approved written content, keyed by docket number. Only Joshua approves additions and changes. Shape: {\"<docket>\": {\"question\": \"...\", \"facts\": \"...\", \"petitioner\": \"...\", \"respondent\": \"...\", \"outcomes\": {\"affirm\": \"...\", \"reverse\": \"...\", \"vacate\": \"...\"}}}. A case missing from here shows 'coming soon' on the page.",
  "25-735": {
-  "question": "Did the Veterans' Judicial Review Act strip district courts of the jurisdiction, recognized by the Supreme Court in Johnson v. Robison, to hear challenges to the constitutionality of acts of Congress affecting veterans' benefits?"
+  "question": "Whether the Veterans' Judicial Review Act stripped district courts of jurisdiction to hear challenges to the constitutionality of acts of Congress affecting veterans' benefits."
  },
  "25-170": {
   "question": "(1) Whether the Supreme Court has statutory and Article III jurisdiction to hear this case.\n(2) Whether federal law precludes state-law claims seeking relief for injuries allegedly caused by the effects of interstate and international greenhouse-gas emissions on the global climate."
@@ -22,16 +22,16 @@
   "question": "Whether a claim regarding application of time credits under the First Step Act of 2018, seeking accelerated transfer to a halfway house or home confinement, can be brought in a habeas petition under 28 U.S.C. § 2241."
  },
  "25-352": {
-  "question": "Where a defendant has filed an answer without pleading an affirmative defense, may the defendant nonetheless assert that affirmative defense as the basis for a summary judgment motion, without amending or seeking to amend its answer to plead that affirmative defense, and may a defendant do so even if an amendment adding that affirmative defense would be barred by the court's scheduling order deadline under Federal Rule of Civil Procedure 16(b)(4)?"
+  "question": "Whether a defendant who has filed an answer without pleading an affirmative defense may nonetheless assert that affirmative defense as the basis for a summary judgment motion without amending or seeking to amend its answer to plead that affirmative defense, and whether they may do so even if an amendment adding that affirmative defense would be barred by the court's scheduling order deadline under Federal Rule of Civil Procedure 16(b)(4)."
  },
  "25-1003": {
   "question": "Whether a claim relies on \"a new rule of constitutional law . . . that was previously unavailable\" when the habeas petitioner could have asserted a claim based on the rule in a prior federal habeas petition."
  },
  "25-159": {
-  "question": "When a private company uses the Natural Gas Act to seize someone's land for natural gas infrastructure, should just compensation be determined by reference to state law?"
+  "question": "Whether \"just compensation\" should be determined by reference to state law when a private company uses the Natural Gas Act to seize someone's land for natural gas infrastructure."
  },
  "25-417": {
-  "question": "Can a federal prisoner sue prison officials for money damages under the Bivens doctrine for deliberate indifference to a non-life-threatening injury?"
+  "question": "Whether a federal prisoner can sue prison officials for money damages under the Bivens doctrine for deliberate indifference to a non-life-threatening injury."
  },
  "25-581": {
   "question": "(1) Whether a law lacks general applicability under the Free Exercise Clause only if it permits unfettered discretion or categorical exemptions for comparable secular conduct.\n(2) Whether the rule against excluding religious institutions from public benefits applies only to explicit government bans on participation by religious people and institutions."
@@ -43,7 +43,7 @@
   "question": "Whether noncitizens who were \"granted asylum,\" but whose asylum was later terminated, are eligible for adjustment to lawful permanent resident status under 8 U.S.C. § 1159(b), or are categorically ineligible."
  },
  "25-1017": {
-  "question": "(1) Does the National Voter Registration Act (NVRA) or a federal consent decree prohibit Arizona from requiring voter-registration applicants to produce \"satisfactory evidence\" of U.S. citizenship when registering with a state registration form?\n(2) Does the NVRA prohibit Arizona from implementing a program within 90 days of a federal election to cancel the registrations of voters who are not U.S. citizens?"
+  "question": "(1) Whether the National Voter Registration Act (NVRA) or a federal consent decree prohibits Arizona from requiring voter-registration applicants to produce \"satisfactory evidence\" of U.S. citizenship when registering with a state registration form.\n(2) Whether the NVRA prohibits Arizona from implementing a program within 90 days of a federal election to cancel the registrations of voters who are not U.S. citizens."
  },
  "25-965": {
   "question": "Whether the First Amendment's established chilling-effect doctrine—under which a credible government threat that deters the exercise of fundamental rights constitutes a complete and independently actionable constitutional injury—allows a plaintiff to bring a lawsuit based on government threats both before and after a Planning Commission meeting that chilled religious exercise, worship, and assembly, even when the city had not completed a final land-use decision."
@@ -70,7 +70,7 @@
   "question": "Whether the Second and Fourteenth Amendments guarantee the right to possess AR-15 platform and similar semiautomatic rifles."
  },
  "25-1349": {
-  "question": "Does the Uniformed Services Former Spouses' Protection Act require state courts to refuse enforcement of indemnification provisions in divorce settlement agreements?"
+  "question": "Whether the Uniformed Services Former Spouses' Protection Act requires state courts to refuse enforcement of indemnification provisions in divorce settlement agreements."
  },
  "25-1131": {
   "question": "Whether a land-use regulation that prohibits a religious institution from building a religious structure on its own property constitutes a \"substantial burden\" on religious exercise under the Substantial Burden Provision of the Religious Land Use and Institutionalized Persons Act (RLUIPA)."

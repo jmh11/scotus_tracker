@@ -71,6 +71,11 @@ tbody td:last-child{padding-right:16px}
 .case-btn .tw{display:inline-block;width:1em;color:var(--muted)}
 .meta{font-size:13px;color:var(--muted);margin-top:4px}
 .tag{display:inline-block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--accent);color:var(--accent);padding:0 6px;margin-left:6px;vertical-align:2px}
+.sortbtn{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:4px;letter-spacing:inherit;text-transform:inherit;font:inherit;color:inherit}
+.sortbtn:hover{color:var(--accent)}
+.sortbtn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+th[aria-sort] .sortbtn{color:var(--ink)}
+.arrow{font-size:10px;min-width:8px}
 .tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
 .tagbox{font:inherit;font-size:12px;line-height:1.4;padding:1px 7px;border:1px solid var(--line);background:var(--tint);color:var(--ink);cursor:pointer;border-radius:2px}
 .tagbox:hover{border-color:var(--accent);color:var(--accent)}
@@ -176,7 +181,10 @@ footer ul{margin:6px 0 0;padding-left:18px}
           <col class="c-case"><col class="c-date"><col class="c-arg"><col class="c-date"><col class="c-pick"><col class="c-pick"><col class="c-note">
         </colgroup>
         <thead><tr>
-          <th scope="col">Case</th><th scope="col">Granted</th><th scope="col">Argued</th><th scope="col">Decided</th>
+          <th scope="col" data-sort="name"><button type="button" class="sortbtn">Case<span class="arrow" aria-hidden="true"></span></button></th>
+          <th scope="col" data-sort="granted"><button type="button" class="sortbtn">Granted<span class="arrow" aria-hidden="true"></span></button></th>
+          <th scope="col" data-sort="argued"><button type="button" class="sortbtn">Argued<span class="arrow" aria-hidden="true"></span></button></th>
+          <th scope="col" data-sort="decided"><button type="button" class="sortbtn">Decided<span class="arrow" aria-hidden="true"></span></button></th>
           <th scope="col">Should</th><th scope="col">Will</th><th scope="col">Your notes</th>
         </tr></thead>
         <tbody id="rows"><tr class="empty-row"><td colspan="7">Loading the docket…</td></tr></tbody>
@@ -243,6 +251,7 @@ const now=new Date(); const TODAY=now.getFullYear()+'-'+pad(now.getMonth()+1)+'-
 const fmt=iso=>{const [y,m,d]=iso.split('-').map(Number);return MONTHS[m-1]+' '+d+', '+y};
 const $=id=>document.getElementById(id);
 
+let sortKey='argued', sortDir=1;
 let data=null, picks=loadPicks(), filter='all', query='', topic='', open=new Set(), pendingRestore=null;
 const allTags=c=>{const t=c.tags||{};return [...(t.kinds||[]),...(t.subjects||[]),...(t.court||[])];};
 function setTopic(t){ topic=(topic===t)?'':t; $('topic').value=topic; render(); }
@@ -272,8 +281,29 @@ function visible(){
     if(topic && !allTags(c).includes(topic)) return false;
     if(q && !(c.name.toLowerCase().includes(q)||c.docket.includes(q))) return false;
     return true;
-  }).sort((a,b)=>{const x=a.argued||a.scheduled||'9999', y=b.argued||b.scheduled||'9999'; return x<y?-1:x>y?1:a.name.localeCompare(b.name);});
+  }).sort(compareCases);
 }
+
+// Sorting: Case sorts by name; Granted, Argued (or scheduled) and Decided by date.
+// Cases without a date always go last, whichever direction is chosen.
+function sortValue(c){ return sortKey==='name'?c.name : sortKey==='granted'?c.granted : sortKey==='decided'?c.decided : (c.argued||c.scheduled); }
+function compareCases(a,b){
+  const x=sortValue(a), y=sortValue(b);
+  if(!x&&y) return 1; if(x&&!y) return -1;
+  if(x&&y&&x!==y) return (sortKey==='name'?x.localeCompare(y):(x<y?-1:1))*sortDir;
+  return a.name.localeCompare(b.name);
+}
+function updateSortHeaders(){
+  document.querySelectorAll('th[data-sort]').forEach(th=>{
+    const on=th.dataset.sort===sortKey;
+    if(on) th.setAttribute('aria-sort',sortDir>0?'ascending':'descending'); else th.removeAttribute('aria-sort');
+    th.querySelector('.arrow').textContent=on?(sortDir>0?'▲':'▼'):'';
+  });
+}
+document.querySelectorAll('th[data-sort] .sortbtn').forEach(b=>b.addEventListener('click',()=>{
+  const k=b.closest('th').dataset.sort; sortDir=(k===sortKey)?-sortDir:1; sortKey=k; updateSortHeaders(); render();
+}));
+updateSortHeaders();
 
 function pickCell(c,kind){
   const id=kind+'-'+c.docket, p=getPick(c.docket);
