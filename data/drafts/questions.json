@@ -2,8 +2,9 @@
  "_about": "Draft questions for Joshua's review. Not shown on the page until approved and copied into data/content.json. 'source' says which official text the draft is based on.",
  "24-1016": {
   "source": "Questions Presented",
-  "draft": "Whether trademark strength is a question of fact in a likelihood-of-confusion analysis under 15 U.S.C. § 1114.",
-  "notes": "Background paragraph dropped. Statute citation kept because it's the only place the law is identified."
+  "draft": "Whether trademark strength is a question of fact or law in a trademark infringement likelihood-of-confusion analysis under 15 U.S.C. § 1114.",
+  "notes": "Background paragraph dropped. Statute citation kept because it's the only place the law is identified. Edited by Joshua.",
+  "status": "approved 2026-11-06"
  },
  "25-159": {
   "source": "Questions Presented",
@@ -20,17 +21,20 @@
  "25-183": {
   "source": "Questions Presented",
   "draft": "Whether Title IX provides employees of federally funded educational institutions a private right of action to sue for sex discrimination in employment.",
-  "notes": "Background paragraph and its case citations dropped."
+  "notes": "Background paragraph and its case citations dropped.",
+  "status": "approved 2026-11-06"
  },
  "25-238": {
   "source": "Questions Presented (both petitions were granted on this question)",
   "draft": "Whether the Second and Fourteenth Amendments guarantee the right to possess AR-15 platform and similar semiautomatic rifles.",
-  "notes": "Unchanged."
+  "notes": "Unchanged.",
+  "status": "approved 2026-11-06"
  },
  "25-246": {
   "source": "Questions Presented",
   "draft": "Whether, in determining whether a fine contravenes the Excessive Fines Clause, courts may consider the gravity of the underlying offense purely in the abstract or should consider the gravity of the specific defendant's wrongdoing.",
-  "notes": "Background paragraphs dropped; \"The question presented is\" removed."
+  "notes": "Background paragraphs dropped; \"The question presented is\" removed.",
+  "status": "approved 2026-11-06"
  },
  "25-352": {
   "source": "Questions Presented",
@@ -59,7 +63,8 @@
  "25-566": {
   "source": "Granted on the question presented in No. 25-238",
   "draft": "Whether the Second and Fourteenth Amendments guarantee the right to possess AR-15 platform and similar semiautomatic rifles.",
-  "notes": "The Court granted this petition on Viramontes's question (No. 25-238), not on this petition's own wording, so both cases show the same question."
+  "notes": "The Court granted this petition on Viramontes's question (No. 25-238), not on this petition's own wording, so both cases show the same question.",
+  "status": "approved 2026-11-06"
  },
  "25-579": {
   "source": "Questions Presented",
@@ -124,7 +129,8 @@
  "25-1131": {
   "source": "Questions Presented, limited to Question 1",
   "draft": "Whether a land-use regulation that prohibits a religious institution from building a religious structure on its own property constitutes a \"substantial burden\" on religious exercise under the Substantial Burden Provision of the Religious Land Use and Institutionalized Persons Act (RLUIPA).",
-  "notes": "Question 2 (the Equal Terms Provision) left out because the Court did not grant it. Code citation dropped because the law is named."
+  "notes": "Question 2 (the Equal Terms Provision) left out because the Court did not grant it. Code citation dropped because the law is named.",
+  "status": "approved 2026-11-06"
  },
  "25-1223": {
   "source": "Questions Presented",
@@ -146,7 +152,8 @@
  "25-1349": {
   "source": "Questions Presented",
   "draft": "Does the Uniformed Services Former Spouses' Protection Act require state courts to refuse enforcement of indemnification provisions in divorce settlement agreements?",
-  "notes": "Background dropped; \"USFSPA\" spelled out."
+  "notes": "Background dropped; \"USFSPA\" spelled out.",
+  "status": "approved 2026-11-06"
  },
  "25-5343": {
   "source": "The Court's grant order (limited to its own question)",
@@ -162,8 +169,9 @@
  },
  "25-6623": {
   "source": "Questions Presented",
-  "draft": "Whether the petitioner was deprived of his right, under the Sixth and Fourteenth Amendments, to a trial by a 12-person jury when the defendant is charged with a serious felony.",
-  "notes": "The petition's request to hold the case for two other petitions dropped."
+  "draft": "Whether the Sixth and Fourteenth Amendments guarantee a defendant charged with a serious felony the right to a trial by a 12-person jury.",
+  "notes": "The petition's request to hold the case for two other petitions dropped. Edited by Joshua.",
+  "status": "approved 2026-11-06"
  },
  "25-7026": {
   "source": "Questions Presented",
