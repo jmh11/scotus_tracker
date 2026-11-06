@@ -75,7 +75,7 @@ def fmt(iso):
 
 def diff(prev: dict, now: dict, excluded_now: list):
     """Plain-language changes between the previous and new case lists."""
-    out = []
+    out, written = [], []
     labels = {"affirm": "affirmed", "reverse": "reversed", "vacate": "vacated and remanded",
               "dismissed": "dismissed", "mixed": "mixed result"}
     for d, c in now.items():
@@ -93,8 +93,11 @@ def diff(prev: dict, now: dict, excluded_now: list):
             out.append(f"{n} was decided on {fmt(c['decided'])}: {labels[c['outcome']]}.")
         if c["name"] != p.get("name"):
             out.append(f"No. {d} is now listed as {n}.")
-        if c["content"] and not p.get("content"):
-            out.append(f"Summary added for {n}.")
+        if c["content"] != p.get("content"):
+            written.append(n)
+    if written:  # one line for a batch, so a round of approvals doesn't flood the log
+        out.append(f"Case write-ups added or updated for {len(written)} case(s)." if len(written) > 3
+                   else f"Case write-ups added or updated for {', '.join(written)}.")
     for x in excluded_now:
         if x["docket"] in prev:
             out.append(f"{x['name']} (No. {x['docket']}) was removed from the argument docket: {x['result']}.")

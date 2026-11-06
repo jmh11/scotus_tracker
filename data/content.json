@@ -1,3 +1,36 @@
 {
-  "_about": "Approved written content, keyed by docket number. Only Joshua approves additions and changes. Shape: {\"<docket>\": {\"question\": \"...\", \"facts\": \"...\", \"petitioner\": \"...\", \"respondent\": \"...\", \"outcomes\": {\"affirm\": \"...\", \"reverse\": \"...\", \"vacate\": \"...\"}}}. A case missing from here shows 'coming soon' on the page."
+ "_about": "Approved written content, keyed by docket number. Only Joshua approves additions and changes. Shape: {\"<docket>\": {\"question\": \"...\", \"facts\": \"...\", \"petitioner\": \"...\", \"respondent\": \"...\", \"outcomes\": {\"affirm\": \"...\", \"reverse\": \"...\", \"vacate\": \"...\"}}}. A case missing from here shows 'coming soon' on the page.",
+ "25-735": {
+  "question": "Did the Veterans' Judicial Review Act strip district courts of the jurisdiction, recognized by the Supreme Court in Johnson v. Robison, to hear challenges to the constitutionality of acts of Congress affecting veterans' benefits?"
+ },
+ "25-170": {
+  "question": "(1) Whether the Supreme Court has statutory and Article III jurisdiction to hear this case.\n(2) Whether federal law precludes state-law claims seeking relief for injuries allegedly caused by the effects of interstate and international greenhouse-gas emissions on the global climate."
+ },
+ "25-498": {
+  "question": "Whether, for claims predicated on fund underperformance, pleading that an ERISA fiduciary failed to use the requisite \"care, skill, prudence, or diligence\" under the circumstances and thus breached ERISA's duty of prudence when investing plan assets requires alleging a \"meaningful benchmark.\""
+ },
+ "25-579": {
+  "question": "(1) Whether the federal government's submission to a state or territorial regulator of an application to renew a permit under the Resource Conservation and Recovery Act (RCRA) is \"final agency action\" that is immediately reviewable under the Administrative Procedure Act.\n(2) Whether the federal government must comply with the general environmental-review procedures of the National Environmental Policy Act of 1969 before submitting a permit-renewal application under RCRA, which sets forth its own specific procedures to review environmental impacts in the context of hazardous-waste treatment."
+ },
+ "25-5343": {
+  "question": "Whether Stinson v. United States still correctly states the rule for the deference that courts must give the commentary to the Sentencing Guidelines."
+ },
+ "25-459": {
+  "question": "Whether the phrase \"goods or services from a video tape service provider,\" as used in the Video Privacy Protection Act's definition of \"consumer,\" refers to all of a video tape service provider's goods or services or only to its audiovisual goods or services."
+ },
+ "25-5930": {
+  "question": "Whether a claim regarding application of time credits under the First Step Act of 2018, seeking accelerated transfer to a halfway house or home confinement, can be brought in a habeas petition under 28 U.S.C. § 2241."
+ },
+ "25-352": {
+  "question": "Where a defendant has filed an answer without pleading an affirmative defense, may the defendant nonetheless assert that affirmative defense as the basis for a summary judgment motion, without amending or seeking to amend its answer to plead that affirmative defense, and may a defendant do so even if an amendment adding that affirmative defense would be barred by the court's scheduling order deadline under Federal Rule of Civil Procedure 16(b)(4)?"
+ },
+ "25-1003": {
+  "question": "Whether a claim relies on \"a new rule of constitutional law . . . that was previously unavailable\" when the habeas petitioner could have asserted a claim based on the rule in a prior federal habeas petition."
+ },
+ "25-159": {
+  "question": "When a private company uses the Natural Gas Act to seize someone's land for natural gas infrastructure, should just compensation be determined by reference to state law?"
+ },
+ "25-417": {
+  "question": "Can a federal prisoner sue prison officials for money damages under the Bivens doctrine for deliberate indifference to a non-life-threatening injury?"
+ }
 }
