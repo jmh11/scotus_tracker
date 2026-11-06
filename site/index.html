@@ -356,7 +356,7 @@ function render(){
     const arg = c.argued ? h('div',null,h('span',{class:'date'},fmt(c.argued)), c.reargued?h('div',{class:'meta'},'(reargued)'):null) : c.scheduled ? h('div',null,h('span',{class:'date'},fmt(c.scheduled)),h('div',{class:'meta'},'(scheduled)')) : h('span',{class:'soft'},'Not yet scheduled');
     const dec = !c.decided ? h('span',{class:'soft'},'TBD') :
       h('div',null,h('span',{class:'date'},fmt(c.decided)), h('div',{class:'meta'},DISPOSITION[c.outcome]||c.outcome),
-        c.result ? h('div',{class:'meta'},'Answer recorded') : h('span',{class:'tag pending'},'Result pending'));
+        c.result ? h('div',{class:'meta'},'Answer verified') : h('span',{class:'tag pending'},'Verification pending'));
     const noteId='note-'+c.docket;
     tb.append(h('tr',{class:'case'},
       h('td',null,
