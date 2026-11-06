@@ -198,7 +198,9 @@
    "consolidatedWith": [],
    "capitalCase": false,
    "addedOn": null,
-   "content": null,
+   "content": {
+    "question": "Whether a noncitizen who wins a habeas case challenging civil immigration detention can recover attorney's fees from the government under the Equal Access to Justice Act."
+   },
    "tags": {
     "kinds": [
      "Statutory"
@@ -1253,6 +1255,10 @@
   {
    "date": "2026-11-06",
    "text": "Case write-ups added or updated for Department of Homeland Security v. D.V.D.."
+  },
+  {
+   "date": "2026-11-06",
+   "text": "Case write-ups added or updated for Montoya Palacios v. Liggins."
   }
  ]
 }
