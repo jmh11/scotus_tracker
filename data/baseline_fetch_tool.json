@@ -1,0 +1,637 @@
+{
+ "schemaVersion": 2,
+ "term": "October Term 2026",
+ "updatedAt": "2026-11-06",
+ "sources": {
+  "grantedList": {
+   "title": "Granted & Noted List, OT2026 (as of Oct 19, 2026)",
+   "url": "https://www.supremecourt.gov/orders/26grantednotedlist.pdf"
+  },
+  "calOct2026": {
+   "title": "Argument calendar, session beginning Oct 5, 2026",
+   "url": "https://www.supremecourt.gov/oral_arguments/argument_calendars/MonthlyArgumentCalOctober2026.pdf"
+  },
+  "calNov2026": {
+   "title": "Argument calendar, session beginning Nov 2, 2026",
+   "url": "https://www.supremecourt.gov/oral_arguments/argument_calendars/MonthlyArgumentCalNovember2026.pdf"
+  },
+  "calDec2026": {
+   "title": "Argument calendar, session beginning Nov 30, 2026",
+   "url": "https://www.supremecourt.gov/oral_arguments/argument_calendars/MonthlyArgumentCalDecember2026.pdf"
+  },
+  "calJan2027": {
+   "title": "Argument calendar, session beginning Jan 11, 2027",
+   "url": "https://www.supremecourt.gov/oral_arguments/argument_calendars/MonthlyArgumentCalJanuary2027.pdf"
+  },
+  "ordersOT2026": {
+   "title": "Orders of the Court, 2026 (checked Oct 19 – Nov 5: no new grants)",
+   "url": "https://www.supremecourt.gov/orders/ordersofthecourt/26"
+  },
+  "userVerified": {
+   "title": "Confirmed by Joshua from the granted list PDF",
+   "url": "https://www.supremecourt.gov/orders/26grantednotedlist.pdf"
+  }
+ },
+ "fieldNotes": {
+  "caption": "Retrieved caption, case-normalized with standard abbreviations expanded. captionAsListed keeps the source text.",
+  "docketUrl": "Built from the docket number using supremecourt.gov's standard docket-page address (derived, not retrieved).",
+  "argued": "Date from the argument calendar, cross-checked against the granted list. null = not yet calendared.",
+  "content": "Written by Claude, approved by Joshua. null = not yet approved; the page shows 'coming soon'."
+ },
+ "cases": [
+  {
+   "docket": "24-1016",
+   "caption": "RiseandShine Corp. v. PepsiCo, Inc.",
+   "captionAsListed": "RISEANDSHINE CORP. V. PEPSICO, INC.",
+   "lowerCourt": "U.S. Court of Appeals, 2nd Cir.",
+   "granted": "2026-06-29",
+   "argued": "2027-01-12",
+   "consolidatedWith": null,
+   "decided": null,
+   "outcome": null,
+   "src": {
+    "granted": "grantedList",
+    "argued": "calJan2027",
+    "lowerCourt": "grantedList"
+   },
+   "content": null
+  },
+  {
+   "docket": "25-159",
+   "caption": "Hoffmann v. WBI Energy Transmission, Inc.",
+   "captionAsListed": "HOFFMANN V. WBI ENERGY TRANSMISSION, INC.",
+   "lowerCourt": "U.S. Court of Appeals, 8th Cir.",
+   "granted": "2026-06-29",
+   "argued": "2026-11-09",
+   "consolidatedWith": null,
+   "decided": null,
+   "outcome": null,
+   "src": {
+    "granted": "grantedList",
+    "argued": "calNov2026",
+    "lowerCourt": "grantedList"
+   },
+   "content": null
+  },
+  {
+   "docket": "25-170",
+   "caption": "Suncor Energy (U.S.A.) Inc. v. Commissioners of Boulder County",
+   "captionAsListed": "SUNCOR ENERGY (U.S.A.) INC. V. COMMISSIONERS OF BOULDER COUNTY",
+   "lowerCourt": "Supreme Court of Colorado",
+   "granted": "2026-02-23",
+   "argued": "2026-10-05",
+   "consolidatedWith": null,
+   "decided": null,
+   "outcome": null,
+   "src": {
+    "granted": "grantedList",
+    "argued": "calOct2026",
+    "lowerCourt": "grantedList"
+   },
+   "content": null
+  },
+  {
+   "docket": "25-183",
+   "caption": "Crowther v. Board of Regents of the University System of Georgia",
+   "captionAsListed": "CROWTHER V. BD. OF REGENTS UNIV. SYSTEM OF GA",
+   "lowerCourt": "U.S. Court of Appeals, 11th Cir.",
+   "granted": "2026-05-18",
+   "argued": "2026-11-30",
+   "consolidatedWith": null,
+   "decided": null,
+   "outcome": null,
+   "src": {
+    "granted": "grantedList",
+    "argued": "calDec2026",
+    "lowerCourt": "grantedList"
+   },
+   "content": null
+  },
+  {
+   "docket": "25-238",
+   "caption": "Viramontes v. Cook County",
+   "captionAsListed": "VIRAMONTES V. COOK COUNTY",
+   "lowerCourt": "U.S. Court of Appeals, 7th Cir.",
+   "granted": "2026-06-30",
+   "argued": "2026-12-02",
+   "consolidatedWith": "25-566",
+   "decided": null,
+   "outcome": null,
+   "src": {
+    "granted": "userVerified",
+    "argued": "calDec2026",
+    "lowerCourt": "userVerified"
+   },
+   "content": null
+  },
+  {
+   "docket": "25-246",
+   "caption": "Jouppi v. Alaska",
+   "captionAsListed": "JOUPPI V. ALASKA",
+   "lowerCourt": "Supreme Court of Alaska",
+   "granted": "2026-07-20",
+   "argued": "2026-12-01",
+   "consolidatedWith": null,
+   "decided": null,
+   "outcome": null,
+   "src": {
+    "granted": "grantedList",
+    "argued": "calDec2026",
+    "lowerCourt": "grantedList"
+   },
+   "content": null
+  },
+  {
+   "docket": "25-352",
+   "caption": "Younge v. Fulton Judicial Circuit District Attorney's Office",
+   "captionAsListed": "YOUNGE V. FULTON JUDICIAL CIRCUIT DIST. ATT'Y",
+   "lowerCourt": "U.S. Court of Appeals, 11th Cir.",
+   "granted": "2026-03-30",
+   "argued": "2026-11-02",
+   "consolidatedWith": null,
+   "decided": null,
+   "outcome": null,
+   "src": {
+    "granted": "grantedList",
+    "argued": "calNov2026",
+    "lowerCourt": "grantedList"
+   },
+   "content": null
+  },
+  {
+   "docket": "25-417",
+   "caption": "Nielsen v. Watanabe",
+   "captionAsListed": "NIELSEN V. WATANABE",
+   "lowerCourt": "U.S. Court of Appeals, 9th Cir.",
+   "granted": "2026-06-22",
+   "argued": "2026-11-09",
+   "consolidatedWith": null,
+   "decided": null,
+   "outcome": null,
+   "src": {
+    "granted": "grantedList",
+    "argued": "calNov2026",
+    "lowerCourt": "grantedList"
+   },
+   "content": null
+  },
+  {
+   "docket": "25-459",
+   "caption": "Salazar v. Paramount Global",
+   "captionAsListed": "SALAZAR V. PARAMOUNT GLOBAL",
+   "lowerCourt": "U.S. Court of Appeals, 6th Cir.",
+   "granted": "2026-01-26",
+   "argued": "2026-10-14",
+   "consolidatedWith": null,
+   "decided": null,
+   "outcome": null,
+   "src": {
+    "granted": "grantedList",
+    "argued": "calOct2026",
+    "lowerCourt": "grantedList"
+   },
+   "content": null
+  },
+  {
+   "docket": "25-498",
+   "caption": "Anderson v. Intel Corp. Investment Policy Committee",
+   "captionAsListed": "ANDERSON V. INTEL CORP. INVESTMENT POLICY COMM.",
+   "lowerCourt": "U.S. Court of Appeals, 9th Cir.",
+   "granted": "2026-01-16",
+   "argued": "2026-10-06",
+   "consolidatedWith": null,
+   "decided": null,
+   "outcome": null,
+   "src": {
+    "granted": "grantedList",
+    "argued": "calOct2026",
+    "lowerCourt": "grantedList"
+   },
+   "content": null
+  },
+  {
+   "docket": "25-566",
+   "caption": "Grant v. Higgins",
+   "captionAsListed": "GRANT V. HIGGINS",
+   "lowerCourt": "U.S. Court of Appeals, 2nd Cir.",
+   "granted": "2026-06-30",
+   "argued": "2026-12-02",
+   "consolidatedWith": "25-238",
+   "decided": null,
+   "outcome": null,
+   "src": {
+    "granted": "userVerified",
+    "argued": "calDec2026",
+    "lowerCourt": "userVerified"
+   },
+   "content": null
+  },
+  {
+   "docket": "25-579",
+   "caption": "Department of the Air Force v. Prutehi Guahan",
+   "captionAsListed": "DEPARTMENT OF AIR FORCE V. PRUTEHI GUAHAN",
+   "lowerCourt": "U.S. Court of Appeals, 9th Cir.",
+   "granted": "2026-03-09",
+   "argued": "2026-10-07",
+   "consolidatedWith": null,
+   "decided": null,
+   "outcome": null,
+   "src": {
+    "granted": "grantedList",
+    "argued": "calOct2026",
+    "lowerCourt": "grantedList"
+   },
+   "content": null
+  },
+  {
+   "docket": "25-581",
+   "caption": "St. Mary Catholic Parish v. Roy",
+   "captionAsListed": "ST. MARY CATHOLIC PARISH V. ROY",
+   "lowerCourt": "U.S. Court of Appeals, 10th Cir.",
+   "granted": "2026-04-20",
+   "argued": "2026-11-03",
+   "consolidatedWith": null,
+   "decided": null,
+   "outcome": null,
+   "src": {
+    "granted": "grantedList",
+    "argued": "calNov2026",
+    "lowerCourt": "grantedList"
+   },
+   "content": null
+  },
+  {
+   "docket": "25-735",
+   "caption": "Johnson v. United States Congress",
+   "captionAsListed": "JOHNSON V. UNITED STATES CONGRESS",
+   "lowerCourt": "U.S. Court of Appeals, 11th Cir.",
+   "granted": "2026-04-06",
+   "argued": "2026-10-05",
+   "consolidatedWith": null,
+   "decided": null,
+   "outcome": null,
+   "src": {
+    "granted": "grantedList",
+    "argued": "calOct2026",
+    "lowerCourt": "grantedList"
+   },
+   "content": null
+  },
+  {
+   "docket": "25-840",
+   "caption": "International Partners for Ethical Care, Inc. v. Ferguson",
+   "captionAsListed": "INTERNATIONAL PARTNERS FOR ETHICAL CARE, INC. V. FERGUSON",
+   "lowerCourt": "U.S. Court of Appeals, 9th Cir.",
+   "granted": "2026-06-29",
+   "argued": "2026-12-07",
+   "consolidatedWith": null,
+   "decided": null,
+   "outcome": null,
+   "src": {
+    "granted": "grantedList",
+    "argued": "calDec2026",
+    "lowerCourt": "grantedList"
+   },
+   "content": null
+  },
+  {
+   "docket": "25-842",
+   "caption": "Wassily v. Blanche",
+   "captionAsListed": "WASSILY V. BLANCHE, ATT'Y GEN.",
+   "lowerCourt": "U.S. Court of Appeals, 2nd Cir.",
+   "granted": "2026-06-29",
+   "argued": "2026-11-30",
+   "consolidatedWith": null,
+   "decided": null,
+   "outcome": null,
+   "src": {
+    "granted": "grantedList",
+    "argued": "calDec2026",
+    "lowerCourt": "grantedList"
+   },
+   "content": null
+  },
+  {
+   "docket": "25-965",
+   "caption": "Grand v. City of University Heights",
+   "captionAsListed": "GRAND V. CITY OF UNIVERSITY HEIGHTS",
+   "lowerCourt": "U.S. Court of Appeals, 6th Cir.",
+   "granted": "2026-06-30",
+   "argued": "2026-12-09",
+   "consolidatedWith": null,
+   "decided": null,
+   "outcome": null,
+   "src": {
+    "granted": "grantedList",
+    "argued": "calDec2026",
+    "lowerCourt": "grantedList"
+   },
+   "content": null
+  },
+  {
+   "docket": "25-966",
+   "caption": "Department of Labor v. Sun Valley Orchards, LLC",
+   "captionAsListed": "DEPARTMENT OF LABOR V. SUN VALLEY ORCHARDS, LLC",
+   "lowerCourt": "U.S. Court of Appeals, 3rd Cir.",
+   "granted": "2026-04-27",
+   "argued": "2026-11-10",
+   "consolidatedWith": null,
+   "decided": null,
+   "outcome": null,
+   "src": {
+    "granted": "grantedList",
+    "argued": "calNov2026",
+    "lowerCourt": "grantedList"
+   },
+   "content": null
+  },
+  {
+   "docket": "25-1003",
+   "caption": "Guerrero v. Johnson",
+   "captionAsListed": "GUERRERO V. JOHNSON",
+   "lowerCourt": "U.S. Court of Appeals, 5th Cir.",
+   "granted": "2026-06-15",
+   "argued": "2026-11-04",
+   "consolidatedWith": null,
+   "decided": null,
+   "outcome": null,
+   "src": {
+    "granted": "grantedList",
+    "argued": "calNov2026",
+    "lowerCourt": "grantedList"
+   },
+   "content": null
+  },
+  {
+   "docket": "25-1017",
+   "caption": "Republican National Committee v. Mi Familia Vota",
+   "captionAsListed": "REPUBLICAN NATIONAL COMMITTEE V. MI FAMILIA VOTA",
+   "lowerCourt": "U.S. Court of Appeals, 9th Cir.",
+   "granted": "2026-06-29",
+   "argued": "2026-12-08",
+   "consolidatedWith": null,
+   "decided": null,
+   "outcome": null,
+   "src": {
+    "granted": "grantedList",
+    "argued": "calDec2026",
+    "lowerCourt": "grantedList"
+   },
+   "content": null
+  },
+  {
+   "docket": "25-1103",
+   "caption": "U.S. DOGE Service v. United States District Court for the District of Columbia",
+   "captionAsListed": "U.S. DOGE SERVICE V. UNITED STATES DIST. COURT FOR D. C.",
+   "lowerCourt": "U.S. Court of Appeals, D.C. Cir.",
+   "granted": "2026-10-13",
+   "argued": null,
+   "consolidatedWith": null,
+   "decided": null,
+   "outcome": null,
+   "src": {
+    "granted": "grantedList",
+    "argued": "grantedList",
+    "lowerCourt": "grantedList"
+   },
+   "content": null
+  },
+  {
+   "docket": "25-1131",
+   "caption": "Missionaries of St. John the Baptist, Inc. v. Frederic",
+   "captionAsListed": "MISSIONARIES OF ST. JOHN THE BAPTIST, INC. V. FREDERIC",
+   "lowerCourt": "Supreme Court of Kentucky",
+   "granted": "2026-10-01",
+   "argued": "2027-01-20",
+   "consolidatedWith": null,
+   "decided": null,
+   "outcome": null,
+   "src": {
+    "granted": "grantedList",
+    "argued": "calJan2027",
+    "lowerCourt": "grantedList"
+   },
+   "content": null
+  },
+  {
+   "docket": "25-1223",
+   "caption": "Montoya Palacios v. Liggins",
+   "captionAsListed": "MONTOYA PALACIOS V. LIGGINS",
+   "lowerCourt": "U.S. Court of Appeals, 4th Cir.",
+   "granted": "2026-06-29",
+   "argued": "2027-01-11",
+   "consolidatedWith": null,
+   "decided": null,
+   "outcome": null,
+   "src": {
+    "granted": "grantedList",
+    "argued": "calJan2027",
+    "lowerCourt": "grantedList"
+   },
+   "content": null
+  },
+  {
+   "docket": "25-1311",
+   "caption": "Apple Inc. v. Epic Games, Inc.",
+   "captionAsListed": "APPLE INC. V. EPIC GAMES, INC.",
+   "lowerCourt": "U.S. Court of Appeals, 9th Cir.",
+   "granted": "2026-06-30",
+   "argued": "2027-01-11",
+   "consolidatedWith": null,
+   "decided": null,
+   "outcome": null,
+   "src": {
+    "granted": "grantedList",
+    "argued": "calJan2027",
+    "lowerCourt": "grantedList"
+   },
+   "content": null
+  },
+  {
+   "docket": "25-1343",
+   "caption": "Blanche v. Ozurumba",
+   "captionAsListed": "BLANCHE, ATT'Y GEN. V. OZURUMBA",
+   "lowerCourt": "U.S. Court of Appeals, 4th Cir.",
+   "granted": "2026-10-13",
+   "argued": null,
+   "consolidatedWith": null,
+   "decided": null,
+   "outcome": null,
+   "src": {
+    "granted": "grantedList",
+    "argued": "grantedList",
+    "lowerCourt": "grantedList"
+   },
+   "content": null
+  },
+  {
+   "docket": "25-1349",
+   "caption": "Marschner v. Marschner",
+   "captionAsListed": "MARSCHNER V. MARSCHNER",
+   "lowerCourt": "Supreme Court of North Dakota",
+   "granted": "2026-10-01",
+   "argued": "2027-01-19",
+   "consolidatedWith": null,
+   "decided": null,
+   "outcome": null,
+   "src": {
+    "granted": "grantedList",
+    "argued": "calJan2027",
+    "lowerCourt": "grantedList"
+   },
+   "content": null
+  },
+  {
+   "docket": "25-5343",
+   "caption": "Beaird v. United States",
+   "captionAsListed": "BEAIRD V. UNITED STATES",
+   "lowerCourt": "U.S. Court of Appeals, 5th Cir.",
+   "granted": "2026-04-20",
+   "argued": "2026-10-13",
+   "consolidatedWith": null,
+   "decided": null,
+   "outcome": null,
+   "src": {
+    "granted": "grantedList",
+    "argued": "calOct2026",
+    "lowerCourt": "grantedList"
+   },
+   "content": null
+  },
+  {
+   "docket": "25-5930",
+   "caption": "Maxwell v. Dinis",
+   "captionAsListed": "MAXWELL V. DINIS",
+   "lowerCourt": "U.S. Court of Appeals, 5th Cir.",
+   "granted": "2026-06-01",
+   "argued": "2026-11-02",
+   "consolidatedWith": null,
+   "decided": null,
+   "outcome": null,
+   "src": {
+    "granted": "grantedList",
+    "argued": "calNov2026",
+    "lowerCourt": "grantedList"
+   },
+   "content": null
+  },
+  {
+   "docket": "25-6623",
+   "caption": "Kian v. Florida",
+   "captionAsListed": "KIAN V. FLORIDA",
+   "lowerCourt": "Florida District Court of Appeal, 4th District",
+   "granted": "2026-06-15",
+   "argued": "2027-01-13",
+   "consolidatedWith": null,
+   "decided": null,
+   "outcome": null,
+   "src": {
+    "granted": "grantedList",
+    "argued": "calJan2027",
+    "lowerCourt": "grantedList"
+   },
+   "content": null
+  },
+  {
+   "docket": "25-7026",
+   "caption": "Berry v. United States",
+   "captionAsListed": "BERRY V. UNITED STATES",
+   "lowerCourt": "U.S. Court of Appeals, 11th Cir.",
+   "granted": "2026-10-13",
+   "argued": null,
+   "consolidatedWith": null,
+   "decided": null,
+   "outcome": null,
+   "src": {
+    "granted": "grantedList",
+    "argued": "grantedList",
+    "lowerCourt": "grantedList"
+   },
+   "content": null
+  },
+  {
+   "docket": "26-12",
+   "caption": "Association for Education Fairness v. Montgomery County Board of Education",
+   "captionAsListed": "ASSOCIATION FOR EDUCATION FAIRNESS V. MONTGOMERY COUNTY BD. OF ED.",
+   "lowerCourt": "U.S. Court of Appeals, 4th Cir.",
+   "granted": "2026-10-19",
+   "argued": null,
+   "consolidatedWith": null,
+   "decided": null,
+   "outcome": null,
+   "src": {
+    "granted": "grantedList",
+    "argued": "grantedList",
+    "lowerCourt": "grantedList"
+   },
+   "content": null
+  },
+  {
+   "docket": "26-104",
+   "caption": "Rhoney v. Barbosa da Cunha",
+   "captionAsListed": "RHONEY V. BARBOSA DA CUNHA",
+   "lowerCourt": "U.S. Court of Appeals, 2nd Cir.",
+   "granted": "2026-10-01",
+   "argued": null,
+   "consolidatedWith": null,
+   "decided": null,
+   "outcome": null,
+   "src": {
+    "granted": "grantedList",
+    "argued": "grantedList",
+    "lowerCourt": "grantedList"
+   },
+   "content": null
+  },
+  {
+   "docket": "26-204",
+   "caption": "Department of Justice v. McNutt",
+   "captionAsListed": "DEPT. OF JUSTICE V. MCNUTT",
+   "lowerCourt": "U.S. Court of Appeals, 5th Cir.",
+   "granted": "2026-10-19",
+   "argued": null,
+   "consolidatedWith": null,
+   "decided": null,
+   "outcome": null,
+   "src": {
+    "granted": "grantedList",
+    "argued": "grantedList",
+    "lowerCourt": "grantedList"
+   },
+   "content": null
+  },
+  {
+   "docket": "26-426",
+   "caption": "Department of Homeland Security v. D.V.D.",
+   "captionAsListed": "DEPARTMENT OF HOMELAND SECURITY V. D. V. D.",
+   "lowerCourt": "U.S. Court of Appeals, 1st Cir.",
+   "granted": "2026-09-29",
+   "argued": "2026-12-09",
+   "consolidatedWith": null,
+   "decided": null,
+   "outcome": null,
+   "src": {
+    "granted": "grantedList",
+    "argued": "calDec2026",
+    "lowerCourt": "grantedList"
+   },
+   "content": null
+  }
+ ],
+ "excluded": [
+  {
+   "docket": "25-886",
+   "caption": "Genalo v. Black",
+   "reason": "Dismissed under Rule 46 on Sep 11, 2026, before argument.",
+   "src": "grantedList"
+  }
+ ],
+ "newGrantCutoff": "2027-01-31",
+ "changelog": [
+  {
+   "date": "2026-11-06",
+   "text": "Tracker launched with 34 cases from the October Term 2026 granted list and argument calendars."
+  }
+ ],
+ "lastRun": "2026-11-06"
+}
