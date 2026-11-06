@@ -52,7 +52,20 @@
      "Civil"
     ]
    },
-   "result": null
+   "result": null,
+   "meritsBriefs": [
+    {
+     "date": "2026-09-08",
+     "kind": "Petitioner's brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/24/24-1016/423497/20260908233710240_24-1016_Brief.pdf"
+    },
+    {
+     "date": "2026-11-04",
+     "kind": "Respondent's brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/24/24-1016/431887/20261104210121988_PepsiCo%20Brief%20for%20Respondent.pdf"
+    }
+   ],
+   "review": []
   },
   {
    "docket": "25-1003",
@@ -101,7 +114,25 @@
      "Capital case"
     ]
    },
-   "result": null
+   "result": null,
+   "meritsBriefs": [
+    {
+     "date": "2026-07-30",
+     "kind": "Petitioner's brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-1003/417635/20260730153721858_25-1003_Petitioners%20Merits%20Brief.pdf"
+    },
+    {
+     "date": "2026-09-18",
+     "kind": "Respondent's brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-1003/424918/20260918165241257_Guerrero%20v%20Johnson%20-%20Merits%20Brief.pdf"
+    },
+    {
+     "date": "2026-10-19",
+     "kind": "Petitioner's reply brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-1003/429995/20261019162601706_25-1003%20Reply%20Brief.pdf"
+    }
+   ],
+   "review": []
   },
   {
    "docket": "25-1017",
@@ -158,7 +189,45 @@
      "Civil"
     ]
    },
-   "result": null
+   "result": null,
+   "meritsBriefs": [
+    {
+     "date": "2026-08-28",
+     "kind": "Petitioner's brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-1017/422368/20260828134131686_26.08.28%20RNC%20v.%20MFV%20-%20Blue%20Brief%20DRAFT%20print%20ready.pdf"
+    },
+    {
+     "date": "2026-08-28",
+     "kind": "Respondent's brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-1017/422369/20260828134830716_25-1017tsUnitedStates.pdf"
+    },
+    {
+     "date": "2026-08-28",
+     "kind": "Respondent's brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-1017/422435/20260828234248023_Brief_of_Petersen_and_Montenegro.pdf"
+    },
+    {
+     "date": "2026-08-28",
+     "kind": "Respondent's brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-1017/422337/20260828104027296_25-1017%20Brief%20for%20Respondents%20State%20of%20Arizona%20and%20Attorney%20General.pdf"
+    },
+    {
+     "date": "2026-10-13",
+     "kind": "Respondent's brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-1017/429342/20261013151019052_25-1017%20bs%20DNC%20and%20Arizona%20Democratic%20Party.pdf"
+    },
+    {
+     "date": "2026-10-13",
+     "kind": "Respondent's brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-1017/429355/20261013154635354_25-1017_Respondents%20Brief.pdf"
+    },
+    {
+     "date": "2026-10-13",
+     "kind": "Respondent's brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-1017/429340/20261013150606871_25-1017%20Mi%20Familia%20Vota%20Merits%20Brief.pdf"
+    }
+   ],
+   "review": []
   },
   {
    "docket": "25-1103",
@@ -205,7 +274,9 @@
      "Civil"
     ]
    },
-   "result": null
+   "result": null,
+   "meritsBriefs": [],
+   "review": []
   },
   {
    "docket": "25-1131",
@@ -252,7 +323,9 @@
      "Civil"
     ]
    },
-   "result": null
+   "result": null,
+   "meritsBriefs": [],
+   "review": []
   },
   {
    "docket": "25-1223",
@@ -299,7 +372,15 @@
      "Habeas"
     ]
    },
-   "result": null
+   "result": null,
+   "meritsBriefs": [
+    {
+     "date": "2026-09-16",
+     "kind": "Petitioner's brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-1223/424570/20260916160100464_25-1223%20-%20Montoya%20Palacios%20v.%20Liggins%20-%20Brief%20for%20Petitioner.pdf"
+    }
+   ],
+   "review": []
   },
   {
    "docket": "25-1311",
@@ -347,7 +428,15 @@
      "Civil"
     ]
    },
-   "result": null
+   "result": null,
+   "meritsBriefs": [
+    {
+     "date": "2026-09-14",
+     "kind": "Petitioner's brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-1311/424150/20260914154510009_2026-09-14%20No.%2025-1311%20Apple-Epic%20Merits%20Opening%20Brief.pdf"
+    }
+   ],
+   "review": []
   },
   {
    "docket": "25-1343",
@@ -394,7 +483,9 @@
      "Civil"
     ]
    },
-   "result": null
+   "result": null,
+   "meritsBriefs": [],
+   "review": []
   },
   {
    "docket": "25-1349",
@@ -441,7 +532,9 @@
      "Civil"
     ]
    },
-   "result": null
+   "result": null,
+   "meritsBriefs": [],
+   "review": []
   },
   {
    "docket": "25-1408",
@@ -489,7 +582,9 @@
      "Civil"
     ]
    },
-   "result": null
+   "result": null,
+   "meritsBriefs": [],
+   "review": []
   },
   {
    "docket": "25-159",
@@ -536,7 +631,25 @@
      "Civil"
     ]
    },
-   "result": null
+   "result": null,
+   "meritsBriefs": [
+    {
+     "date": "2026-08-13",
+     "kind": "Petitioner's brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-159/418892/20260813103936272_1%20-%20Brief%20for%20Petitioners.pdf"
+    },
+    {
+     "date": "2026-09-14",
+     "kind": "Respondent's brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-159/424160/20260914155818845_25-159.Rsps%20Merits%20Br.pdf"
+    },
+    {
+     "date": "2026-10-14",
+     "kind": "Petitioner's reply brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-159/429463/20261014120213063_1%20-%20Reply%20Brief%20for%20Petitioners.pdf"
+    }
+   ],
+   "review": []
   },
   {
    "docket": "25-170",
@@ -589,7 +702,25 @@
      "Civil"
     ]
    },
-   "result": null
+   "result": null,
+   "meritsBriefs": [
+    {
+     "date": "2026-05-14",
+     "kind": "Petitioner's brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-170/408810/20260514091116673_Boulder%20brief%20for%20petitioners%20FINAL.pdf"
+    },
+    {
+     "date": "2026-07-27",
+     "kind": "Respondent's brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-170/418043/20260803182738077_25-170%20Brief.pdf"
+    },
+    {
+     "date": "2026-08-26",
+     "kind": "Petitioner's reply brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-170/420125/20260826093327423_Boulder%20reply%20brief%20for%20petitioners.pdf"
+    }
+   ],
+   "review": []
   },
   {
    "docket": "25-183",
@@ -636,7 +767,25 @@
      "Civil"
     ]
    },
-   "result": null
+   "result": null,
+   "meritsBriefs": [
+    {
+     "date": "2026-07-10",
+     "kind": "Petitioner's brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-183/416255/20260710170938887_25-183%20Brief%20for%20Petitioner.pdf"
+    },
+    {
+     "date": "2026-08-17",
+     "kind": "Respondent's brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-183/419316/20260817172815816_25-183%20Brief.pdf"
+    },
+    {
+     "date": "2026-09-16",
+     "kind": "Petitioner's reply brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-183/424604/20260916183211139_25-183%20Reply%20Brief.pdf"
+    }
+   ],
+   "review": []
   },
   {
    "docket": "25-238",
@@ -688,7 +837,25 @@
      "Civil"
     ]
    },
-   "result": null
+   "result": null,
+   "meritsBriefs": [
+    {
+     "date": "2026-08-28",
+     "kind": "Petitioner's brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-238/422409/20260828162156469_25-238%2025-566%20Brief%20of%20the%20Petitioners.pdf"
+    },
+    {
+     "date": "2026-10-21",
+     "kind": "Respondent's brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-238/430313/20261027093044577_Grant%20v.%20Higgins%20-%20Connecticut%20Response%20Brief%20-%20CORRECTED.pdf"
+    },
+    {
+     "date": "2026-10-21",
+     "kind": "Respondent's brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-238/430811/20261027153149791_25-238%20-%2025-566%20-%20Corrected%20Brief.pdf"
+    }
+   ],
+   "review": []
   },
   {
    "docket": "25-246",
@@ -735,7 +902,25 @@
      "Criminal"
     ]
    },
-   "result": null
+   "result": null,
+   "meritsBriefs": [
+    {
+     "date": "2026-09-03",
+     "kind": "Petitioner's brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-246/422896/20260903114849475_Jouppi%20v.%20Alaska%20%20-%20Brief%20for%20the%20Petitioner%20PDFA.pdf"
+    },
+    {
+     "date": "2026-10-05",
+     "kind": "Respondent's brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-246/428526/20261005165548741_25-246_Brief.pdf"
+    },
+    {
+     "date": "2026-11-04",
+     "kind": "Petitioner's reply brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-246/431807/20261104123133487_Jouppi%20v.%20Alaska%20-%20Reply%20Brief%20PDFA.pdf"
+    }
+   ],
+   "review": []
   },
   {
    "docket": "25-352",
@@ -787,7 +972,25 @@
      "Civil"
     ]
    },
-   "result": null
+   "result": null,
+   "meritsBriefs": [
+    {
+     "date": "2026-06-08",
+     "kind": "Petitioner's brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-352/412882/20260608170007524_25-352%20Brief.pdf"
+    },
+    {
+     "date": "2026-08-03",
+     "kind": "Respondent's brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-352/418311/20260806134746085_25-352%20bs.pdf"
+    },
+    {
+     "date": "2026-09-01",
+     "kind": "Petitioner's reply brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-352/422694/20260901141039520_25-352%20Brief.pdf"
+    }
+   ],
+   "review": []
   },
   {
    "docket": "25-417",
@@ -834,7 +1037,25 @@
      "Civil"
     ]
    },
-   "result": null
+   "result": null,
+   "meritsBriefs": [
+    {
+     "date": "2026-08-14",
+     "kind": "Petitioner's brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-417/419143/20260814155335762_Nielsen%20Merits%20Opening%20Brief.pdf"
+    },
+    {
+     "date": "2026-09-23",
+     "kind": "Respondent's brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-417/425449/20260923172750437_25-417%20Brief%20For%20The%20Respondent.pdf"
+    },
+    {
+     "date": "2026-10-23",
+     "kind": "Petitioner's reply brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-417/430552/20261023161336741_Nielsen%20Merits%20Reply%20Brief.pdf"
+    }
+   ],
+   "review": []
   },
   {
    "docket": "25-459",
@@ -881,7 +1102,25 @@
      "Civil"
     ]
    },
-   "result": null
+   "result": null,
+   "meritsBriefs": [
+    {
+     "date": "2026-04-17",
+     "kind": "Petitioner's brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-459/404775/20260417185334778_25-459_Petitioner%20Brief.pdf"
+    },
+    {
+     "date": "2026-06-23",
+     "kind": "Respondent's brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-459/413862/20260623121413751_25-459%20Paramount%20Merits%20Response%20Brief.pdf"
+    },
+    {
+     "date": "2026-07-23",
+     "kind": "Petitioner's reply brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-459/417145/20260723120335252_25-459ReplyBriefForPetitioner.pdf"
+    }
+   ],
+   "review": []
   },
   {
    "docket": "25-498",
@@ -928,7 +1167,25 @@
      "Civil"
     ]
    },
-   "result": null
+   "result": null,
+   "meritsBriefs": [
+    {
+     "date": "2026-04-23",
+     "kind": "Petitioner's brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-498/405222/20260423233610550_Anderson.%20Opening%20brief.pdf"
+    },
+    {
+     "date": "2026-07-02",
+     "kind": "Respondent's brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-498/416147/20260710094009631_Intel%20Merits%20Response%20Brief%20rev%207%209%2026.pdf"
+    },
+    {
+     "date": "2026-08-03",
+     "kind": "Petitioner's reply brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-498/418044/20260803183953130_Anderson.%20Reply%20brief.pdf"
+    }
+   ],
+   "review": []
   },
   {
    "docket": "25-5343",
@@ -975,7 +1232,30 @@
      "Criminal"
     ]
    },
-   "result": null
+   "result": null,
+   "meritsBriefs": [
+    {
+     "date": "2026-06-30",
+     "kind": "Petitioner's brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-5343/415355/20260709161945466_25-5343BriefForPetitioner.pdf"
+    },
+    {
+     "date": "2026-06-30",
+     "kind": "Respondent's brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-5343/416115/20260709173938351_25-5343tsUnited_States-corrected.pdf"
+    },
+    {
+     "date": "2026-09-24",
+     "kind": "Respondent's reply brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-5343/425601/20260924172453860_25-5343rbUnited_States.pdf"
+    },
+    {
+     "date": "2026-09-24",
+     "kind": "Petitioner's reply brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-5343/425587/20260924161808986_25-5343ReplyBriefForPetitioner.pdf"
+    }
+   ],
+   "review": []
   },
   {
    "docket": "25-566",
@@ -1027,7 +1307,9 @@
      "Civil"
     ]
    },
-   "result": null
+   "result": null,
+   "meritsBriefs": [],
+   "review": []
   },
   {
    "docket": "25-579",
@@ -1079,7 +1361,25 @@
      "Civil"
     ]
    },
-   "result": null
+   "result": null,
+   "meritsBriefs": [
+    {
+     "date": "2026-05-22",
+     "kind": "Petitioner's brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-579/409658/20260522150323005_25-579ts_USAF_v_PrutehiGuahan_final.pdf"
+    },
+    {
+     "date": "2026-07-20",
+     "kind": "Respondent's brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-579/416855/20260720140748521_25-579%20Brief%20of%20Respondent%20Prutehi%20Guahan.pdf"
+    },
+    {
+     "date": "2026-08-19",
+     "kind": "Petitioner's reply brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-579/419490/20260819140940145_25-579rb_USAF_v_PrutehiGuahan_reply_file.pdf"
+    }
+   ],
+   "review": []
   },
   {
    "docket": "25-581",
@@ -1136,7 +1436,25 @@
      "Civil"
     ]
    },
-   "result": null
+   "result": null,
+   "meritsBriefs": [
+    {
+     "date": "2026-06-25",
+     "kind": "Petitioner's brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-581/415025/20260625143739952_St%20Mary%20Opening%20Br%20FINAL.pdf"
+    },
+    {
+     "date": "2026-08-17",
+     "kind": "Respondent's brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-581/419261/20260817140909161_25-581%20Brief.pdf"
+    },
+    {
+     "date": "2026-09-16",
+     "kind": "Petitioner's reply brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-581/424454/20260916110916352_St.%20Marys%20SCOTUS%20Reply%20Br%20FINAL.pdf"
+    }
+   ],
+   "review": []
   },
   {
    "docket": "25-5930",
@@ -1184,7 +1502,25 @@
      "Habeas"
     ]
    },
-   "result": null
+   "result": null,
+   "meritsBriefs": [
+    {
+     "date": "2026-08-05",
+     "kind": "Petitioner's brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-5930/418167/20260805123041240_25-5930%20opening%20brief%20final_PDFA.pdf"
+    },
+    {
+     "date": "2026-10-19",
+     "kind": "Respondent's reply brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-5930/430007/20261019165858091_25-5930_Maxwell_usrb.pdf"
+    },
+    {
+     "date": "2026-10-19",
+     "kind": "Petitioner's reply brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-5930/429966/20261019143126980_25-5930MaxwellReplyBrief.pdf"
+    }
+   ],
+   "review": []
   },
   {
    "docket": "25-6623",
@@ -1231,7 +1567,25 @@
      "Criminal"
     ]
    },
-   "result": null
+   "result": null,
+   "meritsBriefs": [
+    {
+     "date": "2026-08-06",
+     "kind": "Petitioner's brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-6623/418356/20260806225432417_25-6623%20ts%20Petitioner%20Brief.pdf"
+    },
+    {
+     "date": "2026-09-28",
+     "kind": "Respondent's brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-6623/428397/20261002210129510_Kian%20-%20%20final.pdf"
+    },
+    {
+     "date": "2026-10-28",
+     "kind": "Petitioner's reply brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-6623/431048/20261028161522725_25-6623%20rb%20Brief.pdf"
+    }
+   ],
+   "review": []
   },
   {
    "docket": "25-7026",
@@ -1279,7 +1633,9 @@
      "Habeas"
     ]
    },
-   "result": null
+   "result": null,
+   "meritsBriefs": [],
+   "review": []
   },
   {
    "docket": "25-735",
@@ -1326,7 +1682,25 @@
      "Civil"
     ]
    },
-   "result": null
+   "result": null,
+   "meritsBriefs": [
+    {
+     "date": "2026-06-01",
+     "kind": "Petitioner's brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-735/412251/20260601114507068_25-735_ts.pdf"
+    },
+    {
+     "date": "2026-07-13",
+     "kind": "Respondent's brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-735/416400/20260713192231875_25-735_Johnson_bs_with%20appendix.pdf"
+    },
+    {
+     "date": "2026-08-12",
+     "kind": "Petitioner's reply brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-735/418796/20260812130337373_25-735_tsrb.pdf"
+    }
+   ],
+   "review": []
   },
   {
    "docket": "25-840",
@@ -1373,7 +1747,20 @@
      "Civil"
     ]
    },
-   "result": null
+   "result": null,
+   "meritsBriefs": [
+    {
+     "date": "2026-09-08",
+     "kind": "Petitioner's brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-840/423495/20260908233951126_25-840%20Merits%20Brief.pdf"
+    },
+    {
+     "date": "2026-10-21",
+     "kind": "Respondent's brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-840/431251/20261030103650623_BrRespts_Corrected.pdf"
+    }
+   ],
+   "review": []
   },
   {
    "docket": "25-842",
@@ -1420,7 +1807,25 @@
      "Civil"
     ]
    },
-   "result": null
+   "result": null,
+   "meritsBriefs": [
+    {
+     "date": "2026-08-24",
+     "kind": "Petitioner's brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-842/419950/20260824144814634_2026-08-24%20Wassily-Velasquez%20SCT%20No.%2025-842%20-%20Merits%20Brief%20with%20addendum.pdf"
+    },
+    {
+     "date": "2026-10-02",
+     "kind": "Respondent's brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-842/428396/20261002195824636_Wassily_respondent_brief.pdf"
+    },
+    {
+     "date": "2026-11-02",
+     "kind": "Petitioner's reply brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-842/431511/20261102133158653_2026-11-02%20S.Ct.%20No.%2025-842%20%20Wassily_Velasquez%20Merits%20Reply%20Brief.pdf"
+    }
+   ],
+   "review": []
   },
   {
    "docket": "25-965",
@@ -1467,7 +1872,20 @@
      "Civil"
     ]
    },
-   "result": null
+   "result": null,
+   "meritsBriefs": [
+    {
+     "date": "2026-08-31",
+     "kind": "Petitioner's brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-965/422565/20260831153238712_Grand%20Merits%20Opening%20Brief.pdf"
+    },
+    {
+     "date": "2026-10-23",
+     "kind": "Respondent's brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-965/430462/20261023112121645_Grand%20Brief%20of%20Respondents.pdf"
+    }
+   ],
+   "review": []
   },
   {
    "docket": "25-966",
@@ -1520,7 +1938,25 @@
      "Civil"
     ]
    },
-   "result": null
+   "result": null,
+   "meritsBriefs": [
+    {
+     "date": "2026-06-18",
+     "kind": "Petitioner's brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-966/413619/20260618153112527_25-966SunValleyGovtBr_with_Appendix.pdf"
+    },
+    {
+     "date": "2026-07-27",
+     "kind": "Respondent's brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-966/417327/20260727112239225_25-966%20Brief%20of%20Respondent.pdf"
+    },
+    {
+     "date": "2026-08-26",
+     "kind": "Petitioner's reply brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-966/420181/20260826141240821_25-966%20Sun%20Valley%20Reply.pdf"
+    }
+   ],
+   "review": []
   },
   {
    "docket": "26-104",
@@ -1567,7 +2003,9 @@
      "Habeas"
     ]
    },
-   "result": null
+   "result": null,
+   "meritsBriefs": [],
+   "review": []
   },
   {
    "docket": "26-12",
@@ -1614,7 +2052,9 @@
      "Civil"
     ]
    },
-   "result": null
+   "result": null,
+   "meritsBriefs": [],
+   "review": []
   },
   {
    "docket": "26-204",
@@ -1661,7 +2101,9 @@
      "Civil"
     ]
    },
-   "result": null
+   "result": null,
+   "meritsBriefs": [],
+   "review": []
   },
   {
    "docket": "26-426",
@@ -1719,7 +2161,9 @@
      "Civil"
     ]
    },
-   "result": null
+   "result": null,
+   "meritsBriefs": [],
+   "review": []
   }
  ],
  "excluded": [],
