@@ -86,3 +86,16 @@ def test_unknown_court_stops_the_build(sandbox):
     edit(sandbox / "data" / "court_names.json", lambda t: t.pop("Supreme Court of Colorado"))
     problems = build.build("2026-11-06")[7]
     assert any("court_names.json" in p for p in problems)
+
+
+def test_unknown_tag_stops_the_build(sandbox):
+    edit(sandbox / "data" / "tags.json", lambda t: t["cases"]["25-170"]["subjects"].append("Climate"))
+    problems = build.build("2026-11-06")[7]
+    assert any("'Climate' is not in the subjects list" in p for p in problems)
+
+
+def test_court_classification_tags(sandbox):
+    cases = {c["docket"]: c for c in build.build("2026-11-06")[3]}
+    assert cases["25-1003"]["tags"]["court"] == ["Habeas", "Capital case"]
+    assert cases["25-5343"]["tags"]["court"] == ["Criminal"]
+    assert cases["25-238"]["tags"]["court"] == ["Civil"]

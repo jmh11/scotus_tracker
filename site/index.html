@@ -71,6 +71,11 @@ tbody td:last-child{padding-right:16px}
 .case-btn .tw{display:inline-block;width:1em;color:var(--muted)}
 .meta{font-size:13px;color:var(--muted);margin-top:4px}
 .tag{display:inline-block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--accent);color:var(--accent);padding:0 6px;margin-left:6px;vertical-align:2px}
+.tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
+.tagbox{font:inherit;font-size:12px;line-height:1.4;padding:1px 7px;border:1px solid var(--line);background:var(--tint);color:var(--ink);cursor:pointer;border-radius:2px}
+.tagbox:hover{border-color:var(--accent);color:var(--accent)}
+.tagbox[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.topic{min-height:40px;border:1px solid var(--line);background:var(--surface);padding:0 8px;font-size:15px;max-width:100%}
 .date{white-space:nowrap;font-variant-numeric:tabular-nums}
 .soft{color:var(--muted);font-style:italic}
 .pickcell{position:relative}
@@ -159,6 +164,8 @@ footer ul{margin:6px 0 0;padding-left:18px}
       <button class="chip" type="button" data-f="awaiting" aria-pressed="false">Awaiting argument</button>
       <button class="chip" type="button" data-f="decided" aria-pressed="false">Decided</button>
       <button class="chip" type="button" data-f="unpicked" aria-pressed="false">No prediction yet</button>
+      <label class="sr" for="topic">Filter by topic</label>
+      <select class="topic" id="topic"><option value="">All topics</option></select>
       <label class="sr" for="q">Search cases</label>
       <input class="search" id="q" type="search" placeholder="Search by name or docket number">
     </div>
@@ -236,7 +243,9 @@ const now=new Date(); const TODAY=now.getFullYear()+'-'+pad(now.getMonth()+1)+'-
 const fmt=iso=>{const [y,m,d]=iso.split('-').map(Number);return MONTHS[m-1]+' '+d+', '+y};
 const $=id=>document.getElementById(id);
 
-let data=null, picks=loadPicks(), filter='all', query='', open=new Set(), pendingRestore=null;
+let data=null, picks=loadPicks(), filter='all', query='', topic='', open=new Set(), pendingRestore=null;
+const allTags=c=>{const t=c.tags||{};return [...(t.kinds||[]),...(t.subjects||[]),...(t.court||[])];};
+function setTopic(t){ topic=(topic===t)?'':t; $('topic').value=topic; render(); }
 
 function loadPicks(){try{const v=JSON.parse(localStorage.getItem(KEY)||'{}');return v&&typeof v==='object'?v:{}}catch(e){return {}}}
 function savePicks(){try{localStorage.setItem(KEY,JSON.stringify(picks))}catch(e){}}
@@ -260,6 +269,7 @@ function visible(){
     if(filter==='awaiting'&&status(c)!=='awaiting') return false;
     if(filter==='decided'&&status(c)!=='decided') return false;
     if(filter==='unpicked'&&hasPick(c.docket)) return false;
+    if(topic && !allTags(c).includes(topic)) return false;
     if(q && !(c.name.toLowerCase().includes(q)||c.docket.includes(q))) return false;
     return true;
   }).sort((a,b)=>{const x=a.argued||a.scheduled||'9999', y=b.argued||b.scheduled||'9999'; return x<y?-1:x>y?1:a.name.localeCompare(b.name);});
@@ -296,7 +306,8 @@ function render(){
       h('td',null,
         h('button',{class:'case-btn',type:'button','aria-expanded':String(isOpen),onclick:()=>{isOpen?open.delete(c.docket):open.add(c.docket);render();}},
           h('span',{class:'tw','aria-hidden':'true'},isOpen?'▾':'▸'), c.name),
-        h('div',{class:'meta'},'No. '+c.docket+' · '+c.lowerCourt, isNew?h('span',{class:'tag'},'New'):null)),
+        h('div',{class:'meta'},'No. '+c.docket+' · '+c.lowerCourt, isNew?h('span',{class:'tag'},'New'):null),
+        allTags(c).length?h('div',{class:'tags'},allTags(c).map(t=>h('button',{class:'tagbox',type:'button','aria-pressed':String(t===topic),title:'Show only cases tagged '+t,onclick:()=>setTopic(t)},t))):null),
       h('td',{'data-label':'Granted'},h('span',{class:'date'},fmt(c.granted))),
       h('td',{'data-label':'Argued'},arg),
       h('td',{'data-label':'Decided'},dec),
@@ -405,6 +416,11 @@ fetch('cases.json',{cache:'no-cache'}).then(r=>{if(!r.ok) throw new Error(r.stat
    ['Granted & Noted List, as of '+fmt(j.grantedListAsOf),'https://www.supremecourt.gov/orders/26grantednotedlist.pdf'],
    ['How this page is built and updated (code)',j.repo]].forEach(([t,u])=>srcs.append(h('li',null,h('a',{href:u,target:'_blank',rel:'noopener'},t))));
   if((j.excluded||[]).length){ const ex=$('excluded'); ex.hidden=false; j.excluded.forEach(x=>$('excluded-list').append(h('li',null,h('em',null,x.name),' (No. '+x.docket+'): '+x.result))); }
+  const sel=$('topic');
+  const counts={}; j.cases.forEach(c=>allTags(c).forEach(t=>counts[t]=(counts[t]||0)+1));
+  (j.tagGroups||[]).forEach(g=>{ const og=h('optgroup',{label:g.label});
+    g.tags.filter(t=>counts[t]).forEach(t=>og.append(h('option',{value:t},t+' ('+counts[t]+')'))); if(og.children.length) sel.append(og); });
+  sel.addEventListener('change',e=>{topic=e.target.value;render();});
   render(); updateStats(); updateMsg();
 }).catch(()=>{ $('rows').textContent=''; $('rows').append(h('tr',{class:'empty-row'},h('td',{colspan:'7'},'The case list didn\'t load. Refresh the page to try again.'))); $('revised').textContent=''; });
 })();

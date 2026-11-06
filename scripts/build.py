@@ -8,6 +8,7 @@ Inputs (all in data/):
   display_names.json   approved names        court_names.json  court-name lookup
   content.json         approved write-ups     config.json       term, cutoff, email
   transcripts.json, audio.json  from parse_transcripts.py
+  tags.json            hand-assigned tags (kinds of question, subjects), approved by Joshua
   changelog.json       running list of changes (this script appends to it)
 Outputs:
   site/cases.json      what the page shows
@@ -21,6 +22,9 @@ Fixed rules:
   - Every lower court must be in court_names.json. Unapproved names and missing write-ups are flagged.
   - Changes are found by comparing with the previous site/cases.json.
   - An argued case should have a transcript link; a missing one is flagged.
+  - Tags in tags.json must be from its own lists. The Court's classification is added automatically
+    from the third letter of the list's case code (X civil, Y criminal, H habeas) and the docket's
+    capital-case flag.
 If any check fails, nothing is written and the script exits with an error.
 
 Usage: build.py [--today YYYY-MM-DD]
@@ -43,6 +47,7 @@ REPORT = ROOT / "build_report.md"
 OUTCOMES = {"affirm", "reverse", "vacate", "dismissed", "mixed"}
 CONTENT_KEYS = {"question", "facts", "petitioner", "respondent", "outcomes"}
 PICK_OPTIONS = {"affirm", "reverse", "vacate"}
+COURT_CLASS = {"X": "Civil", "Y": "Criminal", "H": "Habeas"}
 DOCKET_PAGE = "https://www.supremecourt.gov/docket/docketfiles/html/public/{}.html"
 
 
@@ -113,6 +118,8 @@ def build(today: str):
     content = {k: v for k, v in load("content.json").items() if not k.startswith("_")}
     transcripts = load("transcripts.json") if (DATA / "transcripts.json").exists() else {}
     audio = load("audio.json") if (DATA / "audio.json").exists() else {}
+    tagfile = load("tags.json")
+    allowed = {"kinds": tagfile["kinds"], "subjects": tagfile["subjects"]}
     changelog = load("changelog.json") if (DATA / "changelog.json").exists() else []
     tracked = read_tracked()
     prev_site = json.loads(SITE_DATA.read_text()) if SITE_DATA.exists() else {"cases": [], "updatedAt": None}
@@ -171,6 +178,25 @@ def build(today: str):
                 problems.append(f"{d}: {b} ({rec[b]}) is before {a} ({rec[a]})")
         if rec["decided"] and rec["outcome"] not in OUTCOMES:
             problems.append(f"{d}: unknown outcome {rec['outcome']!r}")
+        assigned = tagfile["cases"].get(d)
+        tags = {"kinds": [], "subjects": [], "court": []}
+        if assigned is None:
+            flags.append(f"{d}: no tags yet (add it to data/tags.json).")
+        else:
+            for fam in ("kinds", "subjects"):
+                for t in assigned.get(fam, []):
+                    if t not in allowed[fam]:
+                        problems.append(f"{d}: tag {t!r} is not in the {fam} list in data/tags.json")
+                    else:
+                        tags[fam].append(t)
+        if lc:
+            cls = COURT_CLASS.get(lc["code"][2])
+            if cls is None:
+                problems.append(f"{d}: unknown case code {lc['code']!r} on the Granted list")
+            else:
+                tags["court"].append(cls)
+        if rec.get("capitalCase"):
+            tags["court"].append("Capital case")
         written = content.get(d)
         if written is not None:
             bad = set(written) - CONTENT_KEYS or set(written.get("outcomes", {})) - PICK_OPTIONS
@@ -187,9 +213,12 @@ def build(today: str):
             "transcriptUrl": transcripts.get(d) or next((transcripts[x] for x in partners.get(d, []) if x in transcripts), None),
             "audioUrl": audio.get(d) or next((audio[x] for x in partners.get(d, []) if x in audio), None),
             "consolidatedWith": partners.get(d, []), "capitalCase": rec.get("capitalCase", False),
-            "addedOn": added, "content": written,
+            "addedOn": added, "content": written, "tags": tags,
         })
 
+    for d in tagfile["cases"]:
+        if d not in tracked:
+            flags.append(f"data/tags.json has tags for {d}, which isn't tracked.")
     names_by_docket = {c["docket"]: c["name"] for c in cases}
     for c in cases:
         c["consolidatedWith"] = [{"docket": x, "name": names_by_docket.get(x, x)} for x in c["consolidatedWith"]]
@@ -230,6 +259,7 @@ def main() -> int:
         changelog = [{"date": today, "text": f"Tracker launched with {len(cases)} cases."}]
     (DATA / "changelog.json").write_text(json.dumps(changelog, indent=1, ensure_ascii=False) + "\n")
     write_tracked(tracked)
+    tagfile = load("tags.json")
     site = {
         "term": cfg["term"], "email": cfg["email"], "repo": cfg["repo"],
         "newGrantCutoff": cfg["newGrantCutoff"], "grantedListAsOf": listed["asOf"],
@@ -237,6 +267,11 @@ def main() -> int:
         "updatedAt": today if (changes or not prev_site.get("updatedAt")) else prev_site["updatedAt"],
         "cases": sorted(cases, key=lambda c: c["docket"]),
         "excluded": excluded,
+        "tagGroups": [
+            {"label": "Kind of question", "tags": tagfile["kinds"]},
+            {"label": "Subject", "tags": tagfile["subjects"]},
+            {"label": "Court's classification", "tags": ["Civil", "Criminal", "Habeas", "Capital case"]},
+        ],
         "changelog": changelog[-25:],
     }
     SITE_DATA.parent.mkdir(exist_ok=True)
