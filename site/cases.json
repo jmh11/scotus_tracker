@@ -94,7 +94,9 @@
    "consolidatedWith": [],
    "capitalCase": false,
    "addedOn": null,
-   "content": null,
+   "content": {
+    "question": "(1) Does the National Voter Registration Act (NVRA) or a federal consent decree prohibit Arizona from requiring voter-registration applicants to produce \"satisfactory evidence\" of U.S. citizenship when registering with a state registration form?\n(2) Does the NVRA prohibit Arizona from implementing a program within 90 days of a federal election to cancel the registrations of voters who are not U.S. citizens?"
+   },
    "tags": {
     "kinds": [
      "Statutory"
@@ -222,7 +224,9 @@
    "consolidatedWith": [],
    "capitalCase": false,
    "addedOn": null,
-   "content": null,
+   "content": {
+    "question": "Whether a court may hold a party in civil contempt based on a violation of an injunction's \"spirit\" where the injunction is silent as to the conduct upon which contempt is based; or, instead, whether a court must ground a finding of civil contempt on the violation of an order that clearly and unambiguously proscribes the precise conduct at issue."
+   },
    "tags": {
     "kinds": [
      "Court-made doctrine and procedure"
@@ -930,7 +934,9 @@
    "consolidatedWith": [],
    "capitalCase": false,
    "addedOn": null,
-   "content": null,
+   "content": {
+    "question": "Whether noncitizens who were \"granted asylum,\" but whose asylum was later terminated, are eligible for adjustment to lawful permanent resident status under 8 U.S.C. § 1159(b), or are categorically ineligible."
+   },
    "tags": {
     "kinds": [
      "Statutory"
@@ -962,7 +968,9 @@
    "consolidatedWith": [],
    "capitalCase": false,
    "addedOn": null,
-   "content": null,
+   "content": {
+    "question": "Whether the First Amendment's established chilling-effect doctrine—under which a credible government threat that deters the exercise of fundamental rights constitutes a complete and independently actionable constitutional injury—allows a plaintiff to bring a lawsuit based on government threats both before and after a Planning Commission meeting that chilled religious exercise, worship, and assembly, even when the city had not completed a final land-use decision."
+   },
    "tags": {
     "kinds": [
      "Constitutional"
@@ -994,7 +1002,9 @@
    "consolidatedWith": [],
    "capitalCase": false,
    "addedOn": null,
-   "content": null,
+   "content": {
+    "question": "(1) Whether Article III of the Constitution precludes the Department of Labor from adjudicating proceedings to collect monetary remedies from employers who have allegedly violated the terms and conditions of employment of H-2A workers and domestic workers in corresponding employment and instead requires them to be decided by a federal court.\n(2) Whether 8 U.S.C. § 1188(g)(2) authorizes the Department of Labor to adjudicate such proceedings."
+   },
    "tags": {
     "kinds": [
      "Constitutional",
@@ -1187,6 +1197,10 @@
   {
    "date": "2026-11-06",
    "text": "Case write-ups added or updated for St. Mary Catholic Parish v. Roy."
+  },
+  {
+   "date": "2026-11-06",
+   "text": "Case write-ups added or updated for 5 case(s)."
   }
  ]
 }
