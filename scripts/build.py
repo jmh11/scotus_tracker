@@ -7,6 +7,7 @@ Inputs (all in data/):
   tracked_dockets.txt  tracked cases (this script adds new grants to it)
   display_names.json   approved names        court_names.json  court-name lookup
   content.json         approved write-ups     config.json       term, cutoff, email
+  transcripts.json     from parse_transcripts.py
   changelog.json       running list of changes (this script appends to it)
 Outputs:
   site/cases.json      what the page shows
@@ -19,6 +20,7 @@ Fixed rules:
   - Grant dates must agree between the list and the docket. Dates must run granted <= argued <= decided.
   - Every lower court must be in court_names.json. Unapproved names and missing write-ups are flagged.
   - Changes are found by comparing with the previous site/cases.json.
+  - An argued case should have a transcript link; a missing one is flagged.
 If any check fails, nothing is written and the script exits with an error.
 
 Usage: build.py [--today YYYY-MM-DD]
@@ -106,6 +108,7 @@ def build(today: str):
     names = {k: v for k, v in load("display_names.json").items() if not k.startswith("_")}
     courts = {k: v for k, v in load("court_names.json").items() if not k.startswith("_")}
     content = {k: v for k, v in load("content.json").items() if not k.startswith("_")}
+    transcripts = load("transcripts.json") if (DATA / "transcripts.json").exists() else {}
     changelog = load("changelog.json") if (DATA / "changelog.json").exists() else []
     tracked = read_tracked()
     prev_site = json.loads(SITE_DATA.read_text()) if SITE_DATA.exists() else {"cases": [], "updatedAt": None}
@@ -176,6 +179,8 @@ def build(today: str):
             "argued": rec["argued"], "reargued": rec.get("reargued", False),
             "decided": rec["decided"], "outcome": rec["outcome"], "opinionUrl": rec["opinionUrl"],
             "qpUrl": rec["qpUrl"], "docketUrl": DOCKET_PAGE.format(d),
+            # consolidated cases share one transcript, which may be filed under either docket
+            "transcriptUrl": transcripts.get(d) or next((transcripts[x] for x in partners.get(d, []) if x in transcripts), None),
             "consolidatedWith": partners.get(d, []), "capitalCase": rec.get("capitalCase", False),
             "addedOn": added, "content": written,
         })
@@ -183,6 +188,9 @@ def build(today: str):
     names_by_docket = {c["docket"]: c["name"] for c in cases}
     for c in cases:
         c["consolidatedWith"] = [{"docket": x, "name": names_by_docket.get(x, x)} for x in c["consolidatedWith"]]
+    for c in cases:
+        if c["argued"] and not c["transcriptUrl"]:
+            flags.append(f"{c['docket']}: argued, but no transcript link on the Court's transcripts page yet.")
     unwritten = [c["docket"] for c in cases if not c["content"]]
     if unwritten:
         flags.append(f"{len(unwritten)} case(s) still show \"summary coming soon\".")
