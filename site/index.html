@@ -59,7 +59,7 @@ main{display:flex;flex-direction:column;gap:20px;padding-block:22px 48px}
 .tablebox{border:1px solid var(--line);background:var(--surface)}
 /* Fixed column widths, so every filter view lines up identically. */
 table{width:100%;border-collapse:collapse;font-size:15px;table-layout:fixed}
-col.c-case{width:33%} col.c-date{width:8%} col.c-arg{width:8%} col.c-pred{width:calc(13% + 19px)} col.c-op{width:calc(13% - 19px)} col.c-note{width:17%}
+col.c-case{width:33%} col.c-date{width:8%} col.c-arg{width:8%} col.c-pred{width:13%} col.c-info{width:44px} col.c-op{width:13%} /* notes takes the rest */
 tbody td{overflow-wrap:anywhere}
 thead th{text-align:left;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600;padding:12px 8px;border-bottom:1px solid var(--ink);white-space:nowrap}
 thead th:first-child{padding-left:16px}
@@ -75,6 +75,9 @@ tbody td:last-child{padding-right:16px}
 .tag.review{margin:0;text-decoration:none;text-transform:none;letter-spacing:0;font-size:12px}
 .tag.review:hover{opacity:.85;color:var(--on-alert)}
 .review-banner{border-color:var(--alert)}
+.infohead{padding:0!important}
+td.infocell{padding:14px 4px!important;text-align:center}
+.info.inline-only{display:none}
 select.pick.right{background:var(--right-bg);border-color:var(--right-line)}
 select.pick.wrong{background:var(--wrong-bg);border-color:var(--wrong-line)}
 select.pick.na{background:var(--na-bg);border-color:var(--na-line)}
@@ -119,6 +122,8 @@ tr.detail td{background:var(--tint);border-top:0;padding:16px 16px 20px 40px}
   .tablebox{border:0;background:transparent}
   table,tbody,tr,td{display:block}
   thead,colgroup{display:none}
+  tbody tr.case td.infocell{display:none}
+  .info.inline-only{display:inline-block}
   tbody tr.case{background:var(--surface);border:1px solid var(--line);margin-top:12px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:12px;padding:14px 16px}
   tbody tr.case td{border:0;padding:6px 0}
   tbody tr.case td:first-child{grid-column:1/-1;padding-left:0}
@@ -191,16 +196,16 @@ footer ul{margin:6px 0 0;padding-left:18px}
     <div class="tablebox">
       <table>
         <colgroup>
-          <col class="c-case"><col class="c-date"><col class="c-arg"><col class="c-date"><col class="c-pred"><col class="c-op"><col class="c-note">
+          <col class="c-case"><col class="c-date"><col class="c-arg"><col class="c-date"><col class="c-pred"><col class="c-info"><col class="c-op"><col class="c-note">
         </colgroup>
         <thead><tr>
           <th scope="col" data-sort="name"><button type="button" class="sortbtn">Case<span class="arrow" aria-hidden="true"></span></button></th>
           <th scope="col" data-sort="granted"><button type="button" class="sortbtn">Granted<span class="arrow" aria-hidden="true"></span></button></th>
           <th scope="col" data-sort="argued"><button type="button" class="sortbtn">Argued<span class="arrow" aria-hidden="true"></span></button></th>
           <th scope="col" data-sort="decided"><button type="button" class="sortbtn">Decided<span class="arrow" aria-hidden="true"></span></button></th>
-          <th scope="col">Prediction</th><th scope="col">My Opinion</th><th scope="col">Your notes</th>
+          <th scope="col">Prediction</th><th scope="col" class="infohead"><span class="sr">What each answer means</span></th><th scope="col">My Opinion</th><th scope="col">Your notes</th>
         </tr></thead>
-        <tbody id="rows"><tr class="empty-row"><td colspan="7">Loading the docket…</td></tr></tbody>
+        <tbody id="rows"><tr class="empty-row"><td colspan="8">Loading the docket…</td></tr></tbody>
       </table>
     </div>
     <p class="soft" style="margin:0;font-size:14px">Your picks save automatically in this browser. To keep them safe or move them to another device, use "Back up your picks" below.</p>
@@ -319,7 +324,9 @@ updateSortHeaders();
 function pickCell(c,kind){
   const id=kind+'-'+c.docket, p=getPick(c.docket), opts=optionsOf(c);
   const colName=kind==='will'?'Prediction':'My Opinion';
-  if(!opts.length) return h('td',{class:'pickcell','data-label':colName},h('span',{class:'soft'},'Options coming soon'));
+  const infoCell=(btn)=>h('td',{class:'infocell'},btn||null);
+  if(!opts.length){ const td=h('td',{class:'pickcell','data-label':colName},h('span',{class:'soft'},'Options coming soon'));
+    return kind==='will'?[td,infoCell()]:td; }
   const locked=kind==='will'&&!!c.decided;   // predictions can't change once the Court has ruled
   const sel=h('select',{class:'pick'+(p[kind]?'':' empty'),id:id,disabled:locked,title:locked?'Predictions lock once the Court decides':null,
       onchange:e=>{setPick(c.docket,kind,e.target.value);e.target.classList.toggle('empty',!e.target.value);}},
@@ -338,17 +345,20 @@ function pickCell(c,kind){
   const pop=h('div',{class:'pop',role:'note',id:'pop-'+id,hidden:true});
   pop.append(h('div',{class:'eyebrow'},'What each answer means'));
   opts.forEach(o=>pop.append(h('p',null,h('strong',null,o.label),' — '+o.meaning)));
-  const btn=h('button',{class:'info',type:'button','aria-label':'What each answer means','aria-expanded':'false','aria-controls':'pop-'+id,
-    onclick:e=>{e.stopPropagation();const show=pop.hidden;closePops();pop.hidden=!show;btn.setAttribute('aria-expanded',String(show));}},'i');
-  return h('td',{class:'pickcell','data-label':colName},
-    h('div',{class:'pickrow'},h('label',{class:'sr',for:id},colName+' for '+c.name),sel,mark,btn),pop);
+  // Two copies of the "i" button open the same popup: one in its own narrow column (wide screens)
+  // and one beside the dropdown (phones, where there are no columns).
+  const mk=(extra)=>{ const b=h('button',{class:'info'+extra,type:'button','aria-label':'What each answer means','aria-expanded':'false','aria-controls':'pop-'+id,
+    onclick:e=>{e.stopPropagation();const show=pop.hidden;closePops();pop.hidden=!show;b.setAttribute('aria-expanded',String(show));}},'i'); return b; };
+  return [h('td',{class:'pickcell','data-label':colName},
+      h('div',{class:'pickrow'},h('label',{class:'sr',for:id},colName+' for '+c.name),sel,mk(' inline-only')),pop),
+    infoCell(mk(''))];
 }
 function closePops(){document.querySelectorAll('.pop').forEach(p=>p.hidden=true);document.querySelectorAll('.info').forEach(b=>b.setAttribute('aria-expanded','false'));}
 
 function render(){
   const tb=$('rows'); tb.textContent='';
   const list=visible();
-  if(!list.length){tb.append(h('tr',{class:'empty-row'},h('td',{colspan:'7'},'No cases match this view.')));return;}
+  if(!list.length){tb.append(h('tr',{class:'empty-row'},h('td',{colspan:'8'},'No cases match this view.')));return;}
     for(const c of list){
     const isOpen=open.has(c.docket), st=status(c), p=getPick(c.docket);
     const isNew=c.addedOn&&((now-new Date(c.addedOn+'T12:00:00'))/864e5<14);
@@ -375,7 +385,7 @@ function render(){
       const ct=c.content||{};
       const blk=(label,txt)=>h('div',null,h('div',{class:'eyebrow'},label),h('p',txt?null:{class:'soft'},txt||'Summary coming soon.'));
       const cw=(c.consolidatedWith||[])[0];
-      tb.append(h('tr',{class:'detail'},h('td',{colspan:'7'},
+      tb.append(h('tr',{class:'detail'},h('td',{colspan:'8'},
         h('div',{class:'question'},
           c.qpUrl?h('a',{class:'eyebrow qlink',href:c.qpUrl,target:'_blank',rel:'noopener',title:'Read the official question presented (PDF)'},'The question ↗'):h('div',{class:'eyebrow'},'The question'),
           h('p',ct.question?null:{class:'soft'},ct.question||'Summary coming soon.')),
@@ -492,7 +502,7 @@ fetch('cases.json',{cache:'no-cache'}).then(r=>{if(!r.ok) throw new Error(r.stat
     if(!REVIEW&&filter==='review'){ filter='all'; document.querySelectorAll('.chip[data-f]').forEach(x=>x.setAttribute('aria-pressed',String(x.dataset.f==='all'))); } render(); };
   window.addEventListener('hashchange',showReview); showReview();
   render(); updateStats(); updateMsg();
-}).catch(()=>{ $('rows').textContent=''; $('rows').append(h('tr',{class:'empty-row'},h('td',{colspan:'7'},'The case list didn\'t load. Refresh the page to try again.'))); $('revised').textContent=''; });
+}).catch(()=>{ $('rows').textContent=''; $('rows').append(h('tr',{class:'empty-row'},h('td',{colspan:'8'},'The case list didn\'t load. Refresh the page to try again.'))); $('revised').textContent=''; });
 })();
 </script>
 </body>
