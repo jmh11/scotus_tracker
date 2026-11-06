@@ -133,7 +133,7 @@
    "content": null,
    "tags": {
     "kinds": [
-     "Court-made doctrine and procedure"
+     "Court-made doctrine"
     ],
     "subjects": [
      "Government power"
@@ -233,7 +233,7 @@
    },
    "tags": {
     "kinds": [
-     "Court-made doctrine and procedure"
+     "Court-made doctrine"
     ],
     "subjects": [
      "Business and consumers",
@@ -510,7 +510,7 @@
    },
    "tags": {
     "kinds": [
-     "Court-made doctrine and procedure"
+     "Court-made doctrine"
     ],
     "subjects": [
      "Litigation procedure"
@@ -544,7 +544,7 @@
    },
    "tags": {
     "kinds": [
-     "Court-made doctrine and procedure"
+     "Court-made doctrine"
     ],
     "subjects": [
      "Prisons and habeas"
@@ -646,7 +646,7 @@
    },
    "tags": {
     "kinds": [
-     "Court-made doctrine and procedure"
+     "Court-made doctrine"
     ],
     "subjects": [
      "Criminal law and sentencing"
@@ -918,7 +918,9 @@
    "consolidatedWith": [],
    "capitalCase": false,
    "addedOn": null,
-   "content": null,
+   "content": {
+    "question": "Whether parents have standing to challenge a state law that requires youth shelters to notify a state child-welfare agency, rather than the parents directly, when a runaway minor seeks gender-affirming care."
+   },
    "tags": {
     "kinds": [
      "Constitutional"
@@ -1171,7 +1173,7 @@
    "tags": [
     "Constitutional",
     "Statutory",
-    "Court-made doctrine and procedure"
+    "Court-made doctrine"
    ]
   },
   {
@@ -1221,6 +1223,10 @@
   {
    "date": "2026-11-06",
    "text": "Case write-ups added or updated for 8 case(s)."
+  },
+  {
+   "date": "2026-11-06",
+   "text": "Case write-ups added or updated for International Partners for Ethical Care, Inc. v. Ferguson."
   }
  ]
 }
