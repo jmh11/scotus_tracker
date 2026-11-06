@@ -69,9 +69,9 @@
  },
  "25-581": {
   "source": "Questions Presented, limited to Questions 1 and 2",
-  "draft": "(1) Whether a law lacks general applicability under the Free Exercise Clause only if it permits unfettered discretion or secular exemptions.\n(2) Whether the rule against excluding religious institutions from public benefits applies only to explicit government bans on participation by religious people and institutions.",
-  "notes": "Background dropped. Question 3 (whether Smith should be overruled) left out because the Court did not grant it. Edited by Joshua.",
-  "status": "held: Claude suggested a wording change to question 1; waiting for Joshua"
+  "draft": "(1) Whether a law lacks general applicability under the Free Exercise Clause only if it permits unfettered discretion or categorical exemptions for comparable secular conduct.\n(2) Whether the rule against excluding religious institutions from public benefits applies only to explicit government bans on participation by religious people and institutions.",
+  "notes": "Background dropped. Question 3 (whether Smith should be overruled) left out because the Court did not grant it. Edited by Joshua. Question 1 uses Claude's suggested wording, approved by Joshua.",
+  "status": "approved 2026-11-06"
  },
  "25-735": {
   "source": "Questions Presented",
