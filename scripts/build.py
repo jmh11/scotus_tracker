@@ -22,6 +22,8 @@ Fixed rules:
   - Every lower court must be in court_names.json. Unapproved names and missing write-ups are flagged.
   - Changes are found by comparing with the previous site/cases.json.
   - An argued case should have a transcript link; a missing one is flagged.
+  - Review labels: an official question, a party's merits brief, or an argument transcript/audio
+    that isn't listed in review_seen.json is flagged (and emailed the first time it appears).
   - Answer options in content.json: 2 to 4 per case, each with an id, label and meaning.
   - results.json records which option happened in a decided case (or "none"); a decided case
     without one is flagged, and the page shows "Result pending".
@@ -121,6 +123,7 @@ def build(today: str):
     courts = {k: v for k, v in load("court_names.json").items() if not k.startswith("_")}
     content = {k: v for k, v in load("content.json").items() if not k.startswith("_")}
     transcripts = load("transcripts.json") if (DATA / "transcripts.json").exists() else {}
+    seen = load("review_seen.json") if (DATA / "review_seen.json").exists() else {"question": [], "briefs": {}, "argument": []}
     results = {k: v for k, v in load("results.json").items() if not k.startswith("_")} \
         if (DATA / "results.json").exists() else {}
     audio = load("audio.json") if (DATA / "audio.json").exists() else {}
@@ -237,6 +240,7 @@ def build(today: str):
             "audioUrl": audio.get(d) or next((audio[x] for x in partners.get(d, []) if x in audio), None),
             "consolidatedWith": partners.get(d, []), "capitalCase": rec.get("capitalCase", False),
             "addedOn": added, "content": written, "tags": tags, "result": result,
+            "meritsBriefs": rec.get("meritsBriefs", []),
         })
 
     for d in tagfile["cases"]:
@@ -245,6 +249,21 @@ def build(today: str):
     names_by_docket = {c["docket"]: c["name"] for c in cases}
     for c in cases:
         c["consolidatedWith"] = [{"docket": x, "name": names_by_docket.get(x, x)} for x in c["consolidatedWith"]]
+    # Review labels (shown only on the page's #review view): documents Joshua hasn't seen yet.
+    for c in cases:
+        d, items = c["docket"], []
+        if c["qpUrl"] and d not in seen["question"]:
+            items.append({"text": "Official question posted", "url": c["qpUrl"]})
+        for b in c["meritsBriefs"]:
+            if f"{b['date']} {b['kind']}" not in seen["briefs"].get(d, []):
+                items.append({"text": f"{b['kind']} filed {fmt(b['date'])}", "url": b["url"]})
+        if (c["transcriptUrl"] or c["audioUrl"]) and d not in seen["argument"]:
+            what = ("Argument transcript and audio posted" if c["transcriptUrl"] and c["audioUrl"]
+                    else "Argument transcript posted" if c["transcriptUrl"] else "Argument audio posted")
+            items.append({"text": what, "url": c["transcriptUrl"] or c["audioUrl"]})
+        c["review"] = items
+        for it in items:
+            flags.append(f"{d}: {it['text']}; review it, then add it to data/review_seen.json.")
     for c in cases:
         if c["argued"] and not c["transcriptUrl"]:
             flags.append(f"{c['docket']}: argued, but no transcript link on the Court's transcripts page yet.")
@@ -274,14 +293,21 @@ def main() -> int:
         lines += ["## Problems (nothing was published)"] + [f"- {x}" for x in problems] + [""]
     REPORT.write_text("\n".join(lines))
 
-    # Alert Joshua (by GitHub issue -> email) only for events that need him: a new case or a decision.
+    # Alert Joshua (by GitHub issue -> email) only for events that need him: a new case, a decision,
+    # or a newly posted document to review (emailed once, the first run it appears).
     events = [c for c in changes if c.startswith("Added ") or " was decided on " in c]
+    prev_review = {c["docket"]: {i["text"] for i in c.get("review", [])} for c in prev_site.get("cases", [])}
+    for c in cases:
+        for it in c.get("review", []):
+            if c["docket"] in prev_review and it["text"] not in prev_review[c["docket"]]:
+                events.append(f"{c['name']}: {it['text']}.")
     if events and not problems:
         NOTIFY.write_text("\n".join(
             ["@jmh11, the Supreme Court Tracker has news that needs your review:", ""]
             + [f"- {e}" for e in events]
             + ["", "New cases need an approved name, tags, question and answer options.",
                "Decided cases need the answer recorded so picks can be scored.",
+               "New documents are marked in red on the review view: https://jmh11.github.io/scotus_tracker/#review",
                "", "Full build report: build_report.md in the repository."]))
     print("\n".join(lines))
     if problems:

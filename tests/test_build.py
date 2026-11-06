@@ -123,3 +123,18 @@ def test_decided_case_without_result_is_flagged(sandbox):
     assert not problems
     assert any("25-735" in f and "results.json" in f for f in flags)
     assert next(c for c in cases if c["docket"] == "25-735")["result"] is None
+
+
+def test_unreviewed_documents_get_review_labels(sandbox):
+    def forget(seen):
+        seen["question"].remove("25-170")
+        seen["briefs"]["25-170"] = []
+        seen["argument"].remove("25-170")
+    edit(sandbox / "data" / "review_seen.json", forget)
+    _, _, _, cases, _, _, _, problems, flags, _ = build.build("2026-11-06")
+    assert not problems
+    labels = [r["text"] for r in next(c for c in cases if c["docket"] == "25-170")["review"]]
+    assert "Official question posted" in labels
+    assert "Petitioner's brief filed May 14, 2026" in labels
+    assert any(l.startswith("Argument transcript") for l in labels)
+    assert all(not c["review"] for c in cases if c["docket"] != "25-170")

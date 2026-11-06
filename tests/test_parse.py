@@ -66,3 +66,10 @@ def test_live_dockets_parse_without_problems():
                           str(ROOT / "data" / "raw" / "dockets"), "/tmp/parsed_test.json"],
                          capture_output=True, text=True)
     assert out.returncode == 0, out.stdout + out.stderr
+
+
+def test_merits_briefs_skip_petition_stage_and_amici():
+    rec, _ = parsed("25-170", ROOT / "data" / "raw" / "dockets")
+    kinds = [b["kind"] for b in rec["meritsBriefs"]]
+    assert kinds[:3] == ["Petitioner's brief", "Respondent's brief", "Petitioner's reply brief"]
+    assert all(b["date"] > rec["granted"] for b in rec["meritsBriefs"])

@@ -1,0 +1,171 @@
+{
+ "_about": "Documents Joshua has already reviewed (or that existed before review flags began on Nov 6, 2026). Anything new that isn't listed here shows a red review label on the #review view and triggers an email. To clear a flag, add the item here.",
+ "question": [
+  "24-1016",
+  "25-1003",
+  "25-1017",
+  "25-1103",
+  "25-1131",
+  "25-1223",
+  "25-1311",
+  "25-1343",
+  "25-1349",
+  "25-159",
+  "25-170",
+  "25-183",
+  "25-238",
+  "25-246",
+  "25-352",
+  "25-417",
+  "25-459",
+  "25-498",
+  "25-5343",
+  "25-566",
+  "25-579",
+  "25-581",
+  "25-5930",
+  "25-6623",
+  "25-7026",
+  "25-735",
+  "25-840",
+  "25-842",
+  "25-965",
+  "25-966",
+  "26-104",
+  "26-12",
+  "26-204",
+  "26-426"
+ ],
+ "briefs": {
+  "24-1016": [
+   "2026-09-08 Petitioner's brief",
+   "2026-11-04 Respondent's brief"
+  ],
+  "25-159": [
+   "2026-08-13 Petitioner's brief",
+   "2026-09-14 Respondent's brief",
+   "2026-10-14 Petitioner's reply brief"
+  ],
+  "25-170": [
+   "2026-05-14 Petitioner's brief",
+   "2026-07-27 Respondent's brief",
+   "2026-08-26 Petitioner's reply brief"
+  ],
+  "25-183": [
+   "2026-07-10 Petitioner's brief",
+   "2026-08-17 Respondent's brief",
+   "2026-09-16 Petitioner's reply brief"
+  ],
+  "25-238": [
+   "2026-08-28 Petitioner's brief",
+   "2026-10-21 Respondent's brief",
+   "2026-10-21 Respondent's brief"
+  ],
+  "25-246": [
+   "2026-09-03 Petitioner's brief",
+   "2026-10-05 Respondent's brief",
+   "2026-11-04 Petitioner's reply brief"
+  ],
+  "25-352": [
+   "2026-06-08 Petitioner's brief",
+   "2026-08-03 Respondent's brief",
+   "2026-09-01 Petitioner's reply brief"
+  ],
+  "25-417": [
+   "2026-08-14 Petitioner's brief",
+   "2026-09-23 Respondent's brief",
+   "2026-10-23 Petitioner's reply brief"
+  ],
+  "25-459": [
+   "2026-04-17 Petitioner's brief",
+   "2026-06-23 Respondent's brief",
+   "2026-07-23 Petitioner's reply brief"
+  ],
+  "25-498": [
+   "2026-04-23 Petitioner's brief",
+   "2026-07-02 Respondent's brief",
+   "2026-08-03 Petitioner's reply brief"
+  ],
+  "25-579": [
+   "2026-05-22 Petitioner's brief",
+   "2026-07-20 Respondent's brief",
+   "2026-08-19 Petitioner's reply brief"
+  ],
+  "25-581": [
+   "2026-06-25 Petitioner's brief",
+   "2026-08-17 Respondent's brief",
+   "2026-09-16 Petitioner's reply brief"
+  ],
+  "25-735": [
+   "2026-06-01 Petitioner's brief",
+   "2026-07-13 Respondent's brief",
+   "2026-08-12 Petitioner's reply brief"
+  ],
+  "25-840": [
+   "2026-09-08 Petitioner's brief",
+   "2026-10-21 Respondent's brief"
+  ],
+  "25-842": [
+   "2026-08-24 Petitioner's brief",
+   "2026-10-02 Respondent's brief",
+   "2026-11-02 Petitioner's reply brief"
+  ],
+  "25-965": [
+   "2026-08-31 Petitioner's brief",
+   "2026-10-23 Respondent's brief"
+  ],
+  "25-966": [
+   "2026-06-18 Petitioner's brief",
+   "2026-07-27 Respondent's brief",
+   "2026-08-26 Petitioner's reply brief"
+  ],
+  "25-1003": [
+   "2026-07-30 Petitioner's brief",
+   "2026-09-18 Respondent's brief",
+   "2026-10-19 Petitioner's reply brief"
+  ],
+  "25-1017": [
+   "2026-08-28 Petitioner's brief",
+   "2026-08-28 Respondent's brief",
+   "2026-08-28 Respondent's brief",
+   "2026-08-28 Respondent's brief",
+   "2026-10-13 Respondent's brief",
+   "2026-10-13 Respondent's brief",
+   "2026-10-13 Respondent's brief"
+  ],
+  "25-1223": [
+   "2026-09-16 Petitioner's brief"
+  ],
+  "25-1311": [
+   "2026-09-14 Petitioner's brief"
+  ],
+  "25-5343": [
+   "2026-06-30 Petitioner's brief",
+   "2026-06-30 Respondent's brief",
+   "2026-09-24 Respondent's reply brief",
+   "2026-09-24 Petitioner's reply brief"
+  ],
+  "25-5930": [
+   "2026-08-05 Petitioner's brief",
+   "2026-10-19 Respondent's reply brief",
+   "2026-10-19 Petitioner's reply brief"
+  ],
+  "25-6623": [
+   "2026-08-06 Petitioner's brief",
+   "2026-09-28 Respondent's brief",
+   "2026-10-28 Petitioner's reply brief"
+  ]
+ },
+ "argument": [
+  "25-1003",
+  "25-170",
+  "25-352",
+  "25-459",
+  "25-498",
+  "25-5343",
+  "25-579",
+  "25-581",
+  "25-5930",
+  "25-735"
+ ]
+}

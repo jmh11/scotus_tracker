@@ -71,6 +71,18 @@ tbody td:last-child{padding-right:16px}
 .case-btn .tw{display:inline-block;width:1em;color:var(--muted)}
 .meta{font-size:13px;color:var(--muted);margin-top:4px}
 .tag.pending{display:inline-block;margin:4px 0 0}
+.reviewtags{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
+.tag.review{margin:0;text-decoration:none;text-transform:none;letter-spacing:0;font-size:12px}
+.tag.review:hover{opacity:.85;color:var(--on-alert)}
+.review-banner{border-color:var(--alert)}
+.mark{flex:none;font-weight:700;font-size:16px;width:18px;text-align:center}
+.mark.right{color:#2E7D4F}
+.mark.wrong{color:var(--alert)}
+.mark.void-mark{color:var(--muted)}
+select.pick.void{text-decoration:line-through;color:var(--muted)}
+select.pick:disabled{opacity:.85;cursor:not-allowed}
+.answer{max-width:1100px;margin-bottom:18px;padding:10px 14px;background:var(--surface);border-left:3px solid var(--accent)}
+.answer p{margin:6px 0 0}
 .tag{display:inline-block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;background:var(--alert);color:var(--on-alert);padding:1px 7px;margin-left:6px;vertical-align:2px;border-radius:2px}
 .sortbtn{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:4px;letter-spacing:inherit;text-transform:inherit;font:inherit;color:inherit}
 .sortbtn:hover{color:var(--accent)}
@@ -153,6 +165,7 @@ footer ul{margin:6px 0 0;padding-left:18px}
     <button class="btn" id="go-send" type="button">Send my answers to Joshua</button>
   </header>
   <div class="notice" id="cutoff" hidden></div>
+  <div class="notice review-banner" id="review-banner" hidden>Review view: red labels mark documents posted since you last checked. Each links to the document.</div>
 
   <main>
     <section class="record" aria-label="Your record">
@@ -170,6 +183,7 @@ footer ul{margin:6px 0 0;padding-left:18px}
       <button class="chip" type="button" data-f="awaiting" aria-pressed="false">Awaiting argument</button>
       <button class="chip" type="button" data-f="decided" aria-pressed="false">Decided</button>
       <button class="chip" type="button" data-f="unpicked" aria-pressed="false">No prediction yet</button>
+      <button class="chip" type="button" data-f="review" aria-pressed="false" id="review-chip" hidden>Needs review</button>
       <label class="sr" for="topic">Filter by topic</label>
       <select class="topic" id="topic"><option value="">All topics</option></select>
       <label class="sr" for="q">Search cases</label>
@@ -249,6 +263,7 @@ const fmt=iso=>{const [y,m,d]=iso.split('-').map(Number);return MONTHS[m-1]+' '+
 const $=id=>document.getElementById(id);
 
 let sortKey='argued', sortDir=1;
+let REVIEW=location.hash==='#review';
 let data=null, picks=loadPicks(), filter='all', query='', topic='', open=new Set(), pendingRestore=null;
 const allTags=c=>{const t=c.tags||{};return [...(t.kinds||[]),...(t.subjects||[]),...(t.court||[])];};
 function setTopic(t){ topic=(topic===t)?'':t; $('topic').value=topic; render(); }
@@ -275,6 +290,7 @@ function visible(){
     if(filter==='awaiting'&&status(c)!=='awaiting') return false;
     if(filter==='decided'&&status(c)!=='decided') return false;
     if(filter==='unpicked'&&getPick(c.docket).will) return false;
+    if(filter==='review'&&!(c.review||[]).length) return false;
     if(topic && !allTags(c).includes(topic)) return false;
     if(q && !(c.name.toLowerCase().includes(q)||c.docket.includes(q))) return false;
     return true;
@@ -306,16 +322,27 @@ function pickCell(c,kind){
   const id=kind+'-'+c.docket, p=getPick(c.docket), opts=optionsOf(c);
   const colName=kind==='will'?'Prediction':'My Opinion';
   if(!opts.length) return h('td',{class:'pickcell','data-label':colName},h('span',{class:'soft'},'Options coming soon'));
-  const sel=h('select',{class:'pick'+(p[kind]?'':' empty'),id:id,onchange:e=>{setPick(c.docket,kind,e.target.value);e.target.classList.toggle('empty',!e.target.value);}},
+  const locked=kind==='will'&&!!c.decided;   // predictions can't change once the Court has ruled
+  const sel=h('select',{class:'pick'+(p[kind]?'':' empty'),id:id,disabled:locked,title:locked?'Predictions lock once the Court decides':null,
+      onchange:e=>{setPick(c.docket,kind,e.target.value);e.target.classList.toggle('empty',!e.target.value);}},
     h('option',{value:''},'Choose…'), opts.map(o=>h('option',{value:o.id},o.label)));
   sel.value=p[kind]||'';
+  // Once Joshua records the answer: a check or an X next to the prediction, or a line through it
+  // when none of the options happened (for example, a dismissal).
+  let mark=null;
+  if(kind==='will'&&c.result&&p.will){
+    if(c.result==='none'){ sel.classList.add('void'); mark=h('span',{class:'mark void-mark',title:'None of the options happened'},'—'); }
+    else mark=p.will===c.result?h('span',{class:'mark right',title:'Correct'},'✓'):h('span',{class:'mark wrong',title:'Not correct'},'✗');
+  }
+  if(kind==='should') return h('td',{class:'pickcell','data-label':colName},
+    h('div',{class:'pickrow'},h('label',{class:'sr',for:id},colName+' for '+c.name),sel));
   const pop=h('div',{class:'pop',role:'note',id:'pop-'+id,hidden:true});
   pop.append(h('div',{class:'eyebrow'},'What each answer means'));
   opts.forEach(o=>pop.append(h('p',null,h('strong',null,o.label),' — '+o.meaning)));
   const btn=h('button',{class:'info',type:'button','aria-label':'What each answer means','aria-expanded':'false','aria-controls':'pop-'+id,
     onclick:e=>{e.stopPropagation();const show=pop.hidden;closePops();pop.hidden=!show;btn.setAttribute('aria-expanded',String(show));}},'i');
   return h('td',{class:'pickcell','data-label':colName},
-    h('div',{class:'pickrow'},h('label',{class:'sr',for:id},colName+' for '+c.name),sel,btn),pop);
+    h('div',{class:'pickrow'},h('label',{class:'sr',for:id},colName+' for '+c.name),sel,mark,btn),pop);
 }
 function closePops(){document.querySelectorAll('.pop').forEach(p=>p.hidden=true);document.querySelectorAll('.info').forEach(b=>b.setAttribute('aria-expanded','false'));}
 
@@ -329,15 +356,14 @@ function render(){
     const arg = c.argued ? h('div',null,h('span',{class:'date'},fmt(c.argued)), c.reargued?h('div',{class:'meta'},'(reargued)'):null) : c.scheduled ? h('div',null,h('span',{class:'date'},fmt(c.scheduled)),h('div',{class:'meta'},'(scheduled)')) : h('span',{class:'soft'},'Not yet scheduled');
     const dec = !c.decided ? h('span',{class:'soft'},'TBD') :
       h('div',null,h('span',{class:'date'},fmt(c.decided)), h('div',{class:'meta'},DISPOSITION[c.outcome]||c.outcome),
-        c.result && c.result!=='none' ? h('div',{class:'meta'},'Answer: '+labelOf(c,c.result))
-        : c.result==='none' ? h('div',{class:'meta'},'Answer: none of the options')
-        : h('span',{class:'tag pending'},'Result pending'));
+        c.result ? h('div',{class:'meta'},'Answer recorded') : h('span',{class:'tag pending'},'Result pending'));
     const noteId='note-'+c.docket;
     tb.append(h('tr',{class:'case'},
       h('td',null,
         h('button',{class:'case-btn',type:'button','aria-expanded':String(isOpen),onclick:()=>{isOpen?open.delete(c.docket):open.add(c.docket);render();}},
           h('span',{class:'tw','aria-hidden':'true'},isOpen?'▾':'▸'), c.name),
         h('div',{class:'meta'},'No. '+c.docket+' · '+c.lowerCourt, isNew?h('span',{class:'tag'},'New'):null),
+        REVIEW&&(c.review||[]).length?h('div',{class:'reviewtags'},c.review.map(r=>h('a',{class:'tag review',href:r.url||c.docketUrl,target:'_blank',rel:'noopener'},r.text))):null,
         allTags(c).length?h('div',{class:'tags'},allTags(c).map(t=>h('button',{class:'tagbox',type:'button','aria-pressed':String(t===topic),title:'Show only cases tagged '+t,onclick:()=>setTopic(t)},t))):null),
       h('td',{'data-label':'Granted'},h('span',{class:'date'},fmt(c.granted))),
       h('td',{'data-label':'Argued'},arg),
@@ -354,6 +380,9 @@ function render(){
         h('div',{class:'question'},
           c.qpUrl?h('a',{class:'eyebrow qlink',href:c.qpUrl,target:'_blank',rel:'noopener',title:'Read the official question presented (PDF)'},'The question ↗'):h('div',{class:'eyebrow'},'The question'),
           h('p',ct.question?null:{class:'soft'},ct.question||'Summary coming soon.')),
+        c.result ? h('div',{class:'answer'},h('div',{class:'eyebrow'},"The Court's answer"),
+          c.result==='none' ? h('p',null,'None of the answer options: the Court resolved the case another way ('+(DISPOSITION[c.outcome]||c.outcome).toLowerCase()+').')
+          : h('p',null,h('strong',null,labelOf(c,c.result)),' — '+((optionsOf(c).find(o=>o.id===c.result)||{}).meaning||''))) : null,
         h('div',{class:'brief'},blk('Facts of the case',ct.facts),blk("Petitioner's argument",ct.petitioner),blk("Respondent's argument",ct.respondent)),
         cw?h('p',{style:'margin:14px 0 0'},'Argued together with ',h('em',null,cw.name),' (No. '+cw.docket+').'):null,
         h('div',{class:'links'},
@@ -459,6 +488,10 @@ fetch('cases.json',{cache:'no-cache'}).then(r=>{if(!r.ok) throw new Error(r.stat
     for(const k of ['should','will']) if(p[k]&&!ids.has(p[k])){ p[k]=''; cleared=true; }
     if(!p.should&&!p.will&&!p.note) delete picks[c.docket]; }
   if(cleared) savePicks();
+  const showReview=()=>{ REVIEW=location.hash==='#review'; $('review-chip').hidden=!REVIEW; $('review-banner').hidden=!REVIEW;
+    const n=j.cases.filter(c=>(c.review||[]).length).length; $('review-chip').textContent='Needs review ('+n+')';
+    if(!REVIEW&&filter==='review'){ filter='all'; document.querySelectorAll('.chip[data-f]').forEach(x=>x.setAttribute('aria-pressed',String(x.dataset.f==='all'))); } render(); };
+  window.addEventListener('hashchange',showReview); showReview();
   render(); updateStats(); updateMsg();
 }).catch(()=>{ $('rows').textContent=''; $('rows').append(h('tr',{class:'empty-row'},h('td',{colspan:'7'},'The case list didn\'t load. Refresh the page to try again.'))); $('revised').textContent=''; });
 })();

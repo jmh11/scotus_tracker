@@ -18,6 +18,8 @@ Rules, applied to the Court's own docket entries:
               VACATED -> vacate, DISMISSED -> dismissed; "IN PART" or two different verbs -> mixed.
               In consolidated cases, a clause naming "No. X" applies only to docket X.
   opinionUrl  the opinion link inside that entry
+  meritsBriefs  each party's merits brief after the grant ("Brief of petitioner(s)/respondent(s) ... filed",
+              "Reply of ... filed"), excluding opposition briefs, amicus briefs and petition-stage filings
   lowerCourt, petitionerTitle, respondentTitle, qpUrl: copied from the docket's own fields
 
 If a rule finds something it can't handle (no grant entry, two different grant dates,
@@ -49,6 +51,12 @@ VERBS = ("AFFIRMED", "REVERSED", "VACATED", "DISMISSED")
 SET_RE = re.compile(r"SET FOR ARGUMENT on (?:Monday|Tuesday|Wednesday|Thursday|Friday), ([A-Z][a-z]+ \d{1,2}, \d{4})")
 ARGUED_RE = re.compile(r"^Argued\.")
 QP_BASE = "https://www.supremecourt.gov/qp/"
+# A party's merits brief: "Brief of petitioner ... filed", "Brief of respondents ... filed",
+# "Reply of petitioner ... filed". Opposition briefs ("in opposition"), amicus briefs and anything
+# filed on or before the grant date (the petition stage) are not merits briefs.
+BRIEF_RE = re.compile(r"^(Brief|Reply) of (petitioners?|respondents?)\b.*\bfiled\b", re.I)
+BRIEF_KINDS = {("brief", "petitioner"): "Petitioner's brief", ("brief", "respondent"): "Respondent's brief",
+               ("reply", "petitioner"): "Petitioner's reply brief", ("reply", "respondent"): "Respondent's reply brief"}
 
 
 def entry_date(s: str) -> str:
@@ -92,7 +100,7 @@ def parse(path: pathlib.Path):
     docket = m.group(1) if m else path.stem
     if not m or docket != path.stem:
         problems.append(f"case number {j.get('CaseNumber')!r} doesn't match file {path.name}")
-    grants, sets, argued, decisions = set(), [], set(), []
+    grants, sets, argued, decisions, brief_candidates = set(), [], set(), [], []
     for e in j.get("ProceedingsandOrder") or []:
         text = (e.get("Text") or "").strip()
         try:
@@ -107,6 +115,11 @@ def parse(path: pathlib.Path):
             sets.append((when, text_date(m.group(1))))
         elif text.upper().startswith("SET FOR ARGUMENT"):
             problems.append(f"argument entry in an unexpected format: {text[:80]!r}")
+        b = BRIEF_RE.match(text)
+        if b and "in opposition" not in text.lower():
+            kind = BRIEF_KINDS[(b.group(1).lower(), b.group(2).lower().rstrip("s"))]
+            main = next((l.get("DocumentUrl") for l in e.get("Links") or [] if l.get("Description") == "Main Document"), None)
+            brief_candidates.append({"date": when, "kind": kind, "url": main})
         if ARGUED_RE.match(text):
             argued.add(when)
         if DECISION_START_RE.match(text):
@@ -138,6 +151,7 @@ def parse(path: pathlib.Path):
         "outcome": decisions[-1]["outcome"] if decisions else None,
         "judgmentText": decisions[-1]["judgmentText"] if decisions else None,
         "opinionUrl": decisions[-1]["opinionUrl"] if decisions else None,
+        "meritsBriefs": [b for b in brief_candidates if grants and b["date"] > min(grants)],
         "qpUrl": QP_BASE + qp.split("/qp/")[-1] if "/qp/" in qp else None,
         "docketJsonCreated": j.get("sJsonCreationDate"),
     }
