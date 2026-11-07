@@ -1,8 +1,8 @@
 name: Update and publish
 
 # Runs the whole pipeline: download -> parse -> test -> build -> publish.
-# Any failed step stops the run, and nothing is published. GitHub emails the
-# repository owner when a run fails.
+# Any failed step stops the run, and nothing is published. A failed run opens a
+# GitHub issue mentioning @jmh11, so GitHub emails him.
 #
 # The weekly schedule is OFF until Joshua approves it. To turn it on, remove the
 # "#" in front of the three schedule lines below.
@@ -74,6 +74,23 @@ jobs:
             --body-file notify.md
           rm notify.md
 
+      - name: Email Joshua if this run failed
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          {
+            echo "@jmh11, the Supreme Court Tracker's update run failed, so nothing was published this time."
+            echo ""
+            echo "The live page still shows the last good update. The failed step and its message are here:"
+            echo "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+            echo ""
+            if [ -f build_report.md ]; then echo "Build report:"; echo ""; cat build_report.md; fi
+            echo ""
+            echo "Open the project in Claude and ask what went wrong; nothing needs fixing on the page itself."
+          } > failed.md
+          gh issue create --repo "$GITHUB_REPOSITORY" --title "Tracker update failed $(TZ=America/New_York date +%Y-%m-%d)" --body-file failed.md
+
       - uses: actions/upload-pages-artifact@v3
         with:
           path: site
@@ -87,3 +104,11 @@ jobs:
     steps:
       - id: deploy
         uses: actions/deploy-pages@v4
+      - name: Email Joshua if publishing failed
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue create --repo "$GITHUB_REPOSITORY" \
+            --title "Tracker publish failed $(TZ=America/New_York date +%Y-%m-%d)" \
+            --body "@jmh11, the update ran but publishing to the website failed, so the page wasn't refreshed. Details: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
