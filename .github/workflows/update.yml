@@ -4,13 +4,12 @@ name: Update and publish
 # Any failed step stops the run, and nothing is published. A failed run opens a
 # GitHub issue mentioning @jmh11, so GitHub emails him.
 #
-# The weekly schedule is OFF until Joshua approves it. To turn it on, remove the
-# "#" in front of the three schedule lines below.
+# Schedule turned on by Joshua on Nov 6, 2026. Times are UTC.
 on:
   workflow_dispatch:
-  # schedule:
-  #   - cron: "17 18 * 1-5,7-12 1"   # Mondays 18:17 UTC (1:17 pm EST / 2:17 pm EDT), every month but June
-  #   - cron: "17 18 * 6 1-5"        # every weekday in June, decision season
+  schedule:
+    - cron: "17 18 * 1-5,7-12 1"   # Mondays 18:17 UTC (1:17 pm EST / 2:17 pm EDT), every month but June
+    - cron: "17 18 * 6 1-5"        # every weekday in June, decision season
 
 permissions:
   contents: write
