@@ -460,7 +460,9 @@ function render(){
     ));
     if(isOpen){
       const ct=c.content||{};
-      const ARGS_PENDING='Summaries will appear after all parties have filed their main briefs.';
+      // What an empty argument summary says: depends on whether all main merits briefs are in (set by the build).
+      const ARGS_PENDING=c.briefingComplete ? 'Joshua has not yet written a summary based on the merits briefs.'
+        : 'Summaries will appear after all parties have filed their main briefs.';
       // A blank line in the text starts a new paragraph.
       const blk=(label,txt,empty)=>h('div',null,h('div',{class:'eyebrow'},label),
         ...(txt ? txt.split(/\n\s*\n/).map(p=>h('p',null,rich(p))) : [h('p',{class:'soft'},empty||'Summary coming soon.')]));

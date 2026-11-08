@@ -120,7 +120,8 @@
     "label": "No",
     "meaning": "Prisoners must bring challenges to First Step Act time credits another way, such as a civil-rights suit."
    }
-  ]
+  ],
+  "amicusHeading": "Court-appointed lawyer's argument"
  },
  "25-352": {
   "question": "Whether a defendant who has filed an answer without pleading an affirmative defense may nonetheless assert that affirmative defense as the basis for a summary judgment motion without amending or seeking to amend its answer to plead that affirmative defense, and whether they may do so even if an amendment adding that affirmative defense would be barred by the court's scheduling order deadline under Federal Rule of Civil Procedure 16(b)(4).",
@@ -309,7 +310,7 @@
    {
     "id": "fact",
     "label": "Question of fact",
-    "meaning": "Trademark strength is decided like other facts, and appeals courts review it deferentially."
+    "meaning": "Trademark strength is decided like other facts (including as a mixed question that is mainly factual), and appeals courts review it deferentially."
    },
    {
     "id": "law",

@@ -252,6 +252,15 @@ def build(today: str):
     names_by_docket = {c["docket"]: c["name"] for c in cases}
     for c in cases:
         c["consolidatedWith"] = [{"docket": x, "name": names_by_docket.get(x, x)} for x in c["consolidatedWith"]]
+    # Main merits briefing is complete once the petitioner and respondent have each filed a main brief, plus the
+    # Court-appointed lawyer when the case has a third side. Reply briefs aren't needed. The page uses this to
+    # choose what an empty argument summary says.
+    for c in cases:
+        kinds = {b["kind"] for b in c["meritsBriefs"]}
+        needed = {"Petitioner's brief", "Respondent's brief"}
+        if (c["content"] or {}).get("amicusHeading"):
+            needed.add("Court-appointed amicus brief")
+        c["briefingComplete"] = needed <= kinds
     # Review labels (shown only on the page's #review view): documents Joshua hasn't seen yet.
     for c in cases:
         d, items = c["docket"], []

@@ -118,6 +118,22 @@ def test_third_side_needs_a_heading(sandbox):
     assert not build.build("2026-11-06")[7]
 
 
+def test_briefing_complete(sandbox):
+    def briefs(docket, kinds):
+        edit(sandbox / "data" / "parsed_dockets.json",
+             lambda rs: next(r for r in rs if r["docket"] == docket).update(
+                 meritsBriefs=[{"date": "2026-10-01", "kind": k, "url": "u"} for k in kinds]))
+    briefs("25-170", ["Petitioner's brief"])
+    briefs("25-735", ["Petitioner's brief", "Respondent's brief"])            # replies not needed
+    briefs("25-5343", ["Petitioner's brief", "Respondent's brief"])           # has a third side: needs its brief
+    cases = {c["docket"]: c for c in build.build("2026-11-06")[3]}
+    assert not cases["25-170"]["briefingComplete"]
+    assert cases["25-735"]["briefingComplete"]
+    assert not cases["25-5343"]["briefingComplete"]
+    briefs("25-5343", ["Petitioner's brief", "Respondent's brief", "Court-appointed amicus brief"])
+    assert next(c for c in build.build("2026-11-06")[3] if c["docket"] == "25-5343")["briefingComplete"]
+
+
 def test_recorded_result_must_match_an_option(sandbox):
     (sandbox / "data" / "results.json").write_text('{"25-735": "maybe"}')
     problems = build.build("2026-11-06")[7]
