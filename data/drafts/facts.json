@@ -34,5 +34,18 @@
    "Left out: the gun unloaded (Beaird's brief only) or pointed at someone (government's brief only); the range without the enhancement (Beaird's brief only); the judge's 'same sentence anyway' statement (argument-section material); the 72-month sentence and supervised release (trimmed for length; the 72-month sentence was later restored).",
    "Final trims to fit 300 words (Joshua): dropped 'and is updated each year', 'to the commentary' in the government sentence, 'Jarrell'; 'that would make' became 'making'. He restored 'to an agency's interpretation' (Kisor) and 'after Kisor' (government)."
   ]
+ },
+ "25-735": {
+  "status": "Background approved by Joshua, Nov 8, 2026 (not published: waits for the separate Background section and link support on the page). Facts and arguments in progress.",
+  "background": "Veterans with service-connected disabilities can apply for monthly benefits from the Department of Veterans Affairs (VA). Since the 1930s, federal law—in a section known as the \"no-review clause\"—has barred federal courts from reviewing the VA's benefits decisions. In [*Johnson v. Robison*](https://supreme.justia.com/cases/federal/us/415/361/) (1974), the Supreme Court held the earlier version of that clause did not stop federal courts from reviewing the constitutionality of veterans' benefits legislation, but instead only restricted judicial review of individual administrative decisions made by the VA. The Court reasoned that the clause covered decisions made \"under\" a law the VA administered, and a challenge to the law's constitutionality arises under the Constitution instead.\n\nIn 1988, Congress passed the [VJRA](https://www.congress.gov/100/statute/STATUTE-102/STATUTE-102-Pg4105.pdf), which—among other things—created a new path for appealing benefits decisions: from the Board of Veterans' Appeals (BVA) to a new Court of Appeals for Veterans Claims (CAVC), and then to the U.S. Court of Appeals for the Federal Circuit, which it gave exclusive authority over challenges to the validity of veterans' benefits statutes in appeals from the CAVC. It also rewrote the language of the \"no-review clause,\" which now says the VA Secretary \"shall decide all questions of law and fact necessary to a decision by the Secretary under a law that affects the provision of benefits,\" and that the Secretary's decision on \"any such question\" may not be reviewed by any court outside the VJRA's appeals system.",
+  "sources": [
+   "Johnson's merits brief",
+   "Government's merits brief",
+   "Johnson v. Robison, 415 U.S. 361 (1974)"
+  ],
+  "notes": [
+   "Joshua's structure; Claude's fixes: 'Robison' spelling; the VJRA didn't create the BVA (exists since 1933); Federal Circuit's exclusive authority is limited to appeals from the CAVC (otherwise it states the government's answer); 'no-review clause' was amended, not repealed.",
+   "Links use [text](url); the page doesn't render links yet."
+  ]
  }
 }
