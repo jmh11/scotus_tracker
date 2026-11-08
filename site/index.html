@@ -158,6 +158,10 @@ tr.detail td{background:var(--tint);border-top:0;padding:16px 16px 20px 40px}
 .brief.three{grid-template-columns:repeat(3,minmax(0,1fr))}
 .facts p,.brief p{margin:6px 0 0;font-size:16px}
 .facts p+p,.brief p+p{margin-top:10px}
+.facts ul,.brief ul{margin:8px 0 0;padding-left:1.2em;font-size:16px}
+.facts li+li,.brief li+li{margin-top:8px}
+.facts p+ul,.brief p+ul,.facts ul+p,.brief ul+p{margin-top:10px}
+strong.lead{font-weight:600}
 .links{display:flex;flex-wrap:wrap;gap:18px;margin-top:14px}
 .empty-row td{text-align:center;padding:32px;color:var(--muted);font-style:italic}
 
@@ -317,8 +321,12 @@ const DISPOSITION={affirm:'Affirmed',reverse:'Reversed',vacate:'Vacated and rema
 // Each case has its own answer options (approved by Joshua). Prediction is stored as "will", My Opinion as "should".
 const optionsOf=c=>(c.content&&c.content.options)||[];
 const labelOf=(c,id)=>{const o=optionsOf(c).find(x=>x.id===id);return o?o.label:'';};
-// In written content, *text* shows in italics (used for case names).
-const rich=t=>String(t).split(/\*([^*\n]+)\*/).map((s,i)=>i%2?h('em',null,s):s);
+// In written content, *text* shows in italics (used for case names) and **text** in bold (lead sentences).
+const ital=t=>String(t).split(/\*([^*\n]+)\*/).map((s,i)=>i%2?h('em',null,s):s);
+const rich=t=>String(t).split(/\*\*(.+?)\*\*/).flatMap((s,i)=>i%2?[h('strong',{class:'lead'},ital(s))]:ital(s));
+// A blank line starts a new paragraph; a block whose lines all start with "- " is a bulleted list.
+const blocks=txt=>txt.split(/\n\s*\n/).map(b=>{ const lines=b.split('\n').filter(l=>l.trim());
+  return lines.length && lines.every(l=>/^- /.test(l)) ? h('ul',null,lines.map(l=>h('li',null,rich(l.slice(2))))) : h('p',null,rich(b)); });
 const MONTHS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 const pad=n=>String(n).padStart(2,'0');
 const now=new Date(); const TODAY=now.getFullYear()+'-'+pad(now.getMonth()+1)+'-'+pad(now.getDate());
@@ -468,9 +476,8 @@ function render(){
       // What an empty argument summary says: depends on whether all main merits briefs are in (set by the build).
       const ARGS_PENDING=c.briefingComplete ? 'Joshua has not yet written a summary based on the merits briefs.'
         : 'Summaries will appear after all parties have filed their main briefs.';
-      // A blank line in the text starts a new paragraph.
       const blk=(label,txt,empty)=>h('div',null,h('div',{class:'eyebrow'},label),
-        ...(txt ? txt.split(/\n\s*\n/).map(p=>h('p',null,rich(p))) : [h('p',{class:'soft'},empty||'Summary coming soon.')]));
+        ...(txt ? blocks(txt) : [h('p',{class:'soft'},empty||'Summary coming soon.')]));
       const cw=(c.consolidatedWith||[])[0];
       const fo=c.filingsOn, redirect=!!fo && !ct.petitioner && !ct.respondent;
       const goTo=d=>{ open.add(d); render(); const r=document.querySelector('tr.case[data-docket="'+d+'"]'); if(r) r.scrollIntoView({behavior:'smooth',block:'start'}); };
