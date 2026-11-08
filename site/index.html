@@ -43,7 +43,14 @@ a{color:var(--accent)} a:hover{color:var(--accent-strong)}
 [hidden]{display:none!important}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .eyebrow{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-button,select,input,textarea{font:inherit;color:inherit}
+button,select,input,textarea{font:inherit;color:inherit;border-radius:0}
+/* Draw dropdowns ourselves so every browser (including Safari on Mac) shows the same square box
+   and a thin arrow in the text color, instead of the system's rounded style. */
+select{-webkit-appearance:none;appearance:none;padding-right:28px!important;
+  background-image:linear-gradient(45deg,transparent 50%,currentColor 50%),linear-gradient(135deg,currentColor 50%,transparent 50%);
+  background-position:calc(100% - 15px) 52%,calc(100% - 10px) 52%;background-size:5px 5px,5px 5px;background-repeat:no-repeat}
+select::-ms-expand{display:none}
+input[type="search"]{-webkit-appearance:none;appearance:none}
 .num{font-variant-numeric:tabular-nums}
 
 header.mast{border-bottom:3px double var(--rule);padding-block:24px 18px;display:flex;flex-wrap:wrap;gap:16px;align-items:flex-end;justify-content:space-between}
@@ -74,7 +81,7 @@ main{display:flex;flex-direction:column;gap:20px;padding-block:22px 48px}
 .controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
 .chip{min-height:40px;padding:0 14px;border:1px solid var(--line);background:var(--surface);cursor:pointer;font-size:15px}
 .chip[aria-pressed="true"]{background:var(--fill);border-color:var(--fill-line);color:var(--on-fill);font-weight:600}
-.search{margin-left:auto;min-height:40px;width:min(330px,100%);padding:0 4px;border:0;border-bottom:1px solid var(--ink);background:transparent;font-size:16px}
+.search{margin-left:auto;min-height:40px;width:min(330px,100%);padding:0 4px;border:0;border-radius:0;border-bottom:1px solid var(--ink);background:transparent;font-size:16px}
 
 .tablebox{border:1px solid var(--line);background:var(--surface)}
 /* Fixed column widths, so every filter view lines up identically. */
@@ -98,9 +105,9 @@ tbody td:last-child{padding-right:16px}
 .infohead{padding:0!important}
 td.infocell{padding:14px 4px!important;text-align:center}
 .info.inline-only{display:none}
-select.pick.right{background:var(--right-bg);border-color:var(--right-line)}
-select.pick.wrong{background:var(--wrong-bg);border-color:var(--wrong-line)}
-select.pick.na{background:var(--na-bg);border-color:var(--na-line)}
+select.pick.right{background-color:var(--right-bg);border-color:var(--right-line)}
+select.pick.wrong{background-color:var(--wrong-bg);border-color:var(--wrong-line)}
+select.pick.na{background-color:var(--na-bg);border-color:var(--na-line)}
 select.pick:disabled{opacity:.85;cursor:not-allowed}
 .answer{max-width:1100px;margin-bottom:18px;padding:10px 14px;background:var(--surface);border-left:3px solid var(--accent)}
 .answer p{margin:6px 0 0}
@@ -114,12 +121,12 @@ th[aria-sort] .sortbtn{color:var(--ink)}
 .tagbox{font:inherit;font-size:12px;line-height:1.4;padding:1px 7px;border:1px solid var(--line);background:var(--tint);color:var(--ink);cursor:pointer;border-radius:2px}
 .tagbox:hover{border-color:var(--accent);color:var(--accent)}
 .tagbox[aria-pressed="true"]{background:var(--fill);border-color:var(--fill-line);color:var(--on-fill)}
-.topic{min-height:40px;border:1px solid var(--line);background:var(--surface);padding:0 8px;font-size:15px;max-width:100%}
+.topic{min-height:40px;border:1px solid var(--line);background-color:var(--surface);padding:0 8px;font-size:15px;max-width:100%}
 .date{white-space:nowrap;font-variant-numeric:tabular-nums}
 .soft{color:var(--muted);font-style:italic}
 .pickcell{position:relative}
 .pickrow{display:flex;gap:6px;align-items:center}
-select.pick{min-height:40px;border:1px solid var(--ink);background:var(--surface);padding:0 6px;flex:1 1 auto;min-width:0;width:100%}
+select.pick{min-height:40px;border:1px solid var(--ink);background-color:var(--surface);padding:0 6px;flex:1 1 auto;min-width:0;width:100%}
 select.pick.empty{border-style:dashed;border-color:var(--accent);color:var(--accent)}
 .info{width:32px;height:32px;flex:none;border-radius:999px;border:1px solid var(--accent);background:var(--surface);color:var(--accent);font-style:italic;font-weight:700;cursor:pointer}
 .pop{position:absolute;z-index:5;top:56px;left:8px;width:min(340px,80vw);background:var(--surface);border:1px solid var(--ink);border-top:3px solid var(--accent);padding:14px 16px;font-size:14px;line-height:1.5;box-shadow:0 10px 28px var(--shadow)}
