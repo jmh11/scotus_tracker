@@ -51,7 +51,8 @@ SITE_DATA = ROOT / "site" / "cases.json"
 REPORT = ROOT / "build_report.md"
 NOTIFY = ROOT / "notify.md"   # written only when there's news; the workflow turns it into a GitHub issue
 OUTCOMES = {"affirm", "reverse", "vacate", "dismissed", "mixed"}
-CONTENT_KEYS = {"question", "facts", "petitioner", "respondent", "options"}
+# "amicus" + "amicusHeading": an optional third side (e.g. a court-appointed lawyer), shown as a third column.
+CONTENT_KEYS = {"question", "facts", "petitioner", "respondent", "amicus", "amicusHeading", "options"}
 OPTION_KEYS = {"id", "label", "meaning"}
 COURT_CLASS = {"X": "Civil", "Y": "Criminal", "H": "Habeas"}
 DOCKET_PAGE = "https://www.supremecourt.gov/docket/docketfiles/html/public/{}.html"
@@ -211,6 +212,8 @@ def build(today: str):
             bad = set(written) - CONTENT_KEYS
             if bad:
                 problems.append(f"{d}: content.json has unexpected fields {sorted(bad)}")
+            if ("amicus" in written or "amicusHeading" in written) and not written.get("amicusHeading"):
+                problems.append(f"{d}: a third side (\"amicus\") needs a heading (\"amicusHeading\")")
             opts = written.get("options")
             if opts is not None:
                 ids = [o.get("id") for o in opts]

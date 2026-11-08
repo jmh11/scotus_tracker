@@ -110,6 +110,14 @@ def test_answer_options_are_checked(sandbox):
     assert any("25-170" in p and "unique id" in p for p in problems)
 
 
+def test_third_side_needs_a_heading(sandbox):
+    edit(sandbox / "data" / "content.json", lambda c: c["25-170"].update(amicus="Some argument."))
+    problems = build.build("2026-11-06")[7]
+    assert any("25-170" in p and "amicusHeading" in p for p in problems)
+    edit(sandbox / "data" / "content.json", lambda c: c["25-170"].update(amicusHeading="Court-appointed lawyer's argument"))
+    assert not build.build("2026-11-06")[7]
+
+
 def test_recorded_result_must_match_an_option(sandbox):
     (sandbox / "data" / "results.json").write_text('{"25-735": "maybe"}')
     problems = build.build("2026-11-06")[7]

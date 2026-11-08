@@ -148,9 +148,11 @@ tr.detail td{background:var(--tint);border-top:0;padding:16px 16px 20px 40px}
 .question p{margin:6px 0 0;font-size:16px;white-space:pre-line}
 .qlink{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
 .qlink:hover{color:var(--accent-strong)}
-.brief{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;max-width:1100px}
-.brief p{margin:6px 0 0}
-.brief p+p{margin-top:10px}
+.facts{max-width:1100px;margin-bottom:18px;padding-bottom:16px;border-bottom:1px solid var(--line)}
+.brief{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;max-width:1100px}
+.brief.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+.facts p,.brief p{margin:6px 0 0;font-size:16px}
+.facts p+p,.brief p+p{margin-top:10px}
 .links{display:flex;flex-wrap:wrap;gap:18px;margin-top:14px}
 .empty-row td{text-align:center;padding:32px;color:var(--muted);font-style:italic}
 
@@ -167,7 +169,8 @@ tr.detail td{background:var(--tint);border-top:0;padding:16px 16px 20px 40px}
   tbody tr.case td:last-child{padding-right:0}
   tbody tr.case td[data-label]::before{content:attr(data-label);display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
   tr.detail td{padding:14px 16px;border:1px solid var(--line);border-top:0}
-  .brief{grid-template-columns:1fr;gap:12px}
+  .brief,.brief.three{grid-template-columns:1fr;gap:12px}
+  .facts{margin-bottom:12px;padding-bottom:12px}
   select.pick{max-width:none;flex:1}
   .pop{top:auto;bottom:calc(100% + 6px)}
 }
@@ -455,7 +458,7 @@ function render(){
     ));
     if(isOpen){
       const ct=c.content||{};
-      const ARGS_PENDING='Summaries will appear after both parties have filed their main briefs.';
+      const ARGS_PENDING='Summaries will appear after all parties have filed their main briefs.';
       // A blank line in the text starts a new paragraph.
       const blk=(label,txt,empty)=>h('div',null,h('div',{class:'eyebrow'},label),
         ...(txt ? txt.split(/\n\s*\n/).map(p=>h('p',null,p)) : [h('p',{class:'soft'},empty||'Summary coming soon.')]));
@@ -467,7 +470,10 @@ function render(){
         c.result ? h('div',{class:'answer'},h('div',{class:'eyebrow'},"The Court's answer"),
           c.result==='none' ? h('p',null,'None of the answer options: the Court resolved the case another way ('+(DISPOSITION[c.outcome]||c.outcome).toLowerCase()+').')
           : h('p',null,h('strong',null,labelOf(c,c.result)),' — '+((optionsOf(c).find(o=>o.id===c.result)||{}).meaning||''))) : null,
-        h('div',{class:'brief'},blk('Facts of the case',ct.facts),blk("Petitioner's argument",ct.petitioner,ARGS_PENDING),blk("Respondent's argument",ct.respondent,ARGS_PENDING)),
+        h('div',{class:'facts'},blk('Facts of the case',ct.facts)),
+        // The sides: two columns, or three when the case has a third side (e.g. a court-appointed lawyer).
+        h('div',{class:'brief'+(ct.amicusHeading?' three':'')},blk("Petitioner's argument",ct.petitioner,ARGS_PENDING),blk("Respondent's argument",ct.respondent,ARGS_PENDING),
+          ct.amicusHeading?blk(ct.amicusHeading,ct.amicus,ARGS_PENDING):null),
         cw?h('p',{style:'margin:14px 0 0'},'Argued together with ',h('em',null,cw.name),' (No. '+cw.docket+').'):null,
         h('div',{class:'links'},
           h('a',{href:c.docketUrl,target:'_blank',rel:'noopener'},'Docket & briefs ↗'),

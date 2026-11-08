@@ -1,6 +1,6 @@
 {
  "25-1311": {
-  "status": "approved by Joshua, Nov 7, 2026 (saved, not yet published)",
+  "status": "approved by Joshua, Nov 7, 2026; published Nov 7",
   "sources": [
    "Apple's merits brief, Sept. 14, 2026 (Statement of the Case)",
    "Ninth Circuit opinion, Epic Games v. Apple, No. 25-2935 (Dec. 11, 2025)"
@@ -14,6 +14,25 @@
    "Remedies left out (zero-commission ban, criminal referral, Ninth Circuit's reversal of the ban and remand) because the grant is limited to the contempt standard. Criminal referral to go in Apple's argument section.",
    "Ninth Circuit sentence names the 'spirit' holding, tying the facts to the question.",
    "Curly apostrophes normalized to straight ones to match the rest of content.json."
+  ]
+ },
+ "25-5343": {
+  "status": "approved by Joshua, Nov 7, 2026; published Nov 7",
+  "sources": [
+   "Beaird's merits brief (Statement of the Case)",
+   "Government's merits brief (Statement and position)",
+   "Court-appointed amicus brief, Anthony J. Dick (Statement and position)",
+   "CRS Legal Sidebar LSB11488 (Aug. 23, 2026): circuit split; Commission is an independent agency in the judiciary"
+  ],
+  "notes": [
+   "Joshua's structure: why the Commission and Guidelines exist, Stinson, advisory Guidelines (2005), then Kisor, Beaird's case, and the three positions.",
+   "Added Kisor and the circuit split: the reason the case exists, and the basis of the Fifth Circuit's ruling.",
+   "Stinson's exceptions stated in full (Constitution, federal law, plainly wrong or inconsistent); they are what's in dispute.",
+   "Three positions named: Beaird (no deference), government (defer only after genuine ambiguity, i.e. Stinson read with Kisor's limits), court-appointed lawyer (the Fifth Circuit's view, Stinson as written).",
+   "'Large capacity magazine' is in the Guideline; only its definition is missing (fixed 'a term missing from the Guidelines').",
+   "Dropped 'expands the scope of sentencing enhancements beyond the written text' as Beaird's framing.",
+   "Left out: the gun unloaded (Beaird's brief only) or pointed at someone (government's brief only); the range without the enhancement (Beaird's brief only); the judge's 'same sentence anyway' statement (argument-section material); the 72-month sentence and supervised release (trimmed for length; the 72-month sentence was later restored).",
+   "Final trims to fit 300 words (Joshua): dropped 'and is updated each year', 'to the commentary' in the government sentence, 'Jarrell'; 'that would make' became 'making'. He restored 'to an agency's interpretation' (Kisor) and 'after Kisor' (government)."
   ]
  }
 }
