@@ -135,6 +135,11 @@ def test_decided_case_without_result_is_flagged(sandbox):
 
 def test_unreviewed_documents_get_review_labels(sandbox):
     def forget(seen):
+        # Start from "everything reviewed", so documents filed since the data was saved don't affect the test.
+        recs = json.loads((sandbox / "data" / "parsed_dockets.json").read_text())
+        seen["question"] = [r["docket"] for r in recs]
+        seen["argument"] = [r["docket"] for r in recs]
+        seen["briefs"] = {r["docket"]: [f"{b['date']} {b['kind']}" for b in r["meritsBriefs"]] for r in recs}
         seen["question"].remove("25-170")
         seen["briefs"]["25-170"] = []
         seen["argument"].remove("25-170")
