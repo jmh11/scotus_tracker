@@ -5,24 +5,36 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Supreme Court Tracker</title>
 <meta name="description" content="Track every argued Supreme Court case this term and record what the Court should and will do.">
+<script>try{var t=localStorage.getItem('scotus-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
 <style>
 /* Layout: a court-reporter masthead over one ledger table; each case row expands into its briefing; send/backup tools sit below. */
 :root{
-  --bg:#F7F3EA; --surface:#FFFDF8; --tint:#F3ECDD; --ink:#1F1A14; --muted:#5A5045; --line:#CFC5B3;
-  --accent:#7A1F1F; --accent-strong:#561313; --on-accent:#FFFDF8; --shadow:rgba(31,26,20,.18); --alert:#D7261E; --on-alert:#FFFFFF; --right-bg:#DCEFE0; --right-line:#5E9C6E; --wrong-bg:#F7D9D6; --wrong-line:#C0574F; --na-bg:#FBE6C9; --na-line:#C98A2E;
+  /* Day: an ivory court reporter. */
+  --bg:#F7F3EA; --surface:#FFFDF8; --tint:#F3ECDD; --ink:#1F1A14; --muted:#5A5045; --line:#CFC5B3; --rule:#1F1A14;
+  --accent:#7A1F1F; --accent-strong:#561313; --on-accent:#FFFDF8;
+  --fill:#7A1F1F; --fill-strong:#561313; --on-fill:#FFFDF8; --fill-line:#7A1F1F;
+  --shadow:rgba(31,26,20,.18); --alert:#D7261E; --on-alert:#FFFFFF;
+  --right-bg:#DCEFE0; --right-line:#5E9C6E; --wrong-bg:#F7D9D6; --wrong-line:#C0574F; --na-bg:#FBE6C9; --na-line:#C98A2E;
   --display:'Libre Caslon Text', Georgia, 'Times New Roman', serif;
   --body:'Source Serif 4', Georgia, 'Times New Roman', serif;
+  color-scheme:light;
 }
+/* Night: a leather-bound law book. Warm browns, parchment text, gilt accents, oxblood buttons. */
 @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
-  --bg:#17130F; --surface:#211B16; --tint:#2A231C; --ink:#EDE6D8; --muted:#B8AC97; --line:#3D342B;
-  --accent:#E09A8A; --accent-strong:#F0B7AA; --on-accent:#1A0F0C; --shadow:rgba(0,0,0,.5); --alert:#FF4D42; --on-alert:#1A0503; --right-bg:#1E3826; --right-line:#5FA572; --wrong-bg:#45201D; --wrong-line:#D9675F; --na-bg:#45321A; --na-line:#D69A45; color-scheme:dark } }
+  --bg:#15110D; --surface:#1E1813; --tint:#271F18; --ink:#EEE4D0; --muted:#B4A68D; --line:#3B3027; --rule:#C9A257;
+  --accent:#D4AE62; --accent-strong:#E8C987; --on-accent:#15110D;
+  --fill:#7E2620; --fill-strong:#96302A; --on-fill:#F3E7D0; --fill-line:#C9A257;
+  --shadow:rgba(0,0,0,.55); --alert:#FF4D42; --on-alert:#1A0503;
+  --right-bg:#1E3826; --right-line:#5FA572; --wrong-bg:#45201D; --wrong-line:#D9675F; --na-bg:#45321A; --na-line:#D69A45;
+  color-scheme:dark } }
 :root[data-theme="dark"]{
-  --bg:#17130F; --surface:#211B16; --tint:#2A231C; --ink:#EDE6D8; --muted:#B8AC97; --line:#3D342B;
-  --accent:#E09A8A; --accent-strong:#F0B7AA; --on-accent:#1A0F0C; --shadow:rgba(0,0,0,.5); --alert:#FF4D42; --on-alert:#1A0503; --right-bg:#1E3826; --right-line:#5FA572; --wrong-bg:#45201D; --wrong-line:#D9675F; --na-bg:#45321A; --na-line:#D69A45; color-scheme:dark }
-
-html{color-scheme:light}
-@media (prefers-color-scheme: dark){html{color-scheme:dark}}
+  --bg:#15110D; --surface:#1E1813; --tint:#271F18; --ink:#EEE4D0; --muted:#B4A68D; --line:#3B3027; --rule:#C9A257;
+  --accent:#D4AE62; --accent-strong:#E8C987; --on-accent:#15110D;
+  --fill:#7E2620; --fill-strong:#96302A; --on-fill:#F3E7D0; --fill-line:#C9A257;
+  --shadow:rgba(0,0,0,.55); --alert:#FF4D42; --on-alert:#1A0503;
+  --right-bg:#1E3826; --right-line:#5FA572; --wrong-bg:#45201D; --wrong-line:#D9675F; --na-bg:#45321A; --na-line:#D69A45;
+  color-scheme:dark }
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5;padding-block:env(safe-area-inset-top,0px) env(safe-area-inset-bottom,0px);
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 a{color:var(--accent)} a:hover{color:var(--accent-strong)}
@@ -34,11 +46,19 @@ a{color:var(--accent)} a:hover{color:var(--accent-strong)}
 button,select,input,textarea{font:inherit;color:inherit}
 .num{font-variant-numeric:tabular-nums}
 
-header.mast{border-bottom:3px double var(--ink);padding-block:24px 18px;display:flex;flex-wrap:wrap;gap:16px;align-items:flex-end;justify-content:space-between}
+header.mast{border-bottom:3px double var(--rule);padding-block:24px 18px;display:flex;flex-wrap:wrap;gap:16px;align-items:flex-end;justify-content:space-between}
 h1{font-family:var(--display);font-size:clamp(28px,4vw,38px);margin:4px 0 2px;line-height:1.15;text-wrap:balance}
 .revised{font-style:italic;color:var(--muted);font-size:15px}
-.btn{min-height:44px;padding:0 18px;border:1px solid var(--accent);background:var(--accent);color:var(--on-accent);font-weight:600;cursor:pointer}
-.btn:hover{background:var(--accent-strong);border-color:var(--accent-strong)}
+.mast-side{display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.theme-switch{display:inline-flex;border:1px solid var(--line);font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+.theme-switch button{all:unset;cursor:pointer;padding:5px 10px;color:var(--muted)}
+.theme-switch button+button{border-left:1px solid var(--line)}
+.theme-switch button:hover{color:var(--accent)}
+.theme-switch button[aria-pressed="true"]{color:var(--accent);font-weight:700;background:var(--tint)}
+.theme-switch button:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+@media (max-width:640px){.mast-side{align-items:flex-start;width:100%}}
+.btn{min-height:44px;padding:0 18px;border:1px solid var(--fill-line);background:var(--fill);color:var(--on-fill);font-weight:600;cursor:pointer}
+.btn:hover{background:var(--fill-strong);color:var(--on-fill)}
 .btn.ghost{background:var(--surface);color:var(--accent)}
 .btn.ghost:hover{background:var(--tint)}
 
@@ -53,7 +73,7 @@ main{display:flex;flex-direction:column;gap:20px;padding-block:22px 48px}
 
 .controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
 .chip{min-height:40px;padding:0 14px;border:1px solid var(--line);background:var(--surface);cursor:pointer;font-size:15px}
-.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent);font-weight:600}
+.chip[aria-pressed="true"]{background:var(--fill);border-color:var(--fill-line);color:var(--on-fill);font-weight:600}
 .search{margin-left:auto;min-height:40px;width:min(330px,100%);padding:0 4px;border:0;border-bottom:1px solid var(--ink);background:transparent;font-size:16px}
 
 .tablebox{border:1px solid var(--line);background:var(--surface)}
@@ -93,7 +113,7 @@ th[aria-sort] .sortbtn{color:var(--ink)}
 .tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
 .tagbox{font:inherit;font-size:12px;line-height:1.4;padding:1px 7px;border:1px solid var(--line);background:var(--tint);color:var(--ink);cursor:pointer;border-radius:2px}
 .tagbox:hover{border-color:var(--accent);color:var(--accent)}
-.tagbox[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.tagbox[aria-pressed="true"]{background:var(--fill);border-color:var(--fill-line);color:var(--on-fill)}
 .topic{min-height:40px;border:1px solid var(--line);background:var(--surface);padding:0 8px;font-size:15px;max-width:100%}
 .date{white-space:nowrap;font-variant-numeric:tabular-nums}
 .soft{color:var(--muted);font-style:italic}
@@ -173,7 +193,14 @@ footer ul{margin:6px 0 0;padding-left:18px}
       <h1>The Supreme Court Tracker</h1>
       <div class="revised" id="revised">Loading the docket…</div>
     </div>
-    <button class="btn" id="go-send" type="button">Send my answers to Joshua</button>
+    <div class="mast-side">
+      <div class="theme-switch" role="group" aria-label="Appearance">
+        <button type="button" data-theme-choice="light" aria-pressed="false">Light</button>
+        <button type="button" data-theme-choice="dark" aria-pressed="false">Dark</button>
+        <button type="button" data-theme-choice="auto" aria-pressed="true" title="Follow this device's setting">Auto</button>
+      </div>
+      <button class="btn" id="go-send" type="button">Send my answers to Joshua</button>
+    </div>
   </header>
   <div class="notice" id="cutoff" hidden></div>
   <div class="notice review-banner" id="review-banner" hidden>Review view: red labels mark documents posted since you last checked. Each links to the document.</div>
@@ -488,6 +515,17 @@ async function copy(text,ta,statusEl,okMsg){
   try{await navigator.clipboard.writeText(text);statusEl.textContent=okMsg;}
   catch(e){ if(ta){ta.hidden=false;ta.focus();ta.select();} statusEl.textContent='Your browser blocked copying. The text is selected; press Ctrl+C (or ⌘C) to copy it.'; }
 }
+
+// Appearance switch: Light, Dark, or Auto (follow the device). Remembered on this device.
+function applyTheme(t){
+  if(t==='light'||t==='dark') document.documentElement.setAttribute('data-theme',t); else document.documentElement.removeAttribute('data-theme');
+  document.querySelectorAll('[data-theme-choice]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.themeChoice===(t||'auto'))));
+}
+(function(){ let t='auto'; try{ t=localStorage.getItem('scotus-theme')||'auto'; }catch(e){} applyTheme(t); })();
+document.querySelectorAll('[data-theme-choice]').forEach(b=>b.addEventListener('click',()=>{
+  const t=b.dataset.themeChoice; try{ if(t==='auto') localStorage.removeItem('scotus-theme'); else localStorage.setItem('scotus-theme',t); }catch(e){}
+  applyTheme(t);
+}));
 
 // events
 $('ne-text').addEventListener('input',saveNote);
