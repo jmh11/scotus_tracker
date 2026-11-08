@@ -243,7 +243,7 @@ def build(today: str):
             "audioUrl": audio.get(d) or next((audio[x] for x in partners.get(d, []) if x in audio), None),
             "consolidatedWith": partners.get(d, []), "capitalCase": rec.get("capitalCase", False),
             "addedOn": added, "content": written, "tags": tags, "result": result,
-            "meritsBriefs": rec.get("meritsBriefs", []),
+            "meritsBriefs": rec.get("meritsBriefs", []), "filingsOn": rec.get("filingsOn"),
         })
 
     for d in tagfile["cases"]:
@@ -261,6 +261,16 @@ def build(today: str):
         if (c["content"] or {}).get("amicusHeading"):
             needed.add("Court-appointed amicus brief")
         c["briefingComplete"] = needed <= kinds
+    # A consolidated case whose filings go on another docket: briefing status comes from that docket, and the page
+    # points readers there for the arguments (unless this case has its own written summaries).
+    by_docket = {c["docket"]: c for c in cases}
+    for c in cases:
+        other = by_docket.get(c["filingsOn"]) if c["filingsOn"] else None
+        if c["filingsOn"] and not other:
+            flags.append(f"{c['docket']}: filings are on No. {c['filingsOn']}, which isn't tracked.")
+        c["filingsOn"] = {"docket": other["docket"], "name": other["name"]} if other else None
+        if other:
+            c["briefingComplete"] = other["briefingComplete"]
     # Review labels (shown only on the page's #review view): documents Joshua hasn't seen yet.
     for c in cases:
         d, items = c["docket"], []

@@ -51,6 +51,8 @@ VERBS = ("AFFIRMED", "REVERSED", "VACATED", "DISMISSED")
 SET_RE = re.compile(r"SET FOR ARGUMENT on (?:Monday|Tuesday|Wednesday|Thursday|Friday), ([A-Z][a-z]+ \d{1,2}, \d{4})")
 ARGUED_RE = re.compile(r"^Argued\.")
 QP_BASE = "https://www.supremecourt.gov/qp/"
+# Consolidated cases: "... future filings and activity in the cases will now be reflected on the docket of No. 25-238."
+FILINGS_ON_RE = re.compile(r"future filings and activity in the cases will now be reflected on the docket of No\. ([\d-]+)")
 # A party's merits brief: "Brief of petitioner ... filed", "Brief of respondents ... filed",
 # "Brief for the respondent ... supporting vacatur filed", "Reply of petitioner ... filed".
 # A lawyer the Court appoints to argue a side counts too: "Brief of Court-appointed amicus curiae ... filed".
@@ -112,6 +114,7 @@ def parse(path: pathlib.Path):
     if not m or docket != path.stem:
         problems.append(f"case number {j.get('CaseNumber')!r} doesn't match file {path.name}")
     grants, sets, argued, decisions, brief_candidates = set(), [], set(), [], []
+    filings_on = None
     for e in j.get("ProceedingsandOrder") or []:
         text = (e.get("Text") or "").strip()
         try:
@@ -131,6 +134,9 @@ def parse(path: pathlib.Path):
             kind = BRIEF_KINDS[(b.group(1).lower(), brief_side(b.group(2)))]
             main = next((l.get("DocumentUrl") for l in e.get("Links") or [] if l.get("Description") == "Main Document"), None)
             brief_candidates.append({"date": when, "kind": kind, "url": main})
+        f = FILINGS_ON_RE.search(text)
+        if f:
+            filings_on = f.group(1)
         if ARGUED_RE.match(text):
             argued.add(when)
         if DECISION_START_RE.match(text):
@@ -163,6 +169,8 @@ def parse(path: pathlib.Path):
         "judgmentText": decisions[-1]["judgmentText"] if decisions else None,
         "opinionUrl": decisions[-1]["opinionUrl"] if decisions else None,
         "meritsBriefs": [b for b in brief_candidates if grants and b["date"] > min(grants)],
+        # Another docket that holds this case's filings after consolidation (None if it's this one).
+        "filingsOn": filings_on if filings_on != docket else None,
         "qpUrl": QP_BASE + qp.split("/qp/")[-1] if "/qp/" in qp else None,
         "docketJsonCreated": j.get("sJsonCreationDate"),
     }

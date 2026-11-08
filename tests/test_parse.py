@@ -85,3 +85,10 @@ def test_merits_briefs_with_unusual_titles():
     # "Brief of Court-appointed amicus curiae filed."; ordinary amicus briefs still don't count.
     kinds = [b["kind"] for b in parsed("25-5343", live)[0]["meritsBriefs"]]
     assert kinds.count("Court-appointed amicus brief") == 1 and len(kinds) == 5
+
+
+def test_consolidated_filings_docket():
+    live = ROOT / "data" / "raw" / "dockets"
+    assert parsed("25-566", live)[0]["filingsOn"] == "25-238"   # filings moved to the other docket
+    assert parsed("25-238", live)[0]["filingsOn"] is None       # the docket that holds them
+    assert parsed("25-170", live)[0]["filingsOn"] is None       # not consolidated

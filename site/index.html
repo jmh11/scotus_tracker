@@ -148,6 +148,11 @@ tr.detail td{background:var(--tint);border-top:0;padding:16px 16px 20px 40px}
 .question p{margin:6px 0 0;font-size:16px;white-space:pre-line}
 .qlink{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
 .qlink:hover{color:var(--accent-strong)}
+.linkbtn{all:unset;cursor:pointer;color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+.linkbtn:hover{color:var(--accent-strong)}
+.linkbtn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.brief-note{max-width:1100px}
+.brief-note p{margin:6px 0 0;font-size:16px}
 .facts{max-width:1100px;margin-bottom:18px;padding-bottom:16px;border-bottom:1px solid var(--line)}
 .brief{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;max-width:1100px}
 .brief.three{grid-template-columns:repeat(3,minmax(0,1fr))}
@@ -441,7 +446,7 @@ function render(){
       h('div',null,h('span',{class:'date'},fmt(c.decided)), h('div',{class:'meta'},DISPOSITION[c.outcome]||c.outcome),
         c.result ? h('div',{class:'meta'},'Answer verified') : h('span',{class:'tag pending'},'Verification pending'));
     const noteId='note-'+c.docket;
-    tb.append(h('tr',{class:'case'},
+    tb.append(h('tr',{class:'case','data-docket':c.docket},
       h('td',null,
         h('button',{class:'case-btn',type:'button','aria-expanded':String(isOpen),onclick:()=>{isOpen?open.delete(c.docket):open.add(c.docket);render();}},
           h('span',{class:'tw','aria-hidden':'true'},isOpen?'▾':'▸'), c.name),
@@ -467,6 +472,8 @@ function render(){
       const blk=(label,txt,empty)=>h('div',null,h('div',{class:'eyebrow'},label),
         ...(txt ? txt.split(/\n\s*\n/).map(p=>h('p',null,rich(p))) : [h('p',{class:'soft'},empty||'Summary coming soon.')]));
       const cw=(c.consolidatedWith||[])[0];
+      const fo=c.filingsOn, redirect=!!fo && !ct.petitioner && !ct.respondent;
+      const goTo=d=>{ open.add(d); render(); const r=document.querySelector('tr.case[data-docket="'+d+'"]'); if(r) r.scrollIntoView({behavior:'smooth',block:'start'}); };
       tb.append(h('tr',{class:'detail'},h('td',{colspan:'8'},
         h('div',{class:'question'},
           c.qpUrl?h('a',{class:'eyebrow qlink',href:c.qpUrl,target:'_blank',rel:'noopener',title:'Read the official question presented (PDF)'},'The question ↗'):h('div',{class:'eyebrow'},'The question'),
@@ -475,10 +482,15 @@ function render(){
           c.result==='none' ? h('p',null,'None of the answer options: the Court resolved the case another way ('+(DISPOSITION[c.outcome]||c.outcome).toLowerCase()+').')
           : h('p',null,h('strong',null,labelOf(c,c.result)),' — ',rich((optionsOf(c).find(o=>o.id===c.result)||{}).meaning||''))) : null,
         h('div',{class:'facts'},blk('Facts of the case',ct.facts)),
+        // A consolidated case whose briefs are filed on another docket points there instead of showing empty summaries.
+        redirect ? h('div',{class:'brief-note'},h('div',{class:'eyebrow'},'The arguments'),
+          h('p',null,'The Court consolidated this case with ',
+            h('button',{class:'linkbtn',type:'button',onclick:()=>goTo(fo.docket)},h('em',null,fo.name)),
+            ' (No. '+fo.docket+') for briefing and argument, and the briefs are filed in that case. See that case for the arguments.'))
         // The sides: two columns, or three when the case has a third side (e.g. a court-appointed lawyer).
-        h('div',{class:'brief'+(ct.amicusHeading?' three':'')},blk("Petitioner's argument",ct.petitioner,ARGS_PENDING),blk("Respondent's argument",ct.respondent,ARGS_PENDING),
+        : h('div',{class:'brief'+(ct.amicusHeading?' three':'')},blk("Petitioner's argument",ct.petitioner,ARGS_PENDING),blk("Respondent's argument",ct.respondent,ARGS_PENDING),
           ct.amicusHeading?blk(ct.amicusHeading,ct.amicus,ARGS_PENDING):null),
-        cw?h('p',{style:'margin:14px 0 0'},'Argued together with ',h('em',null,cw.name),' (No. '+cw.docket+').'):null,
+        cw && !redirect?h('p',{style:'margin:14px 0 0'},'Argued together with ',h('em',null,cw.name),' (No. '+cw.docket+').'):null,
         h('div',{class:'links'},
           h('a',{href:c.docketUrl,target:'_blank',rel:'noopener'},'Docket & briefs ↗'),
           c.transcriptUrl?h('a',{href:c.transcriptUrl,target:'_blank',rel:'noopener'},'Argument transcript ↗'):null,

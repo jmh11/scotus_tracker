@@ -134,6 +134,19 @@ def test_briefing_complete(sandbox):
     assert next(c for c in build.build("2026-11-06")[3] if c["docket"] == "25-5343")["briefingComplete"]
 
 
+def test_consolidated_case_takes_briefing_from_filings_docket(sandbox):
+    def setup(rs):
+        by = {r["docket"]: r for r in rs}
+        by["25-566"].update(filingsOn="25-238", meritsBriefs=[])
+        by["25-238"].update(meritsBriefs=[{"date": "2026-10-01", "kind": k, "url": "u"}
+                                          for k in ("Petitioner's brief", "Respondent's brief")])
+    edit(sandbox / "data" / "parsed_dockets.json", setup)
+    cases = {c["docket"]: c for c in build.build("2026-11-06")[3]}
+    assert cases["25-566"]["filingsOn"] == {"docket": "25-238", "name": cases["25-238"]["name"]}
+    assert cases["25-566"]["briefingComplete"] and cases["25-238"]["briefingComplete"]
+    assert cases["25-238"]["filingsOn"] is None
+
+
 def test_recorded_result_must_match_an_option(sandbox):
     (sandbox / "data" / "results.json").write_text('{"25-735": "maybe"}')
     problems = build.build("2026-11-06")[7]
