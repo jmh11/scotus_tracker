@@ -4,7 +4,7 @@
  "repo": "https://github.com/jmh11/scotus_tracker",
  "newGrantCutoff": "2027-01-31",
  "grantedListAsOf": "2026-11-06",
- "checkedAt": "2026-11-07",
+ "checkedAt": "2026-11-08",
  "updatedAt": "2026-11-07",
  "cases": [
   {
@@ -1253,6 +1253,11 @@
      "url": "https://www.supremecourt.gov/DocketPDF/25/25-5343/416115/20260709173938351_25-5343tsUnited_States-corrected.pdf"
     },
     {
+     "date": "2026-08-25",
+     "kind": "Court-appointed amicus brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-5343/420016/20260825104551865_25-5343%20Court%20Appointed%20AC.pdf"
+    },
+    {
      "date": "2026-09-24",
      "kind": "Respondent's reply brief",
      "url": "https://www.supremecourt.gov/DocketPDF/25/25-5343/425601/20260924172453860_25-5343rbUnited_States.pdf"
@@ -1263,7 +1268,12 @@
      "url": "https://www.supremecourt.gov/DocketPDF/25/25-5343/425587/20260924161808986_25-5343ReplyBriefForPetitioner.pdf"
     }
    ],
-   "review": []
+   "review": [
+    {
+     "text": "Court-appointed amicus brief filed Aug 25, 2026",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-5343/420016/20260825104551865_25-5343%20Court%20Appointed%20AC.pdf"
+    }
+   ]
   },
   {
    "docket": "25-566",
@@ -1518,6 +1528,16 @@
      "url": "https://www.supremecourt.gov/DocketPDF/25/25-5930/418167/20260805123041240_25-5930%20opening%20brief%20final_PDFA.pdf"
     },
     {
+     "date": "2026-08-05",
+     "kind": "Respondent's brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-5930/418232/20260805174545194_25-5930UnitedStates.pdf"
+    },
+    {
+     "date": "2026-09-18",
+     "kind": "Court-appointed amicus brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-5930/424858/20260918142656288_25-5930_Amicus%20Brief.pdf"
+    },
+    {
      "date": "2026-10-19",
      "kind": "Respondent's reply brief",
      "url": "https://www.supremecourt.gov/DocketPDF/25/25-5930/430007/20261019165858091_25-5930_Maxwell_usrb.pdf"
@@ -1528,7 +1548,16 @@
      "url": "https://www.supremecourt.gov/DocketPDF/25/25-5930/429966/20261019143126980_25-5930MaxwellReplyBrief.pdf"
     }
    ],
-   "review": []
+   "review": [
+    {
+     "text": "Respondent's brief filed Aug 5, 2026",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-5930/418232/20260805174545194_25-5930UnitedStates.pdf"
+    },
+    {
+     "text": "Court-appointed amicus brief filed Sep 18, 2026",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-5930/424858/20260918142656288_25-5930_Amicus%20Brief.pdf"
+    }
+   ]
   },
   {
    "docket": "25-6623",
@@ -2170,8 +2199,19 @@
     ]
    },
    "result": null,
-   "meritsBriefs": [],
-   "review": []
+   "meritsBriefs": [
+    {
+     "date": "2026-10-23",
+     "kind": "Petitioner's brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/26/26-426/430567/20261023180105613_26-426ts_DHS_v_DVD_file.pdf"
+    }
+   ],
+   "review": [
+    {
+     "text": "Petitioner's brief filed Oct 23, 2026",
+     "url": "https://www.supremecourt.gov/DocketPDF/26/26-426/430567/20261023180105613_26-426ts_DHS_v_DVD_file.pdf"
+    }
+   ]
   }
  ],
  "excluded": [],
