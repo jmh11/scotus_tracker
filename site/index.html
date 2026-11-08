@@ -312,6 +312,8 @@ const DISPOSITION={affirm:'Affirmed',reverse:'Reversed',vacate:'Vacated and rema
 // Each case has its own answer options (approved by Joshua). Prediction is stored as "will", My Opinion as "should".
 const optionsOf=c=>(c.content&&c.content.options)||[];
 const labelOf=(c,id)=>{const o=optionsOf(c).find(x=>x.id===id);return o?o.label:'';};
+// In written content, *text* shows in italics (used for case names).
+const rich=t=>String(t).split(/\*([^*\n]+)\*/).map((s,i)=>i%2?h('em',null,s):s);
 const MONTHS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 const pad=n=>String(n).padStart(2,'0');
 const now=new Date(); const TODAY=now.getFullYear()+'-'+pad(now.getMonth()+1)+'-'+pad(now.getDate());
@@ -397,7 +399,7 @@ function pickCell(c,kind){
     h('div',{class:'pickrow'},h('label',{class:'sr',for:id},colName+' for '+c.name),sel));
   const pop=h('div',{class:'pop',role:'note',id:'pop-'+id,hidden:true});
   pop.append(h('div',{class:'eyebrow'},'What each answer means'));
-  opts.forEach(o=>pop.append(h('p',null,h('strong',null,o.label),' — '+o.meaning)));
+  opts.forEach(o=>pop.append(h('p',null,h('strong',null,o.label),' — ',rich(o.meaning))));
   // Two copies of the "i" button open the same popup: one in its own narrow column (wide screens)
   // and one beside the dropdown (phones, where there are no columns).
   const mk=(extra)=>{ const b=h('button',{class:'info'+extra,type:'button','aria-label':'What each answer means','aria-expanded':'false','aria-controls':'pop-'+id,
@@ -461,15 +463,15 @@ function render(){
       const ARGS_PENDING='Summaries will appear after all parties have filed their main briefs.';
       // A blank line in the text starts a new paragraph.
       const blk=(label,txt,empty)=>h('div',null,h('div',{class:'eyebrow'},label),
-        ...(txt ? txt.split(/\n\s*\n/).map(p=>h('p',null,p)) : [h('p',{class:'soft'},empty||'Summary coming soon.')]));
+        ...(txt ? txt.split(/\n\s*\n/).map(p=>h('p',null,rich(p))) : [h('p',{class:'soft'},empty||'Summary coming soon.')]));
       const cw=(c.consolidatedWith||[])[0];
       tb.append(h('tr',{class:'detail'},h('td',{colspan:'8'},
         h('div',{class:'question'},
           c.qpUrl?h('a',{class:'eyebrow qlink',href:c.qpUrl,target:'_blank',rel:'noopener',title:'Read the official question presented (PDF)'},'The question ↗'):h('div',{class:'eyebrow'},'The question'),
-          h('p',ct.question?null:{class:'soft'},ct.question||'Summary coming soon.')),
+          h('p',ct.question?null:{class:'soft'},ct.question?rich(ct.question):'Summary coming soon.')),
         c.result ? h('div',{class:'answer'},h('div',{class:'eyebrow'},"The Court's answer"),
           c.result==='none' ? h('p',null,'None of the answer options: the Court resolved the case another way ('+(DISPOSITION[c.outcome]||c.outcome).toLowerCase()+').')
-          : h('p',null,h('strong',null,labelOf(c,c.result)),' — '+((optionsOf(c).find(o=>o.id===c.result)||{}).meaning||''))) : null,
+          : h('p',null,h('strong',null,labelOf(c,c.result)),' — ',rich((optionsOf(c).find(o=>o.id===c.result)||{}).meaning||''))) : null,
         h('div',{class:'facts'},blk('Facts of the case',ct.facts)),
         // The sides: two columns, or three when the case has a third side (e.g. a court-appointed lawyer).
         h('div',{class:'brief'+(ct.amicusHeading?' three':'')},blk("Petitioner's argument",ct.petitioner,ARGS_PENDING),blk("Respondent's argument",ct.respondent,ARGS_PENDING),
