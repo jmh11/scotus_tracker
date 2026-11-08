@@ -1,0 +1,19 @@
+{
+ "25-1311": {
+  "status": "approved by Joshua, Nov 7, 2026 (saved, not yet published)",
+  "sources": [
+   "Apple's merits brief, Sept. 14, 2026 (Statement of the Case)",
+   "Ninth Circuit opinion, Epic Games v. Apple, No. 25-2935 (Dec. 11, 2025)"
+  ],
+  "notes": [
+   "Claude drafted first; Joshua wrote his own version, and the final text is his, revised over three rounds.",
+   "Removed unattributed characterizations of Apple's intent ('designed to make link-outs unviable', 'maximize friction'); kept only the district court's finding, attributed to the court. The rest belongs in Epic's argument section.",
+   "Added that the district court rejected Epic's federal antitrust claims, and the Ninth Circuit's first affirmance.",
+   "Commission stated as 'up to 27%' (Apple's plan was 12-27% depending on developer and transaction).",
+   "'Most anticompetitive option it considered' matches the finding (not 'available'); dropped 'thus' before 'willfully'.",
+   "Remedies left out (zero-commission ban, criminal referral, Ninth Circuit's reversal of the ban and remand) because the grant is limited to the contempt standard. Criminal referral to go in Apple's argument section.",
+   "Ninth Circuit sentence names the 'spirit' holding, tying the facts to the question.",
+   "Curly apostrophes normalized to straight ones to match the rest of content.json."
+  ]
+ }
+}
