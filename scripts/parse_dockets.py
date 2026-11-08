@@ -52,11 +52,22 @@ SET_RE = re.compile(r"SET FOR ARGUMENT on (?:Monday|Tuesday|Wednesday|Thursday|F
 ARGUED_RE = re.compile(r"^Argued\.")
 QP_BASE = "https://www.supremecourt.gov/qp/"
 # A party's merits brief: "Brief of petitioner ... filed", "Brief of respondents ... filed",
-# "Reply of petitioner ... filed". Opposition briefs ("in opposition"), amicus briefs and anything
+# "Brief for the respondent ... supporting vacatur filed", "Reply of petitioner ... filed".
+# A lawyer the Court appoints to argue a side counts too: "Brief of Court-appointed amicus curiae ... filed".
+# Opposition briefs ("in opposition"), other amicus briefs, briefs "not accepted for filing" and anything
 # filed on or before the grant date (the petition stage) are not merits briefs.
-BRIEF_RE = re.compile(r"^(Brief|Reply) of (petitioners?|respondents?)\b.*\bfiled\b", re.I)
+BRIEF_RE = re.compile(r"^(Brief|Reply) (?:of|for) (?:the )?(petitioners?|respondents?|court-appointed amicus curiae)\b"
+                      r".*\bfiled\b", re.I)
 BRIEF_KINDS = {("brief", "petitioner"): "Petitioner's brief", ("brief", "respondent"): "Respondent's brief",
-               ("reply", "petitioner"): "Petitioner's reply brief", ("reply", "respondent"): "Respondent's reply brief"}
+               ("reply", "petitioner"): "Petitioner's reply brief", ("reply", "respondent"): "Respondent's reply brief",
+               ("brief", "amicus"): "Court-appointed amicus brief",
+               ("reply", "amicus"): "Court-appointed amicus reply brief"}
+
+
+def brief_side(word: str) -> str:
+    """'petitioners' -> 'petitioner', 'Court-appointed amicus curiae' -> 'amicus'."""
+    w = word.lower()
+    return "amicus" if w.startswith("court-appointed") else w.rstrip("s")
 
 
 def entry_date(s: str) -> str:
@@ -117,7 +128,7 @@ def parse(path: pathlib.Path):
             problems.append(f"argument entry in an unexpected format: {text[:80]!r}")
         b = BRIEF_RE.match(text)
         if b and "in opposition" not in text.lower():
-            kind = BRIEF_KINDS[(b.group(1).lower(), b.group(2).lower().rstrip("s"))]
+            kind = BRIEF_KINDS[(b.group(1).lower(), brief_side(b.group(2)))]
             main = next((l.get("DocumentUrl") for l in e.get("Links") or [] if l.get("Description") == "Main Document"), None)
             brief_candidates.append({"date": when, "kind": kind, "url": main})
         if ARGUED_RE.match(text):

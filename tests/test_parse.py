@@ -73,3 +73,15 @@ def test_merits_briefs_skip_petition_stage_and_amici():
     kinds = [b["kind"] for b in rec["meritsBriefs"]]
     assert kinds[:3] == ["Petitioner's brief", "Respondent's brief", "Petitioner's reply brief"]
     assert all(b["date"] > rec["granted"] for b in rec["meritsBriefs"])
+
+
+def test_merits_briefs_with_unusual_titles():
+    live = ROOT / "data" / "raw" / "dockets"
+    # "Brief for the respondent ... supporting vacatur filed", plus a Court-appointed lawyer's brief.
+    kinds = [b["kind"] for b in parsed("25-5930", live)[0]["meritsBriefs"]]
+    assert "Respondent's brief" in kinds and "Court-appointed amicus brief" in kinds
+    # "Brief for the petitioners filed."
+    assert "Petitioner's brief" in [b["kind"] for b in parsed("26-426", live)[0]["meritsBriefs"]]
+    # "Brief of Court-appointed amicus curiae filed."; ordinary amicus briefs still don't count.
+    kinds = [b["kind"] for b in parsed("25-5343", live)[0]["meritsBriefs"]]
+    assert kinds.count("Court-appointed amicus brief") == 1 and len(kinds) == 5
