@@ -1,7 +1,7 @@
 # Build 2026-11-08
 
 ## Changes
-- Case write-ups added or updated for RiseandShine Corp. v. PepsiCo, Inc..
+- No changes.
 
 ## Needs your attention
 - 25-5343: Court-appointed amicus brief filed Aug 25, 2026; review it, then add it to data/review_seen.json.

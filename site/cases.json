@@ -65,6 +65,7 @@
      "url": "https://www.supremecourt.gov/DocketPDF/24/24-1016/431887/20261104210121988_PepsiCo%20Brief%20for%20Respondent.pdf"
     }
    ],
+   "filingsOn": null,
    "briefingComplete": true,
    "review": []
   },
@@ -133,6 +134,7 @@
      "url": "https://www.supremecourt.gov/DocketPDF/25/25-1003/429995/20261019162601706_25-1003%20Reply%20Brief.pdf"
     }
    ],
+   "filingsOn": null,
    "briefingComplete": true,
    "review": []
   },
@@ -229,6 +231,7 @@
      "url": "https://www.supremecourt.gov/DocketPDF/25/25-1017/429340/20261013150606871_25-1017%20Mi%20Familia%20Vota%20Merits%20Brief.pdf"
     }
    ],
+   "filingsOn": null,
    "briefingComplete": true,
    "review": []
   },
@@ -279,6 +282,7 @@
    },
    "result": null,
    "meritsBriefs": [],
+   "filingsOn": null,
    "briefingComplete": false,
    "review": []
   },
@@ -329,6 +333,7 @@
    },
    "result": null,
    "meritsBriefs": [],
+   "filingsOn": null,
    "briefingComplete": false,
    "review": []
   },
@@ -385,6 +390,7 @@
      "url": "https://www.supremecourt.gov/DocketPDF/25/25-1223/424570/20260916160100464_25-1223%20-%20Montoya%20Palacios%20v.%20Liggins%20-%20Brief%20for%20Petitioner.pdf"
     }
    ],
+   "filingsOn": null,
    "briefingComplete": false,
    "review": []
   },
@@ -443,6 +449,7 @@
      "url": "https://www.supremecourt.gov/DocketPDF/25/25-1311/424150/20260914154510009_2026-09-14%20No.%2025-1311%20Apple-Epic%20Merits%20Opening%20Brief.pdf"
     }
    ],
+   "filingsOn": null,
    "briefingComplete": false,
    "review": []
   },
@@ -493,6 +500,7 @@
    },
    "result": null,
    "meritsBriefs": [],
+   "filingsOn": null,
    "briefingComplete": false,
    "review": []
   },
@@ -543,6 +551,7 @@
    },
    "result": null,
    "meritsBriefs": [],
+   "filingsOn": null,
    "briefingComplete": false,
    "review": []
   },
@@ -594,6 +603,7 @@
    },
    "result": null,
    "meritsBriefs": [],
+   "filingsOn": null,
    "briefingComplete": false,
    "review": []
   },
@@ -660,6 +670,7 @@
      "url": "https://www.supremecourt.gov/DocketPDF/25/25-159/429463/20261014120213063_1%20-%20Reply%20Brief%20for%20Petitioners.pdf"
     }
    ],
+   "filingsOn": null,
    "briefingComplete": true,
    "review": []
   },
@@ -732,6 +743,7 @@
      "url": "https://www.supremecourt.gov/DocketPDF/25/25-170/420125/20260826093327423_Boulder%20reply%20brief%20for%20petitioners.pdf"
     }
    ],
+   "filingsOn": null,
    "briefingComplete": true,
    "review": []
   },
@@ -798,6 +810,7 @@
      "url": "https://www.supremecourt.gov/DocketPDF/25/25-183/424604/20260916183211139_25-183%20Reply%20Brief.pdf"
     }
    ],
+   "filingsOn": null,
    "briefingComplete": true,
    "review": []
   },
@@ -869,6 +882,7 @@
      "url": "https://www.supremecourt.gov/DocketPDF/25/25-238/430811/20261027153149791_25-238%20-%2025-566%20-%20Corrected%20Brief.pdf"
     }
    ],
+   "filingsOn": null,
    "briefingComplete": true,
    "review": []
   },
@@ -935,6 +949,7 @@
      "url": "https://www.supremecourt.gov/DocketPDF/25/25-246/431807/20261104123133487_Jouppi%20v.%20Alaska%20-%20Reply%20Brief%20PDFA.pdf"
     }
    ],
+   "filingsOn": null,
    "briefingComplete": true,
    "review": []
   },
@@ -1006,6 +1021,7 @@
      "url": "https://www.supremecourt.gov/DocketPDF/25/25-352/422694/20260901141039520_25-352%20Brief.pdf"
     }
    ],
+   "filingsOn": null,
    "briefingComplete": true,
    "review": []
   },
@@ -1072,6 +1088,7 @@
      "url": "https://www.supremecourt.gov/DocketPDF/25/25-417/430552/20261023161336741_Nielsen%20Merits%20Reply%20Brief.pdf"
     }
    ],
+   "filingsOn": null,
    "briefingComplete": true,
    "review": []
   },
@@ -1138,6 +1155,7 @@
      "url": "https://www.supremecourt.gov/DocketPDF/25/25-459/417145/20260723120335252_25-459ReplyBriefForPetitioner.pdf"
     }
    ],
+   "filingsOn": null,
    "briefingComplete": true,
    "review": []
   },
@@ -1204,6 +1222,7 @@
      "url": "https://www.supremecourt.gov/DocketPDF/25/25-498/418044/20260803183953130_Anderson.%20Reply%20brief.pdf"
     }
    ],
+   "filingsOn": null,
    "briefingComplete": true,
    "review": []
   },
@@ -1287,6 +1306,7 @@
      "url": "https://www.supremecourt.gov/DocketPDF/25/25-5343/425587/20260924161808986_25-5343ReplyBriefForPetitioner.pdf"
     }
    ],
+   "filingsOn": null,
    "briefingComplete": true,
    "review": [
     {
@@ -1347,7 +1367,11 @@
    },
    "result": null,
    "meritsBriefs": [],
-   "briefingComplete": false,
+   "filingsOn": {
+    "docket": "25-238",
+    "name": "Viramontes v. Cook County"
+   },
+   "briefingComplete": true,
    "review": []
   },
   {
@@ -1418,6 +1442,7 @@
      "url": "https://www.supremecourt.gov/DocketPDF/25/25-579/419490/20260819140940145_25-579rb_USAF_v_PrutehiGuahan_reply_file.pdf"
     }
    ],
+   "filingsOn": null,
    "briefingComplete": true,
    "review": []
   },
@@ -1494,6 +1519,7 @@
      "url": "https://www.supremecourt.gov/DocketPDF/25/25-581/424454/20260916110916352_St.%20Marys%20SCOTUS%20Reply%20Br%20FINAL.pdf"
     }
    ],
+   "filingsOn": null,
    "briefingComplete": true,
    "review": []
   },
@@ -1572,6 +1598,7 @@
      "url": "https://www.supremecourt.gov/DocketPDF/25/25-5930/429966/20261019143126980_25-5930MaxwellReplyBrief.pdf"
     }
    ],
+   "filingsOn": null,
    "briefingComplete": true,
    "review": [
     {
@@ -1647,6 +1674,7 @@
      "url": "https://www.supremecourt.gov/DocketPDF/25/25-6623/431048/20261028161522725_25-6623%20rb%20Brief.pdf"
     }
    ],
+   "filingsOn": null,
    "briefingComplete": true,
    "review": []
   },
@@ -1698,6 +1726,7 @@
    },
    "result": null,
    "meritsBriefs": [],
+   "filingsOn": null,
    "briefingComplete": false,
    "review": []
   },
@@ -1764,6 +1793,7 @@
      "url": "https://www.supremecourt.gov/DocketPDF/25/25-735/418796/20260812130337373_25-735_tsrb.pdf"
     }
    ],
+   "filingsOn": null,
    "briefingComplete": true,
    "review": []
   },
@@ -1825,6 +1855,7 @@
      "url": "https://www.supremecourt.gov/DocketPDF/25/25-840/431251/20261030103650623_BrRespts_Corrected.pdf"
     }
    ],
+   "filingsOn": null,
    "briefingComplete": true,
    "review": []
   },
@@ -1891,6 +1922,7 @@
      "url": "https://www.supremecourt.gov/DocketPDF/25/25-842/431511/20261102133158653_2026-11-02%20S.Ct.%20No.%2025-842%20%20Wassily_Velasquez%20Merits%20Reply%20Brief.pdf"
     }
    ],
+   "filingsOn": null,
    "briefingComplete": true,
    "review": []
   },
@@ -1952,6 +1984,7 @@
      "url": "https://www.supremecourt.gov/DocketPDF/25/25-965/430462/20261023112121645_Grand%20Brief%20of%20Respondents.pdf"
     }
    ],
+   "filingsOn": null,
    "briefingComplete": true,
    "review": []
   },
@@ -2024,6 +2057,7 @@
      "url": "https://www.supremecourt.gov/DocketPDF/25/25-966/420181/20260826141240821_25-966%20Sun%20Valley%20Reply.pdf"
     }
    ],
+   "filingsOn": null,
    "briefingComplete": true,
    "review": []
   },
@@ -2074,6 +2108,7 @@
    },
    "result": null,
    "meritsBriefs": [],
+   "filingsOn": null,
    "briefingComplete": false,
    "review": []
   },
@@ -2124,6 +2159,7 @@
    },
    "result": null,
    "meritsBriefs": [],
+   "filingsOn": null,
    "briefingComplete": false,
    "review": []
   },
@@ -2174,6 +2210,7 @@
    },
    "result": null,
    "meritsBriefs": [],
+   "filingsOn": null,
    "briefingComplete": false,
    "review": []
   },
@@ -2241,6 +2278,7 @@
      "url": "https://www.supremecourt.gov/DocketPDF/26/26-426/430567/20261023180105613_26-426ts_DHS_v_DVD_file.pdf"
     }
    ],
+   "filingsOn": null,
    "briefingComplete": false,
    "review": [
     {
