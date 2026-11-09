@@ -492,7 +492,7 @@ function render(){
         : 'Summaries will appear after all parties have filed their main briefs.';
       const blk=(label,txt,empty)=>h('div',null,h('div',{class:'eyebrow'},label),
         ...(txt ? blocks(txt) : [h('p',{class:'soft'},empty||'Summary coming soon.')]));
-      // Docket, transcript, audio and opinion links: shown under the question and again at the end of the panel.
+      // Docket, transcript, audio and opinion links: shown once, right under the question.
       const linksRow=()=>h('div',{class:'links'},
         h('a',{href:c.docketUrl,target:'_blank',rel:'noopener'},'Docket & briefs ↗'),
         c.transcriptUrl?h('a',{href:c.transcriptUrl,target:'_blank',rel:'noopener'},'Argument transcript ↗'):null,
@@ -520,8 +520,7 @@ function render(){
         // The sides: two columns, or three when the case has a third side (e.g. a court-appointed lawyer).
         : h('div',{class:'brief'+(ct.amicusHeading?' three':'')},blk("Petitioner's argument",ct.petitioner,ARGS_PENDING),blk("Respondent's argument",ct.respondent,ARGS_PENDING),
           ct.amicusHeading?blk(ct.amicusHeading,ct.amicus,ARGS_PENDING):null),
-        cw && !redirect?h('p',{style:'margin:14px 0 0'},'Argued together with ',h('em',null,cw.name),' (No. '+cw.docket+').'):null,
-        linksRow()
+        cw && !redirect?h('p',{style:'margin:14px 0 0'},'Argued together with ',h('em',null,cw.name),' (No. '+cw.docket+').'):null
       )));
     }
   }
