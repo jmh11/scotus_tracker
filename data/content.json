@@ -1,7 +1,7 @@
 {
  "_about": "Approved written content, keyed by docket number. Only Joshua approves additions and changes. Shape: {\"<docket>\": {\"question\": \"...\", \"facts\": \"...\", \"petitioner\": \"...\", \"respondent\": \"...\", \"options\": [{\"id\": \"yes\", \"label\": \"Yes\", \"meaning\": \"...\"}]}}. A case missing from here shows 'coming soon' on the page.",
  "25-735": {
-  "question": "Whether the Veterans' Judicial Review Act (VJRA) stripped district courts of jurisdiction to hear challenges to the constitutionality of acts of Congress affecting veterans' benefits.",
+  "question": "Whether the Veterans' Judicial Review Act (VJRA) stripped district courts of jurisdiction, recognized in *Johnson v. Robison* (1974), to hear challenges to the constitutionality of acts of Congress affecting veterans' benefits.",
   "options": [
    {
     "id": "yes",
