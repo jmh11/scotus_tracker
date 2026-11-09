@@ -272,7 +272,7 @@
   "lowerCourt": "United States Court of Appeals for the Eighth Circuit",
   "granted": "2026-06-29",
   "scheduled": "2026-11-09",
-  "argued": null,
+  "argued": "2026-11-09",
   "reargued": false,
   "decided": null,
   "outcome": null,
@@ -297,7 +297,7 @@
   ],
   "filingsOn": null,
   "qpUrl": "https://www.supremecourt.gov/qp/25-00159qp.pdf",
-  "docketJsonCreated": "11/06/2026"
+  "docketJsonCreated": "11/09/2026"
  },
  {
   "docket": "25-170",
