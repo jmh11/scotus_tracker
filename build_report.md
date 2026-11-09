@@ -1,7 +1,7 @@
 # Build 2026-11-09
 
 ## Changes
-- Case write-ups added or updated for Beaird v. United States.
+- Case write-ups added or updated for Apple Inc. v. Epic Games, Inc..
 
 ## Needs your attention
 - 25-5343: Court-appointed amicus brief filed Aug 25, 2026; review it, then add it to data/review_seen.json.
