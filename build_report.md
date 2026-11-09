@@ -1,7 +1,6 @@
 # Build 2026-11-09
 
 ## Changes
-- Nielsen v. Watanabe was argued on Nov 9, 2026.
 - Case write-ups added or updated for Johnson v. United States Congress.
 
 ## Needs your attention

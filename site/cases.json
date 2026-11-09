@@ -1750,7 +1750,7 @@
    "capitalCase": false,
    "addedOn": null,
    "content": {
-    "question": "Whether the Veterans' Judicial Review Act (VJRA) stripped district courts of jurisdiction to hear challenges to the constitutionality of acts of Congress affecting veterans' benefits.",
+    "question": "Whether the Veterans' Judicial Review Act (VJRA) stripped district courts of jurisdiction, recognized in *Johnson v. Robison* (1974), to hear challenges to the constitutionality of acts of Congress affecting veterans' benefits.",
     "options": [
      {
       "id": "yes",
@@ -2332,10 +2332,6 @@
  "changelog": [
   {
    "date": "2026-11-06",
-   "text": "Tracker launched with 34 cases."
-  },
-  {
-   "date": "2026-11-06",
    "text": "Case write-ups added or updated for 11 case(s)."
   },
   {
@@ -2425,6 +2421,10 @@
   {
    "date": "2026-11-09",
    "text": "Nielsen v. Watanabe was argued on Nov 9, 2026."
+  },
+  {
+   "date": "2026-11-09",
+   "text": "Case write-ups added or updated for Johnson v. United States Congress."
   },
   {
    "date": "2026-11-09",
