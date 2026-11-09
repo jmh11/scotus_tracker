@@ -162,6 +162,10 @@ tr.detail td{background:var(--tint);border-top:0;padding:16px 16px 20px 40px}
 .facts li+li,.brief li+li{margin-top:8px}
 .facts p+ul,.brief p+ul,.facts ul+p,.brief ul+p{margin-top:10px}
 strong.lead{font-weight:600}
+.facts blockquote,.brief blockquote{margin:10px 0 0;padding:2px 0 2px 16px;border-left:2px solid var(--line);max-width:900px}
+.facts blockquote p,.brief blockquote p{margin:0}
+.facts a,.brief a{color:var(--accent);text-underline-offset:3px}
+.facts a:hover,.brief a:hover{color:var(--accent-strong)}
 .links{display:flex;flex-wrap:wrap;gap:18px;margin-top:14px}
 .empty-row td{text-align:center;padding:32px;color:var(--muted);font-style:italic}
 
@@ -323,10 +327,16 @@ const optionsOf=c=>(c.content&&c.content.options)||[];
 const labelOf=(c,id)=>{const o=optionsOf(c).find(x=>x.id===id);return o?o.label:'';};
 // In written content, *text* shows in italics (used for case names) and **text** in bold (lead sentences).
 const ital=t=>String(t).split(/\*([^*\n]+)\*/).map((s,i)=>i%2?h('em',null,s):s);
-const rich=t=>String(t).split(/\*\*(.+?)\*\*/).flatMap((s,i)=>i%2?[h('strong',{class:'lead'},ital(s))]:ital(s));
+// [text](https://...) is a link that opens in a new tab; the text may contain *italics*.
+const linkify=t=>String(t).split(/\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/).flatMap((s,i,a)=>
+  i%3===1 ? [h('a',{href:a[i+1],target:'_blank',rel:'noopener'},ital(s))] : i%3===2 ? [] : ital(s));
+const rich=t=>String(t).split(/\*\*(.+?)\*\*/).flatMap((s,i)=>i%2?[h('strong',{class:'lead'},linkify(s))]:linkify(s));
 // A blank line starts a new paragraph; a block whose lines all start with "- " is a bulleted list.
+// A block whose lines all start with "> " is an indented quotation.
 const blocks=txt=>txt.split(/\n\s*\n/).map(b=>{ const lines=b.split('\n').filter(l=>l.trim());
-  return lines.length && lines.every(l=>/^- /.test(l)) ? h('ul',null,lines.map(l=>h('li',null,rich(l.slice(2))))) : h('p',null,rich(b)); });
+  if(lines.length && lines.every(l=>/^- /.test(l))) return h('ul',null,lines.map(l=>h('li',null,rich(l.slice(2)))));
+  if(lines.length && lines.every(l=>/^>\s?/.test(l))) return h('blockquote',null,h('p',null,rich(lines.map(l=>l.replace(/^>\s?/,'')).join(' '))));
+  return h('p',null,rich(b)); });
 const MONTHS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 const pad=n=>String(n).padStart(2,'0');
 const now=new Date(); const TODAY=now.getFullYear()+'-'+pad(now.getMonth()+1)+'-'+pad(now.getDate());
@@ -488,6 +498,8 @@ function render(){
         c.result ? h('div',{class:'answer'},h('div',{class:'eyebrow'},"The Court's answer"),
           c.result==='none' ? h('p',null,'None of the answer options: the Court resolved the case another way ('+(DISPOSITION[c.outcome]||c.outcome).toLowerCase()+').')
           : h('p',null,h('strong',null,labelOf(c,c.result)),' — ',rich((optionsOf(c).find(o=>o.id===c.result)||{}).meaning||''))) : null,
+        // Background (the legal setting) appears only when written; Facts of the case always shows.
+        ct.background ? h('div',{class:'facts'},blk('Background',ct.background)) : null,
         h('div',{class:'facts'},blk('Facts of the case',ct.facts)),
         // A consolidated case whose briefs are filed on another docket points there instead of showing empty summaries.
         redirect ? h('div',{class:'brief-note'},h('div',{class:'eyebrow'},'The arguments'),

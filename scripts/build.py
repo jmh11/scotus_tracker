@@ -52,7 +52,7 @@ REPORT = ROOT / "build_report.md"
 NOTIFY = ROOT / "notify.md"   # written only when there's news; the workflow turns it into a GitHub issue
 OUTCOMES = {"affirm", "reverse", "vacate", "dismissed", "mixed"}
 # "amicus" + "amicusHeading": an optional third side (e.g. a court-appointed lawyer), shown as a third column.
-CONTENT_KEYS = {"question", "facts", "petitioner", "respondent", "amicus", "amicusHeading", "options"}
+CONTENT_KEYS = {"question", "background", "facts", "petitioner", "respondent", "amicus", "amicusHeading", "options"}
 OPTION_KEYS = {"id", "label", "meaning"}
 COURT_CLASS = {"X": "Civil", "Y": "Criminal", "H": "Habeas"}
 DOCKET_PAGE = "https://www.supremecourt.gov/docket/docketfiles/html/public/{}.html"
