@@ -1,7 +1,6 @@
 # Build 2026-11-15
 
 ## Changes
-- Department of Labor v. Sun Valley Orchards, LLC was argued on Nov 10, 2026.
 - Case write-ups added or updated for Suncor Energy (U.S.A.) Inc. v. Commissioners of Boulder County.
 
 ## Needs your attention
