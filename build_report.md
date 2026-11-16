@@ -1,7 +1,7 @@
 # Build 2026-11-15
 
 ## Changes
-- Case write-ups added or updated for Suncor Energy (U.S.A.) Inc. v. Commissioners of Boulder County.
+- Case write-ups added or updated for Anderson v. Intel Corp. Investment Policy Committee.
 
 ## Needs your attention
 - 25-159: Argument transcript and audio posted; review it, then add it to data/review_seen.json.
