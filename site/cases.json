@@ -4,7 +4,7 @@
  "repo": "https://github.com/jmh11/scotus_tracker",
  "newGrantCutoff": "2027-01-31",
  "grantedListAsOf": "2026-11-06",
- "checkedAt": "2026-11-15",
+ "checkedAt": "2026-11-16",
  "updatedAt": "2026-11-15",
  "cases": [
   {
@@ -234,6 +234,16 @@
      "date": "2026-11-12",
      "kind": "Respondent's reply brief",
      "url": "https://www.supremecourt.gov/DocketPDF/25/25-1017/432580/20261112162002081_25-1017rbUnitedStatesreply.pdf"
+    },
+    {
+     "date": "2026-11-12",
+     "kind": "Petitioner's reply brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-1017/432527/20261112111207483_26.11.12%20RNC%20v.%20MFV%20-%20Reply%20Brief%20Final.pdf"
+    },
+    {
+     "date": "2026-11-12",
+     "kind": "Respondent's reply brief",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-1017/432577/20261112152330671_25-1017_Reply%20Brief.pdf"
     }
    ],
    "filingsOn": null,
@@ -242,6 +252,14 @@
     {
      "text": "Respondent's reply brief filed Nov 12, 2026",
      "url": "https://www.supremecourt.gov/DocketPDF/25/25-1017/432580/20261112162002081_25-1017rbUnitedStatesreply.pdf"
+    },
+    {
+     "text": "Petitioner's reply brief filed Nov 12, 2026",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-1017/432527/20261112111207483_26.11.12%20RNC%20v.%20MFV%20-%20Reply%20Brief%20Final.pdf"
+    },
+    {
+     "text": "Respondent's reply brief filed Nov 12, 2026",
+     "url": "https://www.supremecourt.gov/DocketPDF/25/25-1017/432577/20261112152330671_25-1017_Reply%20Brief.pdf"
     }
    ]
   },

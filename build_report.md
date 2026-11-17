@@ -1,12 +1,14 @@
-# Build 2026-11-15
+# Build 2026-11-16
 
 ## Changes
-- Case write-ups added or updated for Anderson v. Intel Corp. Investment Policy Committee.
+- No changes.
 
 ## Needs your attention
 - 25-159: Argument transcript and audio posted; review it, then add it to data/review_seen.json.
 - 25-417: Argument transcript and audio posted; review it, then add it to data/review_seen.json.
 - 25-966: Argument transcript and audio posted; review it, then add it to data/review_seen.json.
+- 25-1017: Respondent's reply brief filed Nov 12, 2026; review it, then add it to data/review_seen.json.
+- 25-1017: Petitioner's reply brief filed Nov 12, 2026; review it, then add it to data/review_seen.json.
 - 25-1017: Respondent's reply brief filed Nov 12, 2026; review it, then add it to data/review_seen.json.
 - 25-5343: Court-appointed amicus brief filed Aug 25, 2026; review it, then add it to data/review_seen.json.
 - 25-5930: Respondent's brief filed Aug 5, 2026; review it, then add it to data/review_seen.json.
